@@ -1,9 +1,18 @@
 <?php
 if ($faqs) {
+?>
+<dl>
+<?php
     foreach ($faqs as $faq) {
-        echo $faq['title'];
-        echo $faq['description'];
+
+?>
+<dt><?php	echo $faq['title']; ?></dt>
+<dd><?php   echo $faq['description'];?></dd>
+<?php
     }
+?>
+</dl>	
+<?php	
 }
 
 
