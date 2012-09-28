@@ -1,4 +1,5 @@
 <?php
+define('LIBRARY_PATH','../library/');
 define('SYSTEM_PATH','../library/zx/');
 define('APPLICATION_PATH','../application/');
 define('PHP_ROOT', dirname(dirname(__DIR__)) . '/');  //relative to current folder

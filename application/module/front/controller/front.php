@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Module\Front\Controller;
-
+//this is the base class of front classes
 use \Zx\Controller\Route;
 use \Zx\View\View;
 

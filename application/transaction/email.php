@@ -1,19 +1,17 @@
 <?php
-
 namespace App\Transaction;
 
-use \App\Model\Article as Model_Article;
+require_once LIBRARY_PATH . '/Swift-4.2.1/lib/swift_required.php';
 
-class Article {
-
-    public static function create_article($arr=array())
-    {
-        if (count($arr)>0 && isset($arr['title'])) {
-            Model_Article::create($arr);
-        } else {
-            
-        }
-    }
+class Swiftmail {
+	/**
+	@return boolean
+	 */
+	public static function send_contact_us_email($email, $name, $phone) {
+		//use swiftmailer
+		return true;
+	}
+    
     
 
 }

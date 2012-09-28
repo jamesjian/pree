@@ -9,4 +9,5 @@
             <link  rel="stylesheet" type="text/css" href="/css/site_ie.css" />    
         <![endif]-->            
 <link rel="shortcut icon" href="<?php echo HTML_ROOT .'/image/icon/favicon.ico';?>" />
+        <script type="text/javascript" src="<?php echo HTML_ROOT . 'js/jquery/jquery-1.8.1.min.js';?>"></script>
     </head>

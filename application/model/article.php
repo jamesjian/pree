@@ -26,12 +26,8 @@ class Article extends Base_Article{
      */
     public static function get_about_us()
     {
-        $sql = "SELECT a.*, ac.title as cat_name,
-            FROM article a
-            LEFT JOIN article_category ac ON a.cat_id=ac.id
-            WHERE ac.name='about us'
-        ";
-        return Mysql::select_one($sql);
+        where = "ac.name='about us'";
+        return parent::get_one_by_where($where);
     }
     /**
      * only one record or false
@@ -39,12 +35,8 @@ class Article extends Base_Article{
      */
     public static function get_term_condition()
     {
-        $sql = "SELECT a.*, ac.title as cat_name,
-            FROM article a
-            LEFT JOIN article_category ac ON a.cat_id=ac.id
-            WHERE ac.name='term & condition'
-        ";
-        return Mysql::select_one($sql);
+        where = "ac.name='term & condition'";
+        return parent::get_one_by_where($where);	
     }
     /**
      * multiple record or false
@@ -52,11 +44,7 @@ class Article extends Base_Article{
      */
     public static function get_faqs()
     {
-        $sql = "SELECT a.*, ac.title as cat_name,
-            FROM article a
-            LEFT JOIN article_category ac ON a.cat_id=ac.id
-            WHERE ac.name='faq'
-        ";
-        return Mysql::select_all($sql);
+        where = "ac.name='faq'";
+        return parent::get_all($where);		
     }
 }

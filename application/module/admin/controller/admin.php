@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Module\Admin\Controller;
-
+//this is the base class of admin classes
 use \Zx\Controller\Route;
 use \Zx\View\View;
 
