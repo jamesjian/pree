@@ -1,0 +1,88 @@
+<?php
+
+namespace App\Module\Admin\Controller;
+
+use \App\Model\Article as Model_Article;
+use \App\Model\Articlecategory as Model_Articlecategory;
+use \App\Transaction\Article as Transaction_Article;
+
+class Article extends Admin {
+
+    public $view_path;
+
+    public function init() {
+        $this->view_path = APPLICATION_PATH . 'module/admin/view/article/';
+        parent::init();
+    }
+
+    public function create() {
+        $success = false;
+        if (isset($_POST['submit'])) {
+            $title = isset($_POST['title']) ? trim($_POST['title']) : '';
+            $description = isset($_POST['description']) ? trim($_POST['description']) : '';
+            $article_cat_id = isset($_POST['description']) ? intval($_POST['article_cat_id']) : 1;
+
+            if ($title <> '') {
+                $arr = array('title' => $title, 'description' => $description, 'article_cat_id' => $article_cat_id);
+                if (Transaction_Article::create_article($arr)) {
+                    $success = true;
+                }
+            }
+        }
+        if ($success) {
+            header('Location: ' . HTML_ROOT . 'admin/article/list_article');
+        } else {
+            $article_cats = Model_Articlecategory::get_cats();
+            View::set_view_file($this->view_path . 'create.php');
+            View::set_action_var('$article_cats', $article_cats);
+        }
+    }
+
+    public function delete() {
+        $params = Route::get_params();
+        if (isset($params[0])) {
+            $id = $params[0];
+            Transaction_Article::delete_article();
+        } else {
+            Message::set_error_message('no article');
+        }
+        header('Location:' . HTML_ROOT . 'admin/article/list_article');
+    }
+
+    public function update() {
+        $success = false;
+        if (isset($_POST['submit']) && isset($_POST['id'])) {
+            $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+            if ($id <> 0) {
+                if (isset($_POST['title']))
+                    $arr['title'] = trim($_POST['title']);
+                if (isset($_POST['description']))
+                    $arr['description'] = trim($_POST['description']);
+                if (Transaction_Article::update_article($id, $arr)) {
+                    $success = true;
+                }
+            }
+        }
+        if ($success) {
+            header('Location: ' . HTML_ROOT . 'admin/article/list_article');
+        } else {
+            if (!isset($id)) {
+                $params = Route::get_params();
+                $id = $params[0];
+            }
+            $article = Model_Article::get_one($id);
+            $article_cats = Model_Articlecategory::get_cats();
+            View::set_view_file($this->view_path . 'update.php');
+            View::set_action_var('article', $article);
+            View::set_action_var('article_cats', $article_cats);
+        }
+    }
+
+    public function list_article() {
+        $page = 1;
+        $article_list = Model_Article::get_articles();
+        View::set_view_file($this->view_path . 'list.php');
+        View::set_action_var('article_list', $article_list);
+    }
+
+}
