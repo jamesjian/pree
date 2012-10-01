@@ -3,13 +3,7 @@
 namespace App\Model\Base;
 
 use \Zx\Model\Mysql;
-/*
-CREATE TABLE article_category (id int(11) AUTO INCREMENT PRIMARY KEY,
-title varchar(255) NOT NULL DEFAULT '',
-description text,
-status tinyint(1) not null default 1,
-date_created datetime) engine=innodb default charset=utf8
-*/
+
 class Articlecategory {
 
     public static function get_one($id) {

@@ -15,7 +15,7 @@ class Blog extends Front {
         parent::init();
     }
 
-    //one article
+    //one blog
     public function show() {
 		$blog_id = $params[0];
         $blog = Model_Blog::get_one($blog_id);

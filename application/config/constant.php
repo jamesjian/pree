@@ -8,5 +8,7 @@ define('BR', '<br />');
 define('LOG_FILE',PHP_ROOT . 'public/test/my_log.php');
 define('MAXIMUM_ROWS',999999);
 define('URL_PREFIX', '/z2/public/'); 
+define('NUM_OF_BLOGS_IN_CAT_PAGE', 30); 
+define('NUM_OF_ITEMS_IN_PAGINATION', 11); //use odd number
 
 include 'namespace.php';
