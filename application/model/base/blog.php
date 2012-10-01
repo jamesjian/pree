@@ -8,6 +8,7 @@ title varchar(255) NOT NULL DEFAULT '',
 cat_id int(11) NOT NULL DEFAULT 1,
 keyword varchar(255) not null default '',
 content text,
+rank int(11) default 0,
 status tinyint(1) not null default 1,
 date_created datetime) engine=innodb default charset=utf8
 */

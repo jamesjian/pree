@@ -29,4 +29,14 @@ class Common extends Front {
             View::set_view_file($this->view_path . 'contact_us.php');
         }
 	}
+	public function home()
+	{
+		$page_number = 1;
+		$blogs = Model_Blog::get_blogs(1);
+		$num_of_blogs = Model_Blog::get_num_of_blogs($cat_id);
+		$num_of_pages = ceil($num_of_blogs/NUM_OF_BLOGS_IN_CAT_PAGE);
+        View::set_view_file($this->view_path . 'home.php');
+        View::set_action_var('blogs', $blogs);
+        View::set_action_var('num_of_pages', $num_of_pages);
+	}
 }
