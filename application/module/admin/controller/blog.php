@@ -2,16 +2,16 @@
 
 namespace App\Module\Admin\Controller;
 
-use \App\Model\Article as Model_Article;
-use \App\Model\Articlecategory as Model_Articlecategory;
-use \App\Transaction\Article as Transaction_Article;
+use \App\Model\Blog as Model_Blog;
+use \App\Model\Blogcategory as Model_Blogcategory;
+use \App\Transaction\Blog as Transaction_Blog;
 
-class Article extends Admin {
+class Blog extends Admin {
 
     public $view_path;
 
     public function init() {
-        $this->view_path = APPLICATION_PATH . 'module/admin/view/article/';
+        $this->view_path = APPLICATION_PATH . 'module/admin/view/blog/';
         parent::init();
     }
 
@@ -20,21 +20,21 @@ class Article extends Admin {
         if (isset($_POST['submit'])) {
             $title = isset($_POST['title']) ? trim($_POST['title']) : '';
             $description = isset($_POST['description']) ? trim($_POST['description']) : '';
-            $article_cat_id = isset($_POST['description']) ? intval($_POST['article_cat_id']) : 1;
+            $blog_cat_id = isset($_POST['blog_cat_id']) ? intval($_POST['blog_cat_id']) : 1;
 
             if ($title <> '') {
-                $arr = array('title' => $title, 'description' => $description, 'article_cat_id' => $article_cat_id);
-                if (Transaction_Article::create_article($arr)) {
+                $arr = array('title' => $title, 'description' => $description, 'blog_cat_id' => $blog_cat_id);
+                if (Transaction_Blog::create_blog($arr)) {
                     $success = true;
                 }
             }
         }
         if ($success) {
-            header('Location: ' . HTML_ROOT . 'admin/article/list_article');
+            header('Location: ' . HTML_ROOT . 'admin/blog/retrieve');
         } else {
-            $article_cats = Model_Articlecategory::get_cats();
+            $blog_cats = Model_Blogcategory::get_all_cats();
             View::set_view_file($this->view_path . 'create.php');
-            View::set_action_var('$article_cats', $article_cats);
+            View::set_action_var('$blog_cats', $blog_cats);
         }
     }
 
@@ -42,11 +42,11 @@ class Article extends Admin {
         $params = Route::get_params();
         if (isset($params[0])) {
             $id = $params[0];
-            Transaction_Article::delete_article();
+            Transaction_Blog::delete_blog();
         } else {
-            Message::set_error_message('no article');
+            Message::set_error_message('no blog');
         }
-        header('Location:' . HTML_ROOT . 'admin/article/list_article');
+        header('Location:' . HTML_ROOT . 'admin/blog/list_blog');
     }
 
     public function update() {
@@ -58,31 +58,31 @@ class Article extends Admin {
                     $arr['title'] = trim($_POST['title']);
                 if (isset($_POST['description']))
                     $arr['description'] = trim($_POST['description']);
-                if (Transaction_Article::update_article($id, $arr)) {
+                if (Transaction_Blog::update_blog($id, $arr)) {
                     $success = true;
                 }
             }
         }
         if ($success) {
-            header('Location: ' . HTML_ROOT . 'admin/article/list_article');
+            header('Location: ' . HTML_ROOT . 'admin/blog/list_blog');
         } else {
             if (!isset($id)) {
                 $params = Route::get_params();
                 $id = $params[0];
             }
-            $article = Model_Article::get_one($id);
-            $article_cats = Model_Articlecategory::get_cats();
+            $blog = Model_Blog::get_one($id);
+            $blog_cats = Model_Blogcategory::get_cats();
             View::set_view_file($this->view_path . 'update.php');
-            View::set_action_var('article', $article);
-            View::set_action_var('article_cats', $article_cats);
+            View::set_action_var('blog', $blog);
+            View::set_action_var('blog_cats', $blog_cats);
         }
     }
 
-    public function list_article() {
+    public function retrieve() {
         $page = 1;
-        $article_list = Model_Article::get_articles();
-        View::set_view_file($this->view_path . 'list.php');
-        View::set_action_var('article_list', $article_list);
+        $blog_list = Model_Blog::get_all_blogs();
+        View::set_view_file($this->view_path . 'retrieve.php');
+        View::set_action_var('blog_list', $blog_list);
     }
 
 }

@@ -1,42 +1,35 @@
 <?php
-
 namespace App\Model;
 
-use App\Model\Blog as Base_Blog;
-
+use \Zx\Model\Base\Blog as Base_Blog;
+use \Zx\Model\Mysql;
 class Blog extends Base_Blog{
-
-    public static function get_blogs_by_cat_id_and_page_number($cat_id, $page_number)
+    /**
+     * get active cats order by category name
+     */
+    public static function get_active_blogs_by_page_num($page_num=1, $order_by = 'b.display_order', $direction = 'ASC')
+    {
+		$where = ' b.status=1 ';
+		$offset = ($page_num-1) * NUM_OF_BLOGS_IN_CAT_PAGE;
+        return parent::get_all($where, $offset, NUM_OF_BLOGS_IN_CAT_PAGE, $order_by, $direction);
+    }    
+	public static function get_active_blogs_by_cat_id_and_page_num($cat_id, $page_num=1, $order_by = 'b.display_order', $direction = 'ASC')
 	{
-		$offset = ($page_number-1) * NUM_OF_BLOGS_IN_CAT_PAGE;
-		$row_count = NUM_OF_BLOGS_IN_CAT_PAGE;
-		$order_by = 'b.date_created';
-		$direction = 'ASC';
-		$sql = "SELECT b.*, bc.title as cat_name,
-            FROM blog b
-            LEFT JOIN blog_category bc ON b.cat_id=bc.id
-            WHERE cat_id=:cat_id 
-            LIMIT :offset, :row_count
-            ORDER BY :order_by :direction
-        ";
-		$params = array(':where'=>$where, ':offset'=>$offset, ':row_count'=>$row_count, 
-		                ':order_by'=>$order_by, ':direction'=>$direction,':cat_id'=>$cat_id,
-						':page_number'=>$page_number);
-        return Mysql::select_all($sql, $params);
+		$where = ' b.status=1 AND b.cat_id=' . $cat_id;
+		$offset = ($page_num-1) * NUM_OF_BLOGS_IN_CAT_PAGE;
+        return parent::get_all($where, $offset, NUM_OF_BLOGS_IN_CAT_PAGE, $order_by, $direction);
 	}
-	
-    public static function get_num_of_blogs_by_cat_id($cat_id)
+    /**
+     * get active cats order by category name
+     */	
+	public static function get_all_blogs()
+    {
+        return parent::get_all();
+    }
+	public static function increase_rank($blog_id)
 	{
-		$sql = "SELECT COUNT(*) as num
-            FROM blog b
-            WHERE cat_id=:cat_id 
-        ";
-		$params = array(':cat_id'=>$cat_id);
-        $rec = Mysql::select_one($sql, $params);
-		if ($rec) {
-			return $rec['num'];
-		} else {
-			return 0;
-		}
-	}	
+		$sql = 'UPDATE blog SET rank=rank+1 WHERE id=:id';
+		$params = array(':id'=>$blog_id);
+		return Mysql::exec($sql, $params);
+	}
 }

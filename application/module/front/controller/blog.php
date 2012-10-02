@@ -19,6 +19,9 @@ class Blog extends Front {
     public function show() {
 		$blog_id = $params[0];
         $blog = Model_Blog::get_one($blog_id);
+		if ($blog) {
+			Model_Blog::increase_rank($blog_id);
+		}
         View::set_view_file($this->view_path . 'show.php');
         View::set_action_var('blog', $blog);
     }

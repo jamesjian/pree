@@ -9,10 +9,14 @@ class Front {
     public $template_path;
 
     public function init() {
+		$top10 = Model_Blog::get_top10();
+		$latest10 = Model_Blog::get_latest10();
         $this->template_path = APPLICATION_PATH . 'module/front/view/templates/';
         View::set_template_file($this->template_path . 'template.php');
         View::set_template_var('title', 'this is front title');
         View::set_template_var('keyword', 'this is front keyword');
+        View::set_template_var('top10', $top10);
+        View::set_template_var('latest10', $latest10);
     }
 
 }

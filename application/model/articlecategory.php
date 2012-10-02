@@ -5,10 +5,18 @@ use \Zx\Model\Base\Articlecategory as Base_Articlecategory;
 use \Zx\Model\Mysql;
 class Articlecategory extends Base_Articlecategory{
     /**
-     * get all cats order by category name
+     * get active cats order by category name
      */
     public static function get_cats()
     {
         return parent::get_all();
+    }    
+    /**
+     * get active cats order by category name
+     */	
+	public static function get_all_cats()
+    {
+		$where = "status=1";
+        return parent::get_all($where);
     }
 }

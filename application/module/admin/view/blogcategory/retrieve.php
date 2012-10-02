@@ -3,9 +3,9 @@ include 'search.php';
 ?>
 
 <?php
-if ($article_list) {
+if ($cat_list) {
 
-$link_title = HTML_ROOT . 'admin/article/list/orderby_direction_page_number';
+$link_title = HTML_ROOT . 'admin/blogcategory/retrieve/';
 ?>
 <table>
 <tr>
@@ -13,10 +13,10 @@ $link_title = HTML_ROOT . 'admin/article/list/orderby_direction_page_number';
 <th>action</th>
 </tr>
 <?php
-    foreach ($article_list as $article) {
-	$article_id = $article['id'];
-	$link_delete = HTML_ROOT . 'admin/article/delete/' . $article_id;
-	$link_update = HTML_ROOT . 'admin/article/update/' . $article_id;
+    foreach ($cat_list as $cat) {
+	$cat_id = $cat['id'];
+	$link_delete = HTML_ROOT . 'admin/blogcategory/delete/' . $cat_id;
+	$link_update = HTML_ROOT . 'admin/blogcategory/update/' . $cat_id;
 ?>
 <tr>
 <td><?php echo $article['title'];?></tr>

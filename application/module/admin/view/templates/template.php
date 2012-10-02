@@ -4,20 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">        
         <title><?php echo $title; ?></title>
         <meta name="keywords" content="<?php echo $keyword; ?>" />
-        <link rel="stylesheet" type="text/css" href="<?php echo HTML_ROOT . '/css/site.css'; ?>" />            
+        <link rel="stylesheet" type="text/css" href="<?php echo HTML_ROOT . '/css/admin.css'; ?>" />            
         <!--[if IE]>
             <link  rel="stylesheet" type="text/css" href="/css/site_ie.css" />    
         <![endif]-->            
 <link rel="shortcut icon" href="<?php echo HTML_ROOT .'/image/icon/favicon.ico';?>" />
     </head>
     <body>
-        this is header of template
         <?php
         echo $content;
         ?>
 
-        this is footer of template
         <script type="text/javascript" src="<?php echo HTML_ROOT . 'js/jquery/jquery-1.8.1.min.js';?>"></script>
-        <script type="text/javascript" src="<?php echo HTML_ROOT . 'js/site.js';?>"></script>
+        <script type="text/javascript" src="<?php echo HTML_ROOT . 'js/admin.js';?>"></script>
     </body>
 </html>

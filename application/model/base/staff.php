@@ -14,13 +14,15 @@ class Staff {
         return Mysql::select_one($sql);
     }
 
-    public static function get_all($offset = 0, $row_count = 999999, $order_by = 'a.id', $direction = 'ASC', $where = '1') {
+    public static function get_all($where = '1', $offset = 0, $row_count = 999999, $order_by = 'a.id', $direction = 'ASC') {
         $sql = "SELECT *
             FROM staff
-            WHERE $where
-            LIMIT $offset, $row_count
-            ORDER BY $order_by $direction
+            WHERE :where
+            LIMIT :offset, :row_count
+            ORDER BY :order_by :direction
         ";
+		$params = array(':where'=>$where, ':offset'=>$offset, ':row_count'=>$row_count, 
+		                ':order_by'=>$order_by, ':direction'=>$direction);		
         return Mysql::select_all($sql);
     }
 
