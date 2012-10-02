@@ -4,7 +4,7 @@ namespace App\Model\Base;
 
 use \Zx\Model\Mysql;
 /*
-CREATE TABLE blog_category (id int(11) AUTO INCREMENT PRIMARY KEY,
+CREATE TABLE blog_category (id int(11) AUTO_INCREMENT PRIMARY KEY,
 title varchar(255) NOT NULL DEFAULT '',
 description text,
 status tinyint(1) not null default 1,

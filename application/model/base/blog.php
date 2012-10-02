@@ -1,9 +1,9 @@
 <?php
-namespbce App\Model\Base;
+namespace App\Model\Base;
 
 use \Zx\Model\Mysql;
 /*
-CREATE TABLE blog (id int(11) AUTO INCREMENT PRIMARY KEY,
+CREATE TABLE blog (id int(11) AUTO_INCREMENT PRIMARY KEY,
 title varchar(255) NOT NULL DEFAULT '',
 cat_id int(11) NOT NULL DEFAULT 1,
 keyword varchar(255) not null default '',

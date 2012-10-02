@@ -26,7 +26,7 @@ class Article extends Base_Article{
      */
     public static function get_about_us()
     {
-        where = "ac.name='about us'";
+        $where = "ac.name='about us'";
         return parent::get_one_by_where($where);
     }
     /**
@@ -35,7 +35,7 @@ class Article extends Base_Article{
      */
     public static function get_term_condition()
     {
-        where = "ac.name='term & condition'";
+        $where = "ac.name='term & condition'";
         return parent::get_one_by_where($where);	
     }
     /**
@@ -44,7 +44,7 @@ class Article extends Base_Article{
      */
     public static function get_faqs()
     {
-        where = "ac.name='faq'";
+        $where = "ac.name='faq'";
         return parent::get_all($where);		
     }
 }
