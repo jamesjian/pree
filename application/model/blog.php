@@ -32,4 +32,15 @@ class Blog extends Base_Blog{
 		$params = array(':id'=>$blog_id);
 		return Mysql::exec($sql, $params);
 	}
+	public static function get_top10()
+	{
+		$where = ' b.status=1';
+        return parent::get_all($where, 0, 10, 'b.rank', 'DESC');
+		
+	}
+	public static function get_latest10()
+	{
+		$where = ' b.status=1';
+        return parent::get_all($where, 0, 10, 'b.date_created', 'DESC');	
+	}
 }
