@@ -1,9 +1,9 @@
 <?php
 ob_start("ob_gzhandler");
-define('PHP_ROOT', dirname(__DIR__) . '/';  
-define('HTML_ROOT', '/z2/public/');  
+define('PHP_ROOT', dirname(__DIR__) . '/');  
+define('HTML_ROOT', '/pree/public/');  
 define('LIBRARY_PATH', PHP_ROOT . 'library/');
-define('SYSTEM_PATH', LIBRARY_PATH . 'library/zx/');
+define('SYSTEM_PATH', LIBRARY_PATH . 'zx/');
 define('APPLICATION_PATH', PHP_ROOT . 'application/');
 include APPLICATION_PATH . 'config/constant.php';
 

@@ -1,5 +1,6 @@
 <?php
 namespace Zx\Controller;
+use \Zx\Test\Test;
 /**
 $query_string = $_SERVER['QUERY_STRING'];   //M1=2&M2=3
 $uri = $_SERVER['REQUEST_URI');  //   /z2/public/xxx/yyy/zzz?M1=2&M2=3
@@ -45,6 +46,7 @@ class Route{
                     }
 		} else {
 			//module/controller/action/params
+                    //currently remove /pree/public/
 			self::$module_controller_action = array(
 				'module'=>$arr[0],
 				'controller'=>$arr[1], 
@@ -54,9 +56,11 @@ class Route{
 				self::$params[] = $arr[$i];
 			}
 		}
+                Test::object_log('$module_controller_action', self::$module_controller_action, __FILE__, __LINE__, __CLASS__, __METHOD__);
 		self::set_module();
 		self::set_controller();
 		self::set_action();
+                Test::object_log('$module_controller_action', self::$module_controller_action, __FILE__, __LINE__, __CLASS__, __METHOD__);
 		//self::set_params();
 	}
 /** 

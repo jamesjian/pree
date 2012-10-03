@@ -3,7 +3,7 @@ namespace Zx\Controller;
 use \Zx\Session\Session;
 use \Zx\Message\Message;
 use \Zx\View\View;
-use \Zx\View\Test;
+use \Zx\Test\Test;
 /**
  */
 class Application {

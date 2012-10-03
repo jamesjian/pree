@@ -2,8 +2,8 @@
 //general 
 define('FRONT_VIEW_PATH', APPLICATION_PATH . 'module/front/view/');
 define('ADMIN_VIEW_PATH', APPLICATION_PATH . 'module/admin/view/');
-define('FRONT_HTML_ROOT', HTMLROOT . 'front/');
-define('ADMIN_HTML_ROOT', HTMLROOT . 'admin/');
+define('FRONT_HTML_ROOT', HTML_ROOT . 'front/');
+define('ADMIN_HTML_ROOT', HTML_ROOT . 'admin/');
 
 
 define('BR', '<br />');

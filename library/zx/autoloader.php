@@ -1,7 +1,7 @@
 <?php
 
 namespace Zx;
-
+use \Zx\Test\Test;
 // this autoloader is for Zx classes such as \Zx\Session\Session::test();
 class Loader {
 
@@ -20,6 +20,8 @@ class Loader {
                 unset($arr[0]);  // because SYSTEM_PATH contain 'Zx'
                 $file = strtolower(implode('/', $arr));
                 $file_name = APPLICATION_PATH . $file . '.php';
+                Test::object_log('$file_name', $file_name, __FILE__, __LINE__, __CLASS__, __METHOD__);
+                
                 if (file_exists($file_name)) {
                     include_once $file_name;
                 }
