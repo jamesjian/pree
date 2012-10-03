@@ -1,3 +1,5 @@
+	<div class='bx-footer'>
+
 <nav>
 Top 10 
 <ul>
@@ -24,6 +26,7 @@ $link = HTMLROOT . 'front/blog/show/' . $blog['id'];
 ?>
 </ul>
 </nav>
+	</div>
         <script type="text/javascript" src="<?php echo HTML_ROOT . 'js/site.js';?>"></script>
     </body>
-</html>
+</html>	

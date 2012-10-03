@@ -6,10 +6,56 @@
         Purpose of the stylesheet follows.
 */
 
-body{
-    background-color: white;
-}
-
-.error_message, .success_message{
+.bx-error-message, .bx-success-message{
     color: red;
+}
+body{
+background-color: white;
+width: 1024px;
+height: auto;
+}
+.bx-clear-both{
+	clear: both;
+}
+.bx-header{
+	height: 150px;
+}
+.bx-logo{
+	width: 100px;
+	float: left;
+}
+nav.bx-top-menu{
+	width: 800px;
+	float: right;
+}
+nav.bx-top-menu li{
+	list-style-type: none;
+	display: inline;
+}
+.bx-main{
+}
+.bx-left{
+	width: 800px;
+	float: left;
+}
+.bx-left1{
+	height: 100px;
+}.bx-left2{
+	
+}
+.bx-right{
+	width: 100px;
+	float: right;
+}
+.bx-right1{
+	height: 200px;
+}
+.bx-right2{
+	height: 400px;
+}
+.bx-right3{
+	
+}
+.bx-footer{
+	height: 100px;
 }

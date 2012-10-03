@@ -2,6 +2,8 @@
 define('LIBRARY_PATH','../library/');
 define('SYSTEM_PATH','../library/zx/');
 define('APPLICATION_PATH','../application/');
+define('FRONT_VIEW_PATH', APPLICATION_PATH . 'module/front/view/');
+define('ADMIN_VIEW_PATH', APPLICATION_PATH . 'module/admin/view/');
 define('PHP_ROOT', dirname(dirname(__DIR__)) . '/');  //relative to current folder
 define('HTML_ROOT', '/z2/public/');  //relative to current folder
 define('BR', '<br />');

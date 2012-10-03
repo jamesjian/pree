@@ -1,64 +1,65 @@
-<?php
-
-	if ($blogs) {
-	?>
-	<nav>
-	<ul>
-	<?php
-		foreach ($blogs as $blog) {
-			$read_more_link = HTMLROOT . 'front/blog/show/' . $blog['id'];
-	?>		
-		<li><?php	echo $blog->title;  echo BR;
-		echo mb_substr($blog->content, 0, 100, 'UTF-8');
-			echo "<a href='$read_more_link'>Read more...</a>";
-			?>
-		</li>
-	<?php	
-		}//foreach
-	?>
-	</ul>
-	</nav>	
-	<?php
-	}//if ($blogs)
-	
-	$current_page = 1;
-	$homepage_link = HTMLROOT . 'front/common/home';	
-	$link_prefix = HTMLROOT . 'front/blog/list/page/';	
-	//first
-		echo "<a href='$link'>First</a>";
-	}
-	//middle
-	if ($num_of_pages<=NUM_OF_ITEMS_IN_PAGINATION) {
-		//display all page numbers
-		for ($i=1; $i<=$num_of_pages; $i++) {
-			$link = $link_prefix . $i;
-			echo "<a href='$link'>$i</a>";			
-		}
-	} else {
-		//display page numbers around current page
-		$difference = intval((NUM_OF_ITEMS_IN_PAGINATION-1) / 2);
-		if (($current_page - $difference)<0) {
-			$start = 1;
-		} else {
-			$start = $current_page - $difference;
-		}
-		if (($current_page + $difference)>$num_of_pages) {
-			$end = $num_of_pages;
-		} else {
-			$end = $current_page + $difference;
-		}		
-		for ($i=$start; $i<=$end; $i++) {
-			$link = $link_prefix . $i;
-			echo "<a href='$link'>$i</a>";			
-		}
-	}
-	//next
-	if ($current_page != $num_of_pages) {
-		$link = $link_prefix . ($current_page+1);
-		echo "<a href='$link'>Next</a>";
-	}		
-	//last
-	if ($current_page != $num_of_pages && $num_of_pages>NUM_OF_ITEMS_IN_PAGINATION) {
-		$link = $link_prefix . $num_of_pages;
-		echo "<a href='$link'>Last</a>";
-	}	
+<div class='bx-left'>			
+    <div class='bx-left1'>
+        <?php include FRONT_VIEW_PATH . 'templates/left_google_ads.php'; ?>
+    </div>	
+    <div class='bx-left2'>
+        <?php
+        if ($blogs) {
+            ?>
+            <nav>
+                <ul>
+                    <?php
+                    foreach ($blogs as $blog) {
+                        $read_more_link = HTMLROOT . 'front/blog/show/' . $blog['id'];
+                        ?>		
+                        <li><?php
+                echo $blog->title, BR;
+                echo mb_substr($blog->content, 0, 100, 'UTF-8');
+                echo "<a href='$read_more_link'>Read more...</a>";
+                ?>
+                        </li>
+                        <?php
+                    }//foreach
+                    ?>
+                </ul>
+            </nav>	
+            <?php
+        }//if ($blogs)
+        include FRONT_VIEW_PATH . 'common/pagination.php';
+        ?>
+    </div>
+</div>
+<div class='bx-right'>
+    <div class='bx-right1'>
+        <?php
+        //tag cloud or search
+        include 'tag_cloud.php';
+        ?>
+    </div>	
+    <div class='bx-right2'>
+        <?php include FRONT_VIEW_PATH . 'templates/right_google_ads.php'; ?>
+    </div>
+    <div class='bx-right3'>
+        <?php
+//related contents
+        if ($related_blogs) {
+            ?>
+            <nav>
+                <ul>
+                    <?php
+                    foreach ($related_blogs as $blog) {
+                        $read_more_link = HTMLROOT . 'front/blog/show/' . $blog['id'];
+                        ?>		
+                        <li><?php echo "<a href='$read_more_link'>" . $blog->title . "</a>";
+                        ?>
+                        </li>
+        <?php
+    }//foreach
+    ?>
+                </ul>
+            </nav>	
+            <?php
+        }//if ($related_blogs)
+        ?>
+    </div>
+</div>
