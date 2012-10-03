@@ -1,8 +1,8 @@
-<div class='bx-left'>			
-    <div class='bx-left1'>
+<div class='zx-front-left'>			
+    <div class='zx-front-left1'>
         <?php include FRONT_VIEW_PATH . 'templates/left_google_ads.php'; ?>
     </div>	
-    <div class='bx-left2'>
+    <div class='zx-front-left2'>
         <?php
         if ($blogs) {
             ?>
@@ -29,17 +29,17 @@
         ?>
     </div>
 </div>
-<div class='bx-right'>
-    <div class='bx-right1'>
+<div class='zx-front-right'>
+    <div class='zx-front-right1'>
         <?php
         //tag cloud or search
         include 'tag_cloud.php';
         ?>
     </div>	
-    <div class='bx-right2'>
+    <div class='zx-front-right2'>
         <?php include FRONT_VIEW_PATH . 'templates/right_google_ads.php'; ?>
     </div>
-    <div class='bx-right3'>
+    <div class='zx-front-right3'>
         <?php
 //related contents
         if ($related_blogs) {

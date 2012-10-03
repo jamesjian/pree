@@ -1,11 +1,11 @@
 
 	<?php include 'header.php';?>
 
-	<div class='bx-header'>
-		<div class='bx-logo'>
+	<div class='zx-front-header'>
+		<div class='zx-front-logo'>
                     <img src="logo.jpg" />
                 </div>
-		<nav class='bx-top-menu'>
+		<nav class='zx-front-top-menu'>
 			<ul>
 				<li>menu1</li>
 				<li>menu2</li>
@@ -14,12 +14,12 @@
 			</ul>
 		</nav>
 	</div>
-        <div class="bx-clear-both"></div>
-	<div class='bx-main'>
+        <div class="zx-front-clear-both"></div>
+	<div class='zx-front-main'>
 		<?php echo $content;?>
 
 	</div>
-        <div class="bx-clear-both"></div>
+        <div class="zx-front-clear-both"></div>
 
 
 <?php include 'footer.php';?>

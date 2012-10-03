@@ -8,7 +8,7 @@ use \App\Transaction\Blog as Transaction_Blog;
 
 class Blog extends Admin {
 
-    public $view_path;
+    
 
     public function init() {
         $this->view_path = APPLICATION_PATH . 'module/admin/view/blog/';
@@ -77,10 +77,14 @@ class Blog extends Admin {
             View::set_action_var('blog_cats', $blog_cats);
         }
     }
-
+	/**
+	/page/orderby/direction
+	*/
     public function retrieve() {
-        $page = 1;
-        $blog_list = Model_Blog::get_all_blogs();
+        $page_num = isset($this->params[0]) ?  intval($params[0]) : 1;
+        $order_by = isset($this->params[1]) ? $params[1]: 'id';
+        $direction = isset($this->params[2]) ?  $params[2]: 'ASC';
+		$blog_list = Model_Blog::get_blogs($page_num, $order_by, $direction);
         View::set_view_file($this->view_path . 'retrieve.php');
         View::set_action_var('blog_list', $blog_list);
     }

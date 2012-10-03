@@ -3,28 +3,33 @@
         <?php include FRONT_VIEW_PATH . 'templates/left_google_ads.php'; ?>
     </div>	
     <div class='zx-front-left2'>
-<?php
-if ($blog) {
-echo $blog->cat_name, BR;
-?>
-<article>
-	<header>
-<?php
-
-echo $blog->title, BR;
-?>
-</header>
-<section>
-<div>
-<?php
-echo $blog->description, BR;
-?>
-</div>
-</section>
-</article>
-<?php
-}
-?>
+        <?php
+        if ($blogs) {
+            ?>
+            <nav>
+                <ul>
+                    <?php
+                    foreach ($blogs as $blog) {
+                        $read_more_link = HTMLROOT . 'front/blog/show/' . $blog['id'];
+                        ?>		
+                        <li><?php
+                echo $blog->title, BR;
+                echo mb_substr($blog->content, 0, 100, 'UTF-8');
+                echo "<a href='$read_more_link'>Read more...</a>";
+                ?>
+                        </li>
+                        <?php
+                    }//foreach
+                    ?>
+                </ul>
+            </nav>	
+            <?php
+        }//if ($blogs)
+	$current_page = 1;
+	$link_prefix = FRONT_HTML_ROOT .'blog/retrieve/page/';			
+	$link_postfix = '';			
+        include FRONT_VIEW_PATH . 'blog/pagination.php';
+        ?>
     </div>
 </div>
 <div class='zx-front-right'>

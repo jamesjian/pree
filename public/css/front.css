@@ -1,0 +1,42 @@
+.zx-front-header{
+	height: 150px;
+}
+.zx-front-logo{
+	width: 100px;
+	float: left;
+}
+nav.zx-front-top-menu{
+	width: 800px;
+	float: right;
+}
+nav.zx-front-top-menu li{
+	list-style-type: none;
+	display: inline;
+}
+.zx-front-main{
+}
+.zx-front-left{
+	width: 800px;
+	float: left;
+}
+.zx-front-left1{
+	height: 100px;
+}.zx-front-left2{
+	
+}
+.zx-front-right{
+	width: 100px;
+	float: right;
+}
+.zx-front-right1{
+	height: 200px;
+}
+.zx-front-right2{
+	height: 400px;
+}
+.zx-front-right3{
+	
+}
+.zx-front-footer{
+	height: 100px;
+}

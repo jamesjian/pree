@@ -19,6 +19,26 @@ class Blog extends Base_Blog{
 		$offset = ($page_num-1) * NUM_OF_BLOGS_IN_CAT_PAGE;
         return parent::get_all($where, $offset, NUM_OF_BLOGS_IN_CAT_PAGE, $order_by, $direction);
 	}
+	public static function get_blogs_by_page_num($page_num=1, $order_by = 'display_order', $direction = 'ASC')
+	{
+		$page_num = intval($page_num);
+		$page_num = ($page_num > 0) ? $page_num : 1;
+		switch ($order_by) {
+			case 'id':
+			case 'title':
+			case 'display_order':
+			case 'date_created':
+			case 'cat_id':
+				$order_by = 'b.'.$order_by;
+				break;
+			default: 
+				$order_by = 'b.date_created';
+		}
+        $direction = ($direction == 'ASC') ?  'ASC' : 'DESC';
+		$where = '1';
+		$start = ($page-1) * NUM_OF_RECORDS_IN_ADMIN_PAGE;
+        return parent::get_all($where, $start, NUM_OF_RECORDS_IN_ADMIN_PAGE, $order_by, $direction);
+	}	
     /**
      * get active cats order by category name
      */	

@@ -1,5 +1,5 @@
 /* 
-    Document   : site
+    Document   : admin
     Created on : 19/09/2012, 10:29:53 AM
     Author     : User
     Description:
@@ -7,13 +7,9 @@
 */
 
 body{
-background-color: white;
-width: 1024px;
-height: auto;
+    background-color: white;
 }
-.zx-clear-both{
-	clear: both;
-}
-.zx-error-message, .zx-success-message{
+
+.error_message, .success_message{
     color: red;
 }

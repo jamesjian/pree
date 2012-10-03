@@ -6,9 +6,11 @@ use \Zx\Controller\Route;
 use \Zx\View\View;
 
 class Front {
-    public $template_path;
-
+    public $template_path = '';
+	public $view_path = '';
+	public $params = array();
     public function init() {
+		$this->params = Route::get_params();
 		$top10 = Model_Blog::get_top10();
 		$latest10 = Model_Blog::get_latest10();
         $this->template_path = APPLICATION_PATH . 'module/front/view/templates/';

@@ -3,9 +3,10 @@ include 'search.php';
 ?>
 
 <?php
-if ($article_list) {
+if ($blog_list) {
 
-$link_title = HTML_ROOT . 'admin/article/list/orderby_direction_page_number';
+$link_title = HTML_ROOT . 'admin/blog/list/orderby_direction_page_number';
+$link_rank = HTML_ROOT . 'admin/blog/list/orderby_direction_page_number';
 ?>
 <table>
 <tr>
@@ -13,13 +14,13 @@ $link_title = HTML_ROOT . 'admin/article/list/orderby_direction_page_number';
 <th>action</th>
 </tr>
 <?php
-    foreach ($article_list as $article) {
-	$article_id = $article['id'];
-	$link_delete = HTML_ROOT . 'admin/article/delete/' . $article_id;
-	$link_update = HTML_ROOT . 'admin/article/update/' . $article_id;
+    foreach ($blog_list as $blog) {
+	$blog_id = $blog['id'];
+	$link_delete = HTML_ROOT . 'admin/blog/delete/' . $blog_id;
+	$link_update = HTML_ROOT . 'admin/blog/update/' . $blog_id;
 ?>
 <tr>
-<td><?php echo $article['title'];?></tr>
+<td><?php echo $blog['title'];?></tr>
 <td><a href='<?php echo link_delete;?>'>delete</a></td>
 <td><a href='<?php echo link_update;?>'>update</a></td>
 </tr>
@@ -29,7 +30,9 @@ $link_title = HTML_ROOT . 'admin/article/list/orderby_direction_page_number';
 	</table>
 <?php
 }
-
+$link_prefix = ADMIN_HTML_ROOT . 'blog/retrieve/';	
+$link_postfix = "$orderby/$direction";
+include ADMIN_VIEW_PATH . 'templates/pagination.php';
 
 
 

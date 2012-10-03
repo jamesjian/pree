@@ -37,7 +37,7 @@ class Staff {
     }
     public static function staff_logout()
     {
-        unset($_SESSION['staff']);
+        if (isset($_SESSION['staff'])) unset($_SESSION['staff']);
         return true;
     }
 

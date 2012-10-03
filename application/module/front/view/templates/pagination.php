@@ -1,8 +1,6 @@
 <?php
 	
-	$current_page = 1;
-	$homepage_link = FRONT_HTML_ROOT .'common/home';	
-	$link_prefix = FRONT_HTML_ROOT .'blog/retrieve/page/';	
+
 	//first
 		echo "<a href='$link'>First</a>";
 	}

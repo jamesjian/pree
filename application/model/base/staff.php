@@ -3,7 +3,12 @@
 namespace App\Model\Base;
 
 use \Zx\Model\Mysql;
-
+/*
+CREATE TABLE staff (name varchar(255) PRIMARY KEY,
+password varchar(32) NOT NULL DEFAULT '',
+group_id int(11) NOT NULL DEFAULT 1
+) engine=innodb default charset=utf8
+*/
 class Staff {
 
     public static function get_one($id) {
@@ -38,8 +43,9 @@ class Staff {
     }
 
     public static function delete($id) {
-        $sql = "Delete FROM staff WHERE id=$id";
-        return Mysql::exec($sql);
+        $sql = "Delete FROM staff WHERE id=:id";
+		$params = array(':id'=>$id);
+        return Mysql::exec($sql, $params);
     }
 
 }

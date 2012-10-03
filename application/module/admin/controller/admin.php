@@ -13,6 +13,16 @@ class Admin {
         View::set_template_file($this->template_path . 'template.php');
         View::set_template_var('title', 'this is admin title');
         View::set_template_var('keyword', 'this is admin keyword');
+		$action = Route::get_action();
+		if ($action == 'login' || $action == 'logout') {
+		
+		} else {
+			if (Transaction_Staff::staff_has_loggedin()) {
+			
+			} else {
+				header('Location: '.HTML_ROOT . 'admin/staff/login');
+			}
+		}
     }
 
 }

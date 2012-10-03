@@ -1,5 +1,6 @@
 <?php
-\Zx\Message\Message::show_message();
+use \Zx\Message\Message as Message;
+Message::show_message();
 ?>
 
 <form action="<?php echo HTML_ROOT;?>admin/staff/login" method="post">

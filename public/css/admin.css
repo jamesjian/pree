@@ -5,11 +5,6 @@
     Description:
         Purpose of the stylesheet follows.
 */
+.bx-admin-{
 
-body{
-    background-color: white;
-}
-
-.error_message, .success_message{
-    color: red;
 }

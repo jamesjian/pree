@@ -1,8 +1,7 @@
 <?php
 	
 	$current_page = 1;
-	$homepage_link = FRONT_HTML_ROOT .'common/home';	
-	$link_prefix = FRONT_HTML_ROOT .'blog/retrieve/page/';	
+	$link = $link_prefix . '1' . $link_postfix;
 	//first
 		echo "<a href='$link'>First</a>";
 	}
@@ -10,7 +9,7 @@
 	if ($num_of_pages<=NUM_OF_ITEMS_IN_PAGINATION) {
 		//display all page numbers
 		for ($i=1; $i<=$num_of_pages; $i++) {
-			$link = $link_prefix . $i;
+			$link = $link_prefix . $i . $link_postfix;
 			echo "<a href='$link'>$i</a>";			
 		}
 	} else {
