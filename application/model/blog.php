@@ -1,7 +1,7 @@
 <?php
 namespace App\Model;
 
-use \Zx\Model\Base\Blog as Base_Blog;
+use \App\Model\Base\Blog as Base_Blog;
 use \Zx\Model\Mysql;
 class Blog extends Base_Blog{
     /**
@@ -36,9 +36,13 @@ class Blog extends Base_Blog{
 		}
         $direction = ($direction == 'ASC') ?  'ASC' : 'DESC';
 		$where = '1';
-		$start = ($page-1) * NUM_OF_RECORDS_IN_ADMIN_PAGE;
+		$start = ($page_num-1) * NUM_OF_RECORDS_IN_ADMIN_PAGE;
         return parent::get_all($where, $start, NUM_OF_RECORDS_IN_ADMIN_PAGE, $order_by, $direction);
 	}	
+	public static function get_num_of_pages_of_blogs()
+	{
+		return parent::get_num();
+	}
     /**
      * get active cats order by category name
      */	

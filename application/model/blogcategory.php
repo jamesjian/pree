@@ -1,7 +1,7 @@
 <?php
 namespace App\Model;
 
-use \Zx\Model\Base\Blogcategory as Base_Blogcategory;
+use \App\Model\Base\Blogcategory as Base_Blogcategory;
 use \Zx\Model\Mysql;
 class Blogcategory extends Base_Blogcategory{
     /**

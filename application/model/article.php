@@ -1,7 +1,7 @@
 <?php
 namespace App\Model;
 
-use \Zx\Model\Base\Article as Base_Article;
+use \App\Model\Base\Article as Base_Article;
 use \Zx\Model\Mysql;
 
 class Article extends Base_Article{

@@ -1,6 +1,6 @@
-<form action="<?php echo HTML_ROOT . 'admin/article/create';?>" method="post">
+<form action="<?php echo ADMIN_HTML_ROOT . 'blog/create';?>" method="post">
     Title:<input type="text" name="title" size="50" />
-    Description: <textarea cols="10" rows="30" name="description"></textarea>
+    Content: <textarea cols="10" rows="30" name="content"></textarea>
     Category:<select name='cat_id'>
         <?php 
         foreach ($cats as $cat) {

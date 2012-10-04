@@ -1,7 +1,7 @@
 <?php
 namespace App\Model;
 
-use \Zx\Model\Base\Articlecategory as Base_Articlecategory;
+use \App\Model\Base\Articlecategory as Base_Articlecategory;
 use \Zx\Model\Mysql;
 class Articlecategory extends Base_Articlecategory{
     /**

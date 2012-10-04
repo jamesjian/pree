@@ -1,18 +1,18 @@
-<form action="<?php echo HTML_ROOT . 'admin/article/create';?>" method="post">
-    Title:<input type="text" name="title" size="50" value="<?php echo $article['title'];?>"/>
-    Description: <textarea cols="10" rows="30" name="description"><?php echo $article['description'];?></textarea>
+<form action="<?php echo ADMIN_HTML_ROOT . 'blog/update';?>" method="post">
+    Title:<input type="text" name="title" size="50" value="<?php echo $blog['title'];?>"/>
+    Content: <textarea cols="10" rows="30" name="content"><?php echo $blog['content'];?></textarea>
     Category:<select name='cat_id'>
         <?php 
         foreach ($cats as $cat) {
             echo "<option value='" . $cat['id'] . "'";
-            if ($article['cat_id'] == $cat['id']) {
+            if ($blog['cat_id'] == $cat['id']) {
                 echo " selected";
             }
-            ">" . $cat['title'] . '</option>';
+            echo ">" . $cat['title'] . '</option>';
         }
         ?>
     </select>
-    <input type="hidden" name="id" value="><?php echo $article['id'];?>" />
+    <input type="hidden" name="id" value="<?php echo $blog['id'];?>" />
     <input type="submit" name="submit" value="update" />
     <input type="reset" name="reset" value="clear" />
 </form>

@@ -56,11 +56,11 @@ class Route{
 				self::$params[] = $arr[$i];
 			}
 		}
-                Test::object_log('$module_controller_action', self::$module_controller_action, __FILE__, __LINE__, __CLASS__, __METHOD__);
+                //Test::object_log('$module_controller_action', self::$module_controller_action, __FILE__, __LINE__, __CLASS__, __METHOD__);
 		self::set_module();
 		self::set_controller();
 		self::set_action();
-                Test::object_log('$module_controller_action', self::$module_controller_action, __FILE__, __LINE__, __CLASS__, __METHOD__);
+                //Test::object_log('$module_controller_action', self::$module_controller_action, __FILE__, __LINE__, __CLASS__, __METHOD__);
 		//self::set_params();
 	}
 /** 

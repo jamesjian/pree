@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model\Base;
+namespace App\Model;
 
 use \Zx\Model\Mysql;
 

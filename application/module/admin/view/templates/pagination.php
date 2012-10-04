@@ -4,7 +4,6 @@
 	$link = $link_prefix . '1' . $link_postfix;
 	//first
 		echo "<a href='$link'>First</a>";
-	}
 	//middle
 	if ($num_of_pages<=NUM_OF_ITEMS_IN_PAGINATION) {
 		//display all page numbers

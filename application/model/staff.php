@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Model;
 use \Zx\Test\Test;
 use \App\Model\Base\Staff as Base_Staff;

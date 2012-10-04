@@ -20,12 +20,15 @@ class Blog {
      * @return 1D array or boolean when false 
      */
     public static function get_one($id) {
-        $sql = "SELECT b.*, bc.title as cat_name,
+        $sql = "SELECT b.*, bc.title as cat_name
             FROM blog b
             LEFT JOIN blog_category bc ON b.cat_id=bc.id
             WHERE b.id=:id
         ";
 		$params = array(':id'=>$id);
+		$query = Mysql::interpolateQuery($sql, $params);
+      \Zx\Test\Test::object_log('query', $query, __FILE__, __LINE__, __CLASS__, __METHOD__);
+			
         return Mysql::select_one($sql, $params);
     }    
 	/**
@@ -37,10 +40,9 @@ class Blog {
         $sql = "SELECT b.*, bc.title as cat_name,
             FROM blog b
             LEFT JOIN blog_category bc ON b.cat_id=bc.id
-            WHERE :where
+            WHERE $where
         ";
-		$params = array(':where'=>$where);
-        return Mysql::select_one($sql, $params);
+        return Mysql::select_one($sql);
     }
 
 	
@@ -48,17 +50,34 @@ class Blog {
         $sql = "SELECT b.*, bc.title as cat_name,
             FROM blog b
             LEFT JOIN blog_category bc ON b.cat_id=bc.id
-            WHERE :where
-            LIMIT :offset, :row_count
+            WHERE $where
             ORDER BY :order_by :direction
+            LIMIT $offset, $row_count
         ";
-		$params = array(':where'=>$where, ':offset'=>$offset, ':row_count'=>$row_count, 
-		                ':order_by'=>$order_by, ':direction'=>$direction);
+		$params = array(':order_by'=>$order_by, ':direction'=>$direction);
+		//$query = Mysql::interpolateQuery($sql, $params);
+      //\Zx\Test\Test::object_log('query', $query, __FILE__, __LINE__, __CLASS__, __METHOD__);
+				
         return Mysql::select_all($sql, $params);
     }
 
+    public static function get_num($where = '1') {
+        $sql = "SELECT COUNT(id) AS num
+            FROM blog 
+            WHERE $where
+        ";
+        $result = Mysql::select_one($sql);
+		if ($result) {
+			return $result['num'];
+		} else {
+			return false;
+		}
+    }
+	
     public static function create($arr) {
         $sql = "INSERT INTO blog SET " . Mysql::concat_field_name_and_value($arr);
+		      \Zx\Test\Test::object_log('sql', $sql, __FILE__, __LINE__, __CLASS__, __METHOD__);
+
         return Mysql::insert($sql);
     }
 
@@ -66,6 +85,9 @@ class Blog {
         $sql = "UPDATE blog SET " . Mysql::concat_field_name_and_value($arr) .
                 ' WHERE id=:id';
 		$params = array(':id'=>$id);
+		$query = Mysql::interpolateQuery($sql, $params);
+      \Zx\Test\Test::object_log('query', $query, __FILE__, __LINE__, __CLASS__, __METHOD__);
+					
         return Mysql::exec($sql, $params);
     }
 

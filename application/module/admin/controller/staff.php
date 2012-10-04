@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Module\Admin\Controller;
 
-//use \Zx\Controller\Route;
 use \Zx\View\View;
 use \Zx\Test\Test;
-//use \Zx\Model\Mysql;
 use \App\Transaction\Staff as Transaction_Staff;
 class Staff extends Admin {
 
@@ -18,7 +15,7 @@ class Staff extends Admin {
   
     public function login()
     {
-        Test::object_log('$_POST', $_POST, __FILE__, __LINE__, __CLASS__, __METHOD__);
+        //Test::object_log('$_POST', $_POST, __FILE__, __LINE__, __CLASS__, __METHOD__);
         $login = false;
         if (Transaction_Staff::staff_has_loggedin()) {
             $login = true;

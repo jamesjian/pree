@@ -15,11 +15,10 @@ CREATE TABLE IF NOT EXISTS `session` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
  */
 class Session implements \SessionHandlerInterface {
-    public $lifetime;
     private $old_id;  //for session_regenerate_id()
     public function open($save_path, $session_name) {
         //sessions table must exist
-        $this->lifetime = 120;
+        
         return true;
     }
 
@@ -53,7 +52,7 @@ class Session implements \SessionHandlerInterface {
      * @return bool
      */
     public function write($id, $data) {
-        $time = time() + $this->lifetime;
+        $time = time() + SESSION_LIEFTIME;
         if ($this->old_id) {
             //for session_regenerate_id(), must update original record
             $sql = "UPDATE session SET session_id=:id, session_data=:data, expires=:time 

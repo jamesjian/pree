@@ -5,6 +5,7 @@ define('ADMIN_VIEW_PATH', APPLICATION_PATH . 'module/admin/view/');
 define('FRONT_HTML_ROOT', HTML_ROOT . 'front/');
 define('ADMIN_HTML_ROOT', HTML_ROOT . 'admin/');
 
+define('SESSION_LIEFTIME', 1200); //used by session class
 
 define('BR', '<br />');
 define('LOG_FILE',PHP_ROOT . 'public/test/my_log.php');

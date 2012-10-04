@@ -24,12 +24,12 @@ class Articlecategory {
         $sql = "SELECT *
             FROM article_category
             WHERE :where
-            LIMIT :offset, :row_count
             ORDER BY :order_by :direction
+            LIMIT :offset, :row_count
         ";
 		$params = array(':where'=>$where, ':offset'=>$offset, ':row_count'=>$row_count, 
 		                ':order_by'=>$order_by, ':direction'=>$direction);
-        return Mysql::select_all($sql);
+        return Mysql::select_all($sql, $params);
     }
 
     public static function create($arr) {

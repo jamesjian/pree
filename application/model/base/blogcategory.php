@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Model\Base;
 
 use \Zx\Model\Mysql;
@@ -20,16 +19,17 @@ class Blogcategory {
         return Mysql::select_one($sql);
     }
 
-    public static function get_all($where='1', $offset = 0, $row_count = MAXIMUM_ROWS, $order_by = 'name', $direction = 'ASC') {
+    public static function get_all($where='1', $offset = 0, $row_count = MAXIMUM_ROWS, $order_by = 'title', $direction = 'ASC') {
         $sql = "SELECT *
             FROM blog_category
-            WHERE :where
-            LIMIT :offset, :row_count
+            WHERE $where
             ORDER BY :order_by :direction
+            LIMIT $offset, $row_count
         ";
-		$params = array(':where'=>$where, ':offset'=>$offset, ':row_count'=>$row_count, 
-		                ':order_by'=>$order_by, ':direction'=>$direction);
-        return Mysql::select_all($sql);
+		
+		$params = array(':order_by'=>$order_by, ':direction'=>$direction);
+        $r = Mysql::select_all($sql, $params);
+		return $r;
     }
 
     public static function create($arr) {
