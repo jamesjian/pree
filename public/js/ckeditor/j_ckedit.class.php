@@ -1,14 +1,14 @@
 <?php
 switch ($_SERVER['SERVER_NAME']) {
-    case 'fyl':
-        if (!defined('HTMLROOT')) define('HTMLROOT', '/');
-        if (!defined('PHPROOT')) define('PHPROOT', 'f:/jian/wamp/fyl/');
+    case 'localhost':
+        if (!defined('HTML_ROOT')) define('HTMLROOT', '/');
+        if (!defined('PHP_ROOT')) define('PHP_ROOT', );
         break;
 
    case '':
        default:
-        if (!defined('HTMLROOT')) define('HTMLROOT', '/');
-        if (!defined('PHPROOT')) define('PHPROOT', realpath(dirname('../../index.php')).DIRECTORY_SEPARATOR);
+        if (!defined('HTML_ROOT')) define('HTML_ROOT', '/');
+        if (!defined('PHP_ROOT')) define('PHP_ROOT', DIRECTORY_SEPARATOR);
         break;
 }
 if (!defined('HTML_CKEDITOR_PATH')) 
