@@ -12,13 +12,23 @@
 <link rel="shortcut icon" href="<?php echo HTML_ROOT .'/image/icon/favicon.ico';?>" />
     </head>
     <body>
+        <?php
+        $menu_arr = array('Blog'=>'blog', 'Blog Category'=>'blogcategory');
+        ?>
 	<nav>
 	<ul>
+        <?php
+        foreach ($menu_arr as $menu_name=>$controller_name) {
+        ?>
+        
 	<li>
 	<?php 
-	$link = ADMIN_HTML_ROOT . 'blog/retrieve';?>
-	<a href="<?php echo $link;?>">Blog</a>	
+	$link = ADMIN_HTML_ROOT . $controller_name . '/retrieve';?>
+	<a href="<?php echo $link;?>"><?php echo $menu_name;?></a>	
 	</li>
+        <?php
+        }
+        ?>
 	</ul>
 	</nav>
 	

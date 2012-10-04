@@ -41,21 +41,14 @@ class Blog extends Admin {
     }
 
     public function delete() {
-        $params = Route::get_params();
-        if (isset($params[0])) {
-            $id = $params[0];
-            Transaction_Blog::delete_blog();
-        } else {
-            Message::set_error_message('no blog');
-        }
+        $id = $this->params[0];
+        Transaction_Blog::delete_blog($id);
         header('Location: ' . ADMIN_HTML_ROOT . 'blog/retrieve/1/title/ASC');
     }
 
     public function update() {
         $success = false;
-		
         if (isset($_POST['submit']) && isset($_POST['id'])) {
-
             $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
 		      \Zx\Test\Test::object_log('id', $id, __FILE__, __LINE__, __CLASS__, __METHOD__);
 			$arr = array();
