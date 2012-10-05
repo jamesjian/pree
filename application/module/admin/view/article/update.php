@@ -8,11 +8,11 @@
             if ($article['cat_id'] == $cat['id']) {
                 echo " selected";
             }
-            ">" . $cat['title'] . '</option>';
+            echo ">" . $cat['title'] . '</option>';
         }
         ?>
     </select>
-    <input type="hidden" name="id" value="><?php echo $article['id'];?>" />
+    <input type="hidden" name="id" value="<?php echo $article['id'];?>" />
     <input type="submit" name="submit" value="update" />
 </form>
 <a href="<?php echo \App\Transaction\Session::get_previous_admin_page();?>" />Cancel</a>

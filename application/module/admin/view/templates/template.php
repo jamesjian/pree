@@ -13,6 +13,10 @@
     </head>
     <body>
         <?php
+        if (\App\Transaction\Staff::staff_has_loggedin()) {
+        ?>
+        <a href="<?php echo ADMIN_HTML_ROOT . 'staff/logout';?>">Logout</a>
+        <?php
         $menu_arr = array('Blog'=>'blog', 'Blog Category'=>'blogcategory',
 							'Article'=>'article', 'Article Category'=>'articlecategory');
         ?>
@@ -32,7 +36,9 @@
         ?>
 	</ul>
 	</nav>
-	
+	<?php
+        } //if logged in
+        ?>
         <?php
         echo $content;
         ?>

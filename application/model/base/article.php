@@ -79,6 +79,8 @@ class Article {
         $sql = "UPDATE article SET " . Mysql::concat_field_name_and_value($arr) .
                 ' WHERE id=:id';
 		$params = array(':id'=>$id);
+		$query = Mysql::interpolateQuery($sql, $params);
+      \Zx\Test\Test::object_log('query', $query, __FILE__, __LINE__, __CLASS__, __METHOD__);                
         return Mysql::exec($sql, $params);
     }
 

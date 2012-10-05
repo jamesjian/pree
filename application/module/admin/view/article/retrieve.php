@@ -9,11 +9,13 @@ $link_prefix = ADMIN_HTML_ROOT . "article/retrieve/$page_num/";
 $link_postfix = ($direction == 'ASC')? '/DESC' : '/ASC';
 $link_id = $link_prefix . 'id' . $link_postfix;
 $link_title = $link_prefix . 'title' . $link_postfix;
+$link_cat_name = $link_prefix . 'cat_name' . $link_postfix;
 ?>
 <table>
 <tr>
 <th><a href='<?php echo $link_id;?>'>id</a></th>
 <th><a href='<?php echo $link_title;?>'>title</a></th>
+<th><a href='<?php echo $link_cat_name;?>'>category</a></th>
 <th>delete</th>
 <th>update</th>
 </tr>
@@ -27,6 +29,7 @@ $link_title = $link_prefix . 'title' . $link_postfix;
 <tr>
 	<td><?php echo $article['id'];?></td>
 	<td><?php echo $article['title'];?></td>
+	<td><?php echo $article['cat_name'];?></td>
 	<td><a href='<?php echo $link_delete;?>'>delete</a></td>
 	<td><a href='<?php echo $link_update;?>'>update</a></td>
 </tr>
