@@ -49,13 +49,15 @@ class Blogcategory {
 
     public static function update($id, $arr) {
         $sql = "UPDATE blog_category SET " . Mysql::concat_field_name_and_value($arr) .
-                ' WHERE id=$id';
-        return Mysql::exec($sql);
+                ' WHERE id=:id';
+		$params = array(':id'=>$id);
+        return Mysql::exec($sql, $params);
     }
 
     public static function delete($id) {
-        $sql = "Delete FROM blog_category WHERE id=$id";
-        return Mysql::exec($sql);
+        $sql = "Delete FROM blog_category WHERE id=:id";
+		$params = array(':id'=>$id);
+        return Mysql::exec($sql, $params);
     }
 
 }

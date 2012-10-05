@@ -4,12 +4,16 @@ namespace App\Model\Base;
 use \Zx\Model\Mysql;
 
 /*
-CREATE TABLE article (id int(11) AUTO INCREMENT PRIMARY KEY,
-title varchar(255) NOT NULL DEFAULT '',
-cat_id int(11) NOT NULL DEFAULT 1,
-content text,
-status tinyint(1) not null default 1,
-date_created datetime) engine=innodb default charset=utf8
+
+CREATE TABLE IF NOT EXISTS `article` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT '',
+  `content` text,
+  `cat_id` tinyint(2) DEFAULT '1',
+  `status` tinyint(1) DEFAULT '1' COMMENT '1: active, 0: inactive',
+  `date_created` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
 */
 class Article {
 
@@ -36,9 +40,9 @@ class Article {
         $sql = "SELECT a.*, ac.title as cat_name,
             FROM article a
             LEFT JOIN article_category ac ON a.cat_id=ac.id
-            WHERE :where
+            WHERE $where
         ";
-		$params = array(':where'=>$where);
+		$params = array();
         return Mysql::select_one($sql, $params);
     }
 
@@ -47,12 +51,11 @@ class Article {
         $sql = "SELECT a.*, ac.title as cat_name,
             FROM article a
             LEFT JOIN article_category ac ON a.cat_id=ac.id
-            WHERE :where
+            WHERE $where
             ORDER BY :order_by :direction
-            LIMIT :offset, :row_count
+            LIMIT $offset, $row_count
         ";
-		$params = array(':where'=>$where, ':offset'=>$offset, ':row_count'=>$row_count, 
-		                ':order_by'=>$order_by, ':direction'=>$direction);
+		$params = array(':order_by'=>$order_by, ':direction'=>$direction);
         return Mysql::select_all($sql, $params);
     }
 

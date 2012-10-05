@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 03, 2012 at 07:27 PM
+-- Generation Time: Oct 05, 2012 at 12:17 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `article` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT '',
-  `description` text,
-  `article_cat_id` tinyint(2) DEFAULT '1',
-  `published` tinyint(1) DEFAULT '1' COMMENT '1: published, 0: unpublished',
+  `content` text,
+  `cat_id` tinyint(2) DEFAULT '1',
+  `status` tinyint(1) DEFAULT '1' COMMENT '1: published, 0: unpublished',
   `date_created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
@@ -43,18 +43,23 @@ CREATE TABLE IF NOT EXISTS `article` (
 --
 
 CREATE TABLE IF NOT EXISTS `article_category` (
-  `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `description` text,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `date_created` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `article_category`
 --
 
-INSERT INTO `article_category` (`name`) VALUES
-('about us'),
-('faq'),
-('term & condition');
+INSERT INTO `article_category` (`id`, `title`, `description`, `status`, `date_created`) VALUES
+(1, 'b11', 'b1b11', 1, '2012-08-01 00:00:00'),
+(2, 'b2', 'b2b2', 1, '2012-08-01 00:00:00'),
+(3, 'b3', 'b3b3', 1, '2012-08-01 00:00:00'),
+(4, 'b4', 'b4b4', 1, '2012-08-01 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -72,7 +77,18 @@ CREATE TABLE IF NOT EXISTS `blog` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `date_created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `blog`
+--
+
+INSERT INTO `blog` (`id`, `title`, `cat_id`, `keyword`, `content`, `rank`, `status`, `date_created`) VALUES
+(1, '', 1, '', NULL, 0, 1, NULL),
+(2, '', 1, '', NULL, 0, 1, NULL),
+(3, '', 1, '', NULL, 0, 1, NULL),
+(4, '', 2, '', NULL, 0, 1, NULL),
+(5, 'aaa1', 2, '', 'bbb1', 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -87,7 +103,17 @@ CREATE TABLE IF NOT EXISTS `blog_category` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `date_created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `blog_category`
+--
+
+INSERT INTO `blog_category` (`id`, `title`, `description`, `status`, `date_created`) VALUES
+(1, 'b11', 'b1b11', 1, '2012-08-01 00:00:00'),
+(2, 'b2', 'b2b2', 1, '2012-08-01 00:00:00'),
+(3, 'b3', 'b3b3', 1, '2012-08-01 00:00:00'),
+(4, 'b4', 'b4b4', 1, '2012-08-01 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -109,7 +135,9 @@ CREATE TABLE IF NOT EXISTS `session` (
 INSERT INTO `session` (`session_id`, `session_data`, `expires`) VALUES
 ('afcfqusd14ld9bg16o2k95dcu7', 'success_message|s:0:"";error_message|s:0:"";staff|a:1:{s:10:"staff_name";s:5:"admin";}', 1348367053),
 ('dgi7245a9tf0p13pvfo2umbfq1', 'success_message|s:0:"";error_message|s:0:"";', 1349292453),
-('h62n9bhjb3od85pp19a8m9vt54', 'pk|s:4:"ppkk";', 1348173507);
+('h62n9bhjb3od85pp19a8m9vt54', 'pk|s:4:"ppkk";', 1348173507),
+('msesqvck2b499cjbod3n7ua8j3', 'success_message|s:0:"";error_message|s:0:"";staff|a:1:{s:10:"staff_name";s:5:"admin";}', 1349394425),
+('rrm27pvi8s4p4gchb1adoc3p36', 'success_message|s:0:"";error_message|s:0:"";staff|a:1:{s:10:"staff_name";s:5:"admin";}', 1349319984);
 
 -- --------------------------------------------------------
 

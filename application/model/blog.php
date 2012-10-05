@@ -15,13 +15,19 @@ class Blog extends Base_Blog {
         $offset = ($page_num - 1) * NUM_OF_BLOGS_IN_CAT_PAGE;
         return parent::get_all($where, $offset, NUM_OF_BLOGS_IN_CAT_PAGE, $order_by, $direction);
     }
-
+    public static function get_num_of_pages_of_active_blogs() {
+		$where = ' status=1';
+        return parent::get_num();
+    }
     public static function get_active_blogs_by_cat_id_and_page_num($cat_id, $page_num = 1, $order_by = 'b.display_order', $direction = 'ASC') {
         $where = ' b.status=1 AND b.cat_id=' . $cat_id;
         $offset = ($page_num - 1) * NUM_OF_BLOGS_IN_CAT_PAGE;
         return parent::get_all($where, $offset, NUM_OF_BLOGS_IN_CAT_PAGE, $order_by, $direction);
     }
-
+    public static function get_num_of_pages_of_active_blogs_by_cat_id() {
+		$where = ' b.status=1 AND b.cat_id=' . $cat_id;
+        return parent::get_num();
+    }
     public static function get_blogs_by_page_num($page_num = 1, $order_by = 'id', $direction = 'ASC') {
         $page_num = intval($page_num);
         $page_num = ($page_num > 0) ? $page_num : 1;

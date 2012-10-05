@@ -9,5 +9,5 @@
         ?>
     </select>
     <input type="submit" name="submit" value="create" />
-    <input type="reset" name="reset" value="clear" />
 </form>
+<a href="<?php echo \Zx\Transaction\Tool::get_current_admin_page();?>" />Cancel</a>

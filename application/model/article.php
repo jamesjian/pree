@@ -47,4 +47,54 @@ class Article extends Base_Article{
         $where = "ac.name='faq'";
         return parent::get_all($where);		
     }
+/**
+     * get active cats order by category name
+     */
+    public static function get_active_articles_by_page_num($page_num = 1, $order_by = 'a.display_order', $direction = 'ASC') {
+        $where = ' a.status=1 ';
+        $offset = ($page_num - 1) * NUM_OF_ARTICLES_IN_CAT_PAGE;
+        return parent::get_all($where, $offset, NUM_OF_ARTICLES_IN_CAT_PAGE, $order_by, $direction);
+    }
+    public static function get_num_of_pages_of_active_articles() {
+		$where = ' status=1';
+        return parent::get_num();
+    }
+    public static function get_active_articles_by_cat_id_and_page_num($cat_id, $page_num = 1, $order_by = 'a.display_order', $direction = 'ASC') {
+        $where = ' a.status=1 AND a.cat_id=' . $cat_id;
+        $offset = ($page_num - 1) * NUM_OF_ARTICLES_IN_CAT_PAGE;
+        return parent::get_all($where, $offset, NUM_OF_ARTICLES_IN_CAT_PAGE, $order_by, $direction);
+    }
+    public static function get_num_of_pages_of_active_articles_by_cat_id() {
+		$where = ' a.status=1 AND a.cat_id=' . $cat_id;
+        return parent::get_num();
+    }
+    public static function get_articles_by_page_num($page_num = 1, $order_by = 'id', $direction = 'ASC') {
+        $page_num = intval($page_num);
+        $page_num = ($page_num > 0) ? $page_num : 1;
+        switch ($order_by) {
+            case 'id':
+            case 'title':
+            case 'date_created':
+            case 'cat_id':
+                $order_by = 'a.' . $order_by;
+                break;
+            default:
+                $order_by = 'a.date_created';
+        }
+        $direction = ($direction == 'ASC') ? 'ASC' : 'DESC';
+        $where = '1';
+        $start = ($page_num - 1) * NUM_OF_RECORDS_IN_ADMIN_PAGE;
+        return parent::get_all($where, $start, NUM_OF_RECORDS_IN_ADMIN_PAGE, $order_by, $direction);
+    }
+
+    public static function get_num_of_pages_of_articles() {
+        return parent::get_num();
+    }
+
+    /**
+     * get active cats order by category name
+     */
+    public static function get_all_articles() {
+        return parent::get_all();
+    }	
 }

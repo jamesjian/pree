@@ -14,5 +14,5 @@
     </select>
     <input type="hidden" name="id" value="<?php echo $blog['id'];?>" />
     <input type="submit" name="submit" value="update" />
-    <input type="reset" name="reset" value="clear" />
 </form>
+<a href="<?php echo \Zx\Transaction\Tool::get_current_admin_page();?>" />Cancel</a>

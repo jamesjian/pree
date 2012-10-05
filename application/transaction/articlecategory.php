@@ -2,32 +2,54 @@
 
 namespace App\Transaction;
 
-use \App\Model\User as User_Model;
+use \App\Model\Articlecategory as Model_Articlecategory;
+use \Zx\Message\Message;
 
-class User {
+class Articlecategory {
 
-    /**
-     * only for admin user  group id=1
-     * @param string $user_name
-     * @param string $user_password
-     * @return  boolean
-     */
-    public static function verify_admin_user($user_name, $user_password) {
-        if ($user_id = User_Model::verify_admin_user($user_name, $user_password)) {
-            //session
-            $_SESSION['admin_user'] = array(
-                'user_id' => $user_id,
-                'user_name' => $user_name,
-            );
-            return true;
+    public static function create_cat($arr=array())
+    {
+        if (count($arr)>0 && isset($arr['title'])) {
+            if (Model_Articlecategory::create($arr)) {
+                Message::set_success_message('success');
+                return true;
+            } else {
+                Message::set_error_message('fail');
+                return false;
+            }
         } else {
-            //error message
+            Message::set_error_message('wrong info');
             return false;
         }
     }
-    public static function logout_admin_user($user_id)
+    
+    public static function update_cat($id, $arr)
     {
-        
+		      //\Zx\Test\Test::object_log('arr', $arr, __FILE__, __LINE__, __CLASS__, __METHOD__);
+	
+        if (count($arr)>0 && (isset($arr['title']) || isset($arr['description']))) {
+            if (Model_Articlecategory::update($id, $arr)) {
+                Message::set_success_message('success');
+                return true;
+            } else {
+                Message::set_error_message('fail');
+                return false;
+            }
+        } else {
+            Message::set_error_message('wrong info');
+            return false;
+        }        
+    }
+    public static function delete_cat($id)
+    {
+        if (Model_Articlecategory::delete($id)) {
+                Message::set_success_message('success');
+                return true;
+            } else {
+                Message::set_error_message('fail');
+                return false;
+            }
     }
 
+    
 }

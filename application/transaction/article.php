@@ -3,6 +3,7 @@
 namespace App\Transaction;
 
 use \App\Model\Article as Model_Article;
+use \Zx\Message\Message;
 
 class Article {
 
@@ -24,7 +25,9 @@ class Article {
     
     public static function update_article($id, $arr)
     {
-        if (count($arr)>0 && (isset($arr['title']) || isset($arr['description']))) {
+		//      \Zx\Test\Test::object_log('arr', $arr, __FILE__, __LINE__, __CLASS__, __METHOD__);
+	
+        if (count($arr)>0 && (isset($arr['title']) || isset($arr['content']))) {
             if (Model_Article::update($id, $arr)) {
                 Message::set_success_message('success');
                 return true;

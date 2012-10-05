@@ -8,6 +8,7 @@ $uri = $_SERVER['REQUEST_URI');  //   /z2/public/xxx/yyy/zzz?M1=2&M2=3
 class Route{
 	public static $module_controller_action = array('module'=>'','controller'=>'', 'action'=>'');
 	public static $params=array();
+	public static $url = ''; //remember current url
 	public static function get_modules()
 	{
 		$ini_array = parse_ini_file(APPLICATION_PATH . 'config/module.php');
@@ -24,9 +25,14 @@ class Route{
             }
             return $routes;
         }
+		public static function get_url()
+		{
+			return self::$url;
+		}
 	public static function analyze_url()
 	{
-		$url = str_replace(URL_PREFIX, '', $_SERVER['REQUEST_URI']); 
+		self::$url = $_SERVER['REQUEST_URI'];
+		$url = str_replace(URL_PREFIX, '', self::$url); 
 		$arr = explode('/',$url);
 		$length = count($arr);
 		if ($length < 3) {
