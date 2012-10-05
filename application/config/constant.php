@@ -1,9 +1,22 @@
 <?php
 //general 
-define('FRONT_VIEW_PATH', APPLICATION_PATH . 'module/front/view/');
-define('ADMIN_VIEW_PATH', APPLICATION_PATH . 'module/admin/view/');
+define('LIBRARY_PATH', PHP_ROOT . 'library' . DIRECTORY_SEPARATOR);
+define('SYSTEM_PATH', LIBRARY_PATH . 'zx' . DIRECTORY_SEPARATOR);
+define('APPLICATION_PATH', PHP_ROOT . 'application' . DIRECTORY_SEPARATOR);
+
+define('FRONT_VIEW_PATH', APPLICATION_PATH . 'module/front/view' . DIRECTORY_SEPARATOR);
+define('ADMIN_VIEW_PATH', APPLICATION_PATH . 'module/admin/view' . DIRECTORY_SEPARATOR);
 define('FRONT_HTML_ROOT', HTML_ROOT . 'front/');
 define('ADMIN_HTML_ROOT', HTML_ROOT . 'admin/');
+
+
+define('PHP_PUBLIC_PATH', PHP_ROOT . 'public' . DIRECTORY_SEPARATOR); //for file upload
+
+define('PHP_UPLOAD_PATH', PHP_PUBLIC_PATH . 'upload' . DIRECTORY_SEPARATOR);
+define('HTML_UPLOAD_PATH', HTML_ROOT . 'upload/');
+ 
+define('PHP_CKEDITOR_PATH', PHP_PUBLIC_PATH . 'js/ckeditor' . DIRECTORY_SEPARATOR);
+define('HTML_CKEDITOR_PATH', HTML_ROOT . 'js/ckeditor/');
 
 define('SESSION_LIEFTIME', 1200); //used by session class
 

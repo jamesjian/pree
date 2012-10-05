@@ -23,7 +23,7 @@ class Article {
      * @return 1D array or boolean when false 
      */
     public static function get_one($id) {
-        $sql = "SELECT a.*, ac.title as cat_name,
+        $sql = "SELECT a.*, ac.title as cat_name
             FROM article a
             LEFT JOIN article_category ac ON a.cat_id=ac.id
             WHERE a.id=:id
@@ -37,7 +37,7 @@ class Article {
      * @return 1D array or boolean when false 
      */
     public static function get_one_by_where($where) {
-        $sql = "SELECT a.*, ac.title as cat_name,
+        $sql = "SELECT a.*, ac.title as cat_name
             FROM article a
             LEFT JOIN article_category ac ON a.cat_id=ac.id
             WHERE $where
@@ -48,7 +48,7 @@ class Article {
 
 	
     public static function get_all($where = '1', $offset = 0, $row_count = MAXIMUM_ROWS, $order_by = 'a.display_order', $direction = 'ASC') {
-        $sql = "SELECT a.*, ac.title as cat_name,
+        $sql = "SELECT a.*, ac.title as cat_name
             FROM article a
             LEFT JOIN article_category ac ON a.cat_id=ac.id
             WHERE $where
@@ -58,7 +58,18 @@ class Article {
 		$params = array(':order_by'=>$order_by, ':direction'=>$direction);
         return Mysql::select_all($sql, $params);
     }
-
+    public static function get_num($where = '1') {
+        $sql = "SELECT COUNT(id) AS num
+            FROM blog 
+            WHERE $where
+        ";
+        $result = Mysql::select_one($sql);
+		if ($result) {
+			return $result['num'];
+		} else {
+			return false;
+		}
+    }
     public static function create($arr) {
         $sql = "INSERT INTO article SET " . Mysql::concat_field_name_and_value($arr);
         return Mysql::insert($sql);

@@ -1,11 +1,11 @@
 <?php
 include 'search.php';
-$create_link = ADMIN_HTML_ROOT . 'blogcategory/create';
+$create_link = ADMIN_HTML_ROOT . 'article/create';
 ?>
 <a href="<?php echo $create_link;?>">Create</a>
 <?php
-if ($cat_list) {
-$link_prefix = ADMIN_HTML_ROOT . "blogcategory/retrieve/$page_num/";
+if ($article_list) {
+$link_prefix = ADMIN_HTML_ROOT . "article/retrieve/$page_num/";
 $link_postfix = ($direction == 'ASC')? '/DESC' : '/ASC';
 $link_id = $link_prefix . 'id' . $link_postfix;
 $link_title = $link_prefix . 'title' . $link_postfix;
@@ -19,14 +19,14 @@ $link_title = $link_prefix . 'title' . $link_postfix;
 </tr>
 
 <?php
-    foreach ($cat_list as $cat) {
-	$cat_id = $cat['id'];
-	$link_delete = ADMIN_HTML_ROOT . 'blogcategory/delete/' . $cat_id;
-	$link_update = ADMIN_HTML_ROOT . 'blogcategory/update/' . $cat_id;
+    foreach ($article_list as $article) {
+	$article_id = $article['id'];
+	$link_delete = ADMIN_HTML_ROOT . 'article/delete/' . $article_id;
+	$link_update = ADMIN_HTML_ROOT . 'article/update/' . $article_id;
 ?>
 <tr>
-	<td><?php echo $cat['id'];?></td>
-	<td><?php echo $cat['title'];?></td>
+	<td><?php echo $article['id'];?></td>
+	<td><?php echo $article['title'];?></td>
 	<td><a href='<?php echo $link_delete;?>'>delete</a></td>
 	<td><a href='<?php echo $link_update;?>'>update</a></td>
 </tr>
@@ -35,7 +35,7 @@ $link_title = $link_prefix . 'title' . $link_postfix;
 	?>
 	</table>
 <?php
-$link_prefix = ADMIN_HTML_ROOT . 'blogcategory/retrieve/';	
+$link_prefix = ADMIN_HTML_ROOT . 'article/retrieve/';	
 $link_postfix = "$order_by/$direction";
 include ADMIN_VIEW_PATH . 'templates/pagination.php';
 } else {

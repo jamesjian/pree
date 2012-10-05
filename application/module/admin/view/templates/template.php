@@ -13,7 +13,8 @@
     </head>
     <body>
         <?php
-        $menu_arr = array('Blog'=>'blog', 'Blog Category'=>'blogcategory');
+        $menu_arr = array('Blog'=>'blog', 'Blog Category'=>'blogcategory',
+							'Article'=>'article', 'Article Category'=>'articlecategory');
         ?>
 	<nav>
 	<ul>

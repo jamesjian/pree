@@ -4,7 +4,6 @@ namespace App\Module\Admin\Controller;
 
 use \App\Model\Articlecategory as Model_Articlecategory;
 use \App\Transaction\Articlecategory as Transaction_Articlecategory;
-use \App\Transaction\Tool as Transaction_Tool;
 use \Zx\View\View;
 use \Zx\Test\Test;
 
@@ -79,7 +78,7 @@ class Articlecategory extends Admin {
 	/page/orderby/direction
 	*/
     public function retrieve() {
-		Transaction_Tool::remember_current_admin_page();
+		\App\Transaction\Session::remember_current_admin_page();
         $page_num = isset($this->params[0]) ?  intval($this->params[0]) : 1;
         $order_by = isset($this->params[1]) ? $this->params[1]: 'id';
         $direction = isset($this->params[2]) ?  $this->params[2]: 'ASC';

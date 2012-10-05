@@ -10,8 +10,6 @@ use \Zx\Test\Test;
 
 class Article extends Admin {
 
-    
-
     public function init() {
         $this->view_path = APPLICATION_PATH . 'module/admin/view/article/';
         parent::init();
@@ -72,7 +70,7 @@ class Article extends Admin {
             }
             $article = Model_Article::get_one($id);
 			
-            $cats = Model_Articlecategory::get_cats();
+            $cats = Model_Articlecategory::get_all_cats();
       \Zx\Test\Test::object_log('cats', $cats, __FILE__, __LINE__, __CLASS__, __METHOD__);
 			
             View::set_view_file($this->view_path . 'update.php');
@@ -84,6 +82,7 @@ class Article extends Admin {
 	/page/orderby/direction
 	*/
     public function retrieve() {
+			\App\Transaction\Session::remember_current_admin_page();
         $page_num = isset($this->params[0]) ?  intval($this->params[0]) : 1;
         $order_by = isset($this->params[1]) ? $this->params[1]: 'id';
         $direction = isset($this->params[2]) ?  $this->params[2]: 'ASC';

@@ -14,6 +14,7 @@ class Blog extends Admin {
 
     public function init() {
         $this->view_path = APPLICATION_PATH . 'module/admin/view/blog/';
+		\App\Transaction\Session::set_ck_upload_path('blog');
         parent::init();
     }
 
@@ -84,11 +85,14 @@ class Blog extends Admin {
 	/page/orderby/direction
 	*/
     public function retrieve() {
+		\App\Transaction\Session::remember_current_admin_page();
         $page_num = isset($this->params[0]) ?  intval($this->params[0]) : 1;
         $order_by = isset($this->params[1]) ? $this->params[1]: 'id';
         $direction = isset($this->params[2]) ?  $this->params[2]: 'ASC';
 		$blog_list = Model_Blog::get_blogs_by_page_num($page_num, $order_by, $direction);
 		$num_of_pages = Model_Blog::get_num_of_pages_of_blogs();
+      //\Zx\Test\Test::object_log('blog_list', $blog_list, __FILE__, __LINE__, __CLASS__, __METHOD__);
+		
         View::set_view_file($this->view_path . 'retrieve.php');
         View::set_action_var('blog_list', $blog_list);
         View::set_action_var('order_by', $order_by);

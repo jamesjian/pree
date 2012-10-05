@@ -15,4 +15,8 @@
     <input type="hidden" name="id" value="<?php echo $blog['id'];?>" />
     <input type="submit" name="submit" value="update" />
 </form>
-<a href="<?php echo \Zx\Transaction\Tool::get_current_admin_page();?>" />Cancel</a>
+<a href="<?php echo \App\Transaction\Session::get_previous_admin_page();?>" />Cancel</a>
+<?php 
+	include_once(PHP_CKEDITOR_PATH . 'j_ckedit.class.php');
+	echo CKEDITOR::ckHeader();
+	echo CKEDITOR::ckReplaceEditor_Full('content');   

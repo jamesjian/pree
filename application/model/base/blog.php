@@ -47,7 +47,7 @@ class Blog {
 
 	
     public static function get_all($where = '1', $offset = 0, $row_count = MAXIMUM_ROWS, $order_by = 'b.display_order', $direction = 'ASC') {
-        $sql = "SELECT b.*, bc.title as cat_name,
+        $sql = "SELECT b.*, bc.title as cat_name
             FROM blog b
             LEFT JOIN blog_category bc ON b.cat_id=bc.id
             WHERE $where
@@ -55,8 +55,8 @@ class Blog {
             LIMIT $offset, $row_count
         ";
 		$params = array(':order_by'=>$order_by, ':direction'=>$direction);
-		//$query = Mysql::interpolateQuery($sql, $params);
-      //\Zx\Test\Test::object_log('query', $query, __FILE__, __LINE__, __CLASS__, __METHOD__);
+		$query = Mysql::interpolateQuery($sql, $params);
+      \Zx\Test\Test::object_log('query', $query, __FILE__, __LINE__, __CLASS__, __METHOD__);
 				
         return Mysql::select_all($sql, $params);
     }

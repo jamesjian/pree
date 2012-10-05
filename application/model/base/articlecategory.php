@@ -33,7 +33,18 @@ class Articlecategory {
 		$params = array(':order_by'=>$order_by, ':direction'=>$direction);
         return Mysql::select_all($sql, $params);
     }
-
+  public static function get_num($where = '1') {
+        $sql = "SELECT COUNT(id) AS num
+            FROM article_category
+            WHERE $where
+        ";
+        $result = Mysql::select_one($sql);
+		if ($result) {
+			return $result['num'];
+		} else {
+			return false;
+		}
+    }
     public static function create($arr) {
         $sql = "INSERT INTO article_category SET " . Mysql::concat_field_name_and_value($arr);
         return Mysql::insert($sql);
