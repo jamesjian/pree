@@ -23,7 +23,7 @@ define('SESSION_LIEFTIME', 1200); //used by session class
 define('BR', '<br />');
 define('LOG_FILE',PHP_ROOT . 'public/test/my_log.php');
 define('MAXIMUM_ROWS',999999);
-define('URL_PREFIX', HTML_ROOT); 
+
 
 
 define('NUM_OF_RECORDS_IN_ADMIN_PAGE', 30); 

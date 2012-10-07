@@ -3,6 +3,8 @@
 namespace App\Module\Front\Controller;
 
 use \Zx\Controller\Route;
+use \App\Model\Blog as Model_Blog;
+use \App\Model\Blogcategory as Model_Blogcategory;
 use \Zx\View\View;
 
 class Common extends Front {
@@ -31,12 +33,21 @@ class Common extends Front {
 	}
 	public function home()
 	{
-		$page_number = 1;
-		$blogs = Model_Blog::get_blogs(1);
-		$num_of_blogs = Model_Blog::get_num_of_blogs($cat_id);
+                  \Zx\Test\Test::object_log('lob', 'aaaa', __FILE__, __LINE__, __CLASS__, __METHOD__);
+
+		$page_num = 1;
+        $order_by = 'date_created';
+        $direction = 'DESC';
+		$blogs = Model_Blog::get_active_blogs_by_page_num($page_num, $order_by, $direction);
+		$related_blogs = Model_Blog::get_realted_blogs();
+		$num_of_blogs = Model_Blog::get_num_of_pages_of_active_blogs();
 		$num_of_pages = ceil($num_of_blogs/NUM_OF_BLOGS_IN_CAT_PAGE);
         View::set_view_file($this->view_path . 'home.php');
         View::set_action_var('blogs', $blogs);
+        View::set_action_var('related_blogs', $related_blogs);
+        View::set_action_var('order_by', $order_by);
+        View::set_action_var('direction', $direction);
+        View::set_action_var('page_num', $page_num);
         View::set_action_var('num_of_pages', $num_of_pages);
 	}
 }

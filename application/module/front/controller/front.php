@@ -4,7 +4,8 @@ namespace App\Module\Front\Controller;
 //this is the base class of front classes
 use \Zx\Controller\Route;
 use \Zx\View\View;
-
+use \App\Model\Blog as Model_Blog;
+use \App\Model\Blogcategory as Model_Blogcategory;
 class Front {
     public $template_path = '';
 	public $view_path = '';

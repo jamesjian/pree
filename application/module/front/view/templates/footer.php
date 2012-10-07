@@ -5,7 +5,7 @@ Top 10
 <ul>
 <?php
 foreach ($top10 as $blog) {
-$link = HTMLROOT . 'front/blog/show/' . $blog['id'];
+$link = HTML_ROOT . 'front/blog/show/' . $blog['id'];
 ?>
 <li><a href="<?php echo $link;?>"><?php echo $blog['title'];?></a>
 </li>
@@ -17,7 +17,7 @@ Latest 10
 <ul>
 <?php
 foreach ($latest10 as $blog) {
-$link = HTMLROOT . 'front/blog/show/' . $blog['id'];
+$link = HTML_ROOT . 'front/blog/show/' . $blog['id'];
 ?>
 <li><a href="<?php echo $link;?>"><?php echo $blog['title'];?></a>
 </li>

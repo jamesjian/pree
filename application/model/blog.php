@@ -6,7 +6,10 @@ use \App\Model\Base\Blog as Base_Blog;
 use \Zx\Model\Mysql;
 
 class Blog extends Base_Blog {
-
+    public static function get_realted_blogs()
+    {
+        return false;
+    }
     /**
      * get active cats order by category name
      */
