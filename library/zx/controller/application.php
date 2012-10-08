@@ -63,5 +63,12 @@ class Application {
         echo $result;
         
     }
+	/**
+		usually no view 
+	*/
+	public static function cron_run()
+	{
+	
+	}
 
 }

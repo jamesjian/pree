@@ -26,7 +26,7 @@
             <?php
         }//if ($blogs)
 	$current_page = 1;
-	$link_prefix = FRONT_HTML_ROOT .'blog/retrieve/page/';			
+	$link_prefix = FRONT_HTML_ROOT .'blog/latest/page/';			
 	$link_postfix = '';			
         include FRONT_VIEW_PATH . 'blog/pagination.php';
         ?>
@@ -45,12 +45,12 @@
     <div class='zx-front-right3'>
         <?php
 //related contents
-        if ($related_blogs) {
+        if ($popular_blogs) {
             ?>
             <nav>
                 <ul>
                     <?php
-                    foreach ($related_blogs as $blog) {
+                    foreach ($popular_blogs as $blog) {
                         $read_more_link = HTMLROOT . 'front/blog/show/' . $blog['id'];
                         ?>		
                         <li><?php echo "<a href='$read_more_link'>" . $blog->title . "</a>";
@@ -62,7 +62,7 @@
                 </ul>
             </nav>	
             <?php
-        }//if ($related_blogs)
+        }//if ($popular_blogs)
         ?>
     </div>
 </div>

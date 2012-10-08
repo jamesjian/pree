@@ -12,4 +12,20 @@
 		<link rel="shortcut icon" href="<?php echo HTML_ROOT .'image/icon/favicon.ico';?>" />
         <script type="text/javascript" src="<?php echo HTML_ROOT . 'js/jquery/jquery-1.8.1.min.js';?>"></script>
     </head>
-<body class='bx-front-body'>	
+<body class='zx-front-body'>	
+<div class='zx-front-header'>
+    <div class='zx-front-logo'>
+        <img src="<?php echo HTML_ROOT . 'image/logo.jpg';?>" />
+    </div>
+    <nav class='zx-front-top-menu'>
+        <ul>
+            <li>baoxian cat1</li>
+            <li>baoxian cat2</li>
+            <li>baoxian cat3</li>
+            <li>baoxian cat4</li>
+            <li>About Us</li>
+            <li>Contact Us</li>
+        </ul>
+    </nav>
+</div>
+<div class="zx-front-clear-both"></div>
