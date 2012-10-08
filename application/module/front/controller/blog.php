@@ -23,7 +23,7 @@ class Blog extends Front {
 			Model_Blog::increase_rank($blog_id);
 		
         View::set_view_file($this->view_path . 'show.php');
-		relate_blogs = Model_Blog::get_active_related_blogs($blog_id);
+		$relate_blogs = Model_Blog::get_active_related_blogs($blog_id);
         View::set_action_var('blog', $blog);
         View::set_action_var('related_blogs', $relate_blogs);
 		} else {
@@ -38,7 +38,7 @@ class Blog extends Front {
 	public function category()
 	{
 		$cat_id = (isset($params[0])) ? intval($params[1]) : 1;
-		$page_number = (isset($params[2])) ?  intval($params[2] : 1;  //default page 1
+		$page_number = (isset($params[2])) ?  intval($params[2]) : 1;  //default page 1
         $cat = Model_Blogcategory::get_one($cat_id);
         $order_by = 'date_created';
         $direction = 'DESC';		

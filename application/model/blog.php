@@ -10,7 +10,7 @@ class Blog extends Base_Blog {
 		according to category or keyword
 		keywords are seperated by '^'
 	*/
-    public static function get_10_active_realted_blogs($blog_id)
+    public static function get_10_active_related_blogs($blog_id)
     {
 		$blog = parent::get_one($blog_id);
 		if ($blog) {
@@ -32,6 +32,7 @@ class Blog extends Base_Blog {
 		} else {
 			return false;
 		}
+    }
     }
     /**
      * get active cats order by category name

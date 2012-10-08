@@ -39,7 +39,7 @@ class Common extends Front {
         $order_by = 'date_created';
         $direction = 'DESC';
 		$blogs = Model_Blog::get_active_blogs_by_page_num($page_num, $order_by, $direction);
-		$related_blogs = Model_Blog::get_realted_blogs();
+		$related_blogs = Model_Blog::get_10_active_related_blogs(1);
 		$num_of_blogs = Model_Blog::get_num_of_pages_of_active_blogs();
 		$num_of_pages = ceil($num_of_blogs/NUM_OF_BLOGS_IN_CAT_PAGE);
         View::set_view_file($this->view_path . 'home.php');

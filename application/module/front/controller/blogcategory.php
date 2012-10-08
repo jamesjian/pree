@@ -20,7 +20,7 @@ class Blogcategory extends Front {
 	*/
     public function show() {
 		$cat_id = (isset($params[0])) ? intval($params[1]) : 1;
-		$page_number = (isset($params[2])) ?  intval($params[2] : 1;  //default page 1
+		$page_number = (isset($params[2])) ?  intval($params[2]) : 1;  //default page 1
         $cat = Model_Blogcategory::get_one($cat_id);
 		$blogs = Model_Blog::get_active_blogs_by_cat_id_and_page_number($cat_id, $page_number);
 		$num_of_blogs = Model_Blog::get_num_of_active_blogs_by_cat_id($cat_id);

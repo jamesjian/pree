@@ -10,7 +10,7 @@ define('FRONT_HTML_ROOT', HTML_ROOT . 'front/');
 define('ADMIN_HTML_ROOT', HTML_ROOT . 'admin/');
 
 
-define('PHP_PUBLIC_PATH', PHP_ROOT . 'public' . DIRECTORY_SEPARATOR); //for file upload
+define('PHP_PUBLIC_PATH', PHP_ROOT); //for file upload
 
 define('PHP_UPLOAD_PATH', PHP_PUBLIC_PATH . 'upload' . DIRECTORY_SEPARATOR);
 define('HTML_UPLOAD_PATH', HTML_ROOT . 'upload/');
@@ -21,7 +21,7 @@ define('HTML_CKEDITOR_PATH', HTML_ROOT . 'js/ckeditor/');
 define('SESSION_LIEFTIME', 1200); //used by session class
 
 define('BR', '<br />');
-define('LOG_FILE',PHP_ROOT . 'public/test/my_log.php');
+define('LOG_FILE',PHP_ROOT . 'test/my_log.php');
 define('MAXIMUM_ROWS',999999);
 
 
