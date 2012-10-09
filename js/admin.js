@@ -15,7 +15,7 @@ admin = {
             return false;
         }
     },
-        /**
+    /**
      * template for all view_XXX_link click event
      */
     show_template: function(e){
@@ -23,7 +23,7 @@ admin = {
         var url = $(this).attr('href');
         $('#dialog').dialog({
             title: e.data.title
-            });
+        });
         $('#dialog').load(url);
         $('#dialog').dialog('open');
         return false;
@@ -50,13 +50,13 @@ admin = {
             success: function(data){
                 //console.log(data.changed);
                 if (data.changed == true){
-                //no action
+                    //no action
                 } else {
                 }
             }
         });   
     },    
-   clear_image: function(event)
+    clear_image: function(event)
     {
         var delete_image_id = $(this).attr('id');
         var url = $(this).attr('href');
@@ -76,7 +76,7 @@ admin = {
                     $('#'+delete_image_id).css('display','none');
                     $('#'+delete_image_id).css('visibility','hidden');
                 }
-            //transaction.get_buyer_location_list();
+                //transaction.get_buyer_location_list();
             }
         });   
         return false;
@@ -109,12 +109,12 @@ admin = {
                     $('#'+delete_image_id).css('display','none');
                     $('#'+delete_image_id).css('visibility','hidden');
                 }
-            //transaction.get_buyer_location_list();
+                //transaction.get_buyer_location_list();
             }
         });   
         return false;
     }, 
-/**
+    /**
      * initialize all show event handlers
      */
     init_view_links: function(){
@@ -136,17 +136,17 @@ admin = {
         $('.clear_blog_image').bind('click', {
             image_id:'#image'
         }, index.clear_image);        
-        },
+    },
     /**
      * initialize all delete event handlers
      */
     init_delete_links: function(){
-        $('.delete_cat').bind('click', {
-            name: 'category'
-        }, index.confirm_delete_template);//about us
-        $('.delete_article').bind('click', {
-            name: 'page'
-        }, index.confirm_delete_template);//about us
+        $('.delete_blog_cat').bind('click', {
+            name: 'blog category'
+        }, index.confirm_delete_template);
+        $('.delete_blog').bind('click', {
+            name: 'blog'
+        }, index.confirm_delete_template);
     },    
     init_change_status_links: function(){
         $('.category_status').bind('change', {
@@ -157,24 +157,25 @@ admin = {
         },index.change_status);
     },	
     test: function(){
-      var url = '/z2/public/admin/article/show';
- $.ajax({
+        var url = '/z2/public/admin/article/show';
+        $.ajax({
             type: "POST",
             url: url,
             data: {id: 111},
             dataType:  'html',
             success: function(data){
-               // index.open_action_dialog(data,title)
-               $('#test_div').html(data);
+                // index.open_action_dialog(data,title)
+                $('#test_div').html(data);
             }
-            });
+        });
 
     },
     bind_events: function(){
-      admin.unbind_events();  
-      $('#delete_').click(admin.test);
-        index.init_view_links();
-        index.init_clear_image_links();	  
+        admin.unbind_events();  
+        //$('#delete_').click(admin.test);
+        admin.init_view_links();
+        //admin.init_clear_image_links();	  
+        admin.init_delete_links();	  
     },
     unbind_events: function(){
         
@@ -182,8 +183,8 @@ admin = {
     init: function(){
         console.log('aaa');
         admin.bind_events();
- $('tr:odd').css('background-color', '#ffffee');		
-$('#dialog').dialog({
+        $('tr:odd').css('background-color', '#ffffee');		
+        $('#dialog').dialog({
             autoOpen: false,
             height: 500,
             width: 900,
@@ -193,7 +194,7 @@ $('#dialog').dialog({
                     $(this).dialog('close');
                 }
             }		
+        });
     }
 }
-
 $(document).ready(admin.init);

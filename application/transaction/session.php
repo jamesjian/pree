@@ -106,4 +106,20 @@ class Session {
         $str = substr($str, 0, -2);  //remove the trailing '->';
         return $str;
     }	
+    /**
+     * level one menu
+     * @param string $menu such as "Blog Category"
+     */
+    public static function set_current_l1_menu($menu)
+    {
+        $_SESSION['l1_menu'] = $menu;
+    }
+    /**
+     * 
+     * @return string level one menu
+     */
+    public static function get_current_l1_menu()
+    {
+        return $_SESSION['l1_menu'];
+    }
 }

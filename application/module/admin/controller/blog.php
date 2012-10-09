@@ -10,8 +10,10 @@ use \Zx\Test\Test;
 
 class Blog extends Admin {
 
+    public $list_page = '';
     public function init() {
         $this->view_path = APPLICATION_PATH . 'module/admin/view/blog/';
+        $this->list_page =  ADMIN_HTML_ROOT . 'blog/retrieve/1/title/ASC/';
         \App\Transaction\Session::set_ck_upload_path('blog');
         parent::init();
     }
@@ -45,7 +47,7 @@ class Blog extends Admin {
             }
         }
         if ($success) {
-            header('Location: ' . ADMIN_HTML_ROOT . 'blog/retrieve/1/title/ASC');
+            header('Location: ' . $this->list_page);
         } else {
             $cats = Model_Blogcategory::get_all_cats();
             View::set_view_file($this->view_path . 'create.php');
@@ -56,7 +58,7 @@ class Blog extends Admin {
     public function delete() {
         $id = $this->params[0];
         Transaction_Blog::delete_blog($id);
-        header('Location: ' . ADMIN_HTML_ROOT . 'blog/retrieve/1/title/ASC');
+        header('Location: ' . $this->list_page);
     }
 
     public function update() {
@@ -90,7 +92,7 @@ class Blog extends Admin {
             }
         }
         if ($success) {
-            header('Location: ' . ADMIN_HTML_ROOT . 'blog/retrieve/1/title/ASC');
+            header('Location: ' . $this->list_page);
         } else {
             if (!isset($id)) {
                 $id = $this->params[0];
@@ -107,9 +109,9 @@ class Blog extends Admin {
     }
     public function search() {
         if (isset($_POST['search']) && trim($_POST['search']) != '') {
-            $link = ADMIN_HTML_ROOT . 'blog/retrieve/1/title/ASC/' . trim($_POST['search']);
+            $link = $this->list_page . trim($_POST['search']);
         } else {
-            $link = ADMIN_HTML_ROOT . 'blog/retrieve/1/title/ASC/';
+            $link = $this->list_page;
         }
         header('Location: ' . $link);
     }
@@ -118,6 +120,7 @@ class Blog extends Admin {
      */
     public function retrieve() {
         \App\Transaction\Session::remember_current_admin_page();
+        \App\Transaction\Session::set_current_l1_menu('Blog');
         $current_page = isset($this->params[0]) ? intval($this->params[0]) : 1;
         $order_by = isset($this->params[1]) ? $this->params[1] : 'id';
         $direction = isset($this->params[2]) ? $this->params[2] : 'ASC';
@@ -128,6 +131,36 @@ class Blog extends Admin {
             $where = '1';
         }
         $blog_list = Model_Blog::get_blogs_by_page_num($where, $current_page, $order_by, $direction);
+        $num_of_records = Model_Blog::get_num_of_blogs($where);
+        $num_of_pages = ceil($num_of_records / NUM_OF_RECORDS_IN_ADMIN_PAGE);
+        //\Zx\Test\Test::object_log('blog_list', $blog_list, __FILE__, __LINE__, __CLASS__, __METHOD__);
+
+        View::set_view_file($this->view_path . 'retrieve.php');
+        View::set_action_var('blog_list', $blog_list);
+        View::set_action_var('search', $search);
+        View::set_action_var('order_by', $order_by);
+        View::set_action_var('direction', $direction);
+        View::set_action_var('current_page', $current_page);
+        View::set_action_var('num_of_pages', $num_of_pages);
+    }
+    /**
+     * under one category
+      retrieve_by_cat_id/cat_id/page/orderby/direction
+     */
+    public function retrieve_by_cat_id() {
+        \App\Transaction\Session::remember_current_admin_page();
+        \App\Transaction\Session::set_current_l1_menu('Blog');
+        $cat_id = isset($this->params[0]) ? intval($this->params[0]) :0;
+        $current_page = isset($this->params[1]) ? intval($this->params[1]) : 1;
+        $order_by = isset($this->params[2]) ? $this->params[2] : 'id';
+        $direction = isset($this->params[3]) ? $this->params[3] : 'ASC';
+        $search = isset($this->params[4]) ? $this->params[4]: '';
+        if ($search != '') {
+            $where = " b.title LIKE '%$search%' OR bc.title LIKE '%$search%'";
+        } else {
+            $where = '1';
+        }
+        $blog_list = Model_Blog::get_blogs_by_cat_id_and_page_num($cat_id, $where, $current_page, $order_by, $direction);
         $num_of_records = Model_Blog::get_num_of_blogs($where);
         $num_of_pages = ceil($num_of_records / NUM_OF_RECORDS_IN_ADMIN_PAGE);
         //\Zx\Test\Test::object_log('blog_list', $blog_list, __FILE__, __LINE__, __CLASS__, __METHOD__);

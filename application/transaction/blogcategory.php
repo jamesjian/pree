@@ -7,9 +7,8 @@ use \Zx\Message\Message;
 
 class Blogcategory {
 
-    public static function create_cat($arr=array())
-    {
-        if (count($arr)>0 && isset($arr['title'])) {
+    public static function create_cat($arr = array()) {
+        if (count($arr) > 0 && isset($arr['title'])) {
             if (Model_Blogcategory::create($arr)) {
                 Message::set_success_message('success');
                 return true;
@@ -22,12 +21,11 @@ class Blogcategory {
             return false;
         }
     }
-    
-    public static function update_cat($id, $arr)
-    {
-		      \Zx\Test\Test::object_log('arr', $arr, __FILE__, __LINE__, __CLASS__, __METHOD__);
-	
-        if (count($arr)>0 && (isset($arr['title']) || isset($arr['description']))) {
+
+    public static function update_cat($id, $arr) {
+        \Zx\Test\Test::object_log('arr', $arr, __FILE__, __LINE__, __CLASS__, __METHOD__);
+
+        if (count($arr) > 0 && (isset($arr['title']) || isset($arr['description']))) {
             if (Model_Blogcategory::update($id, $arr)) {
                 Message::set_success_message('success');
                 return true;
@@ -38,18 +36,21 @@ class Blogcategory {
         } else {
             Message::set_error_message('wrong info');
             return false;
-        }        
+        }
     }
-    public static function delete_cat($id)
-    {
-        if (Model_Blogcategory::delete($id)) {
+
+    public static function delete_cat($id) {
+        if (Model_Blogcategory::exist_blog_under_this_cat($id)) {
+            Message::set_error_message('There is a blog under this category, it cannot be deleted.');
+        } else {
+            if (Model_Blogcategory::delete($id)) {
                 Message::set_success_message('success');
                 return true;
             } else {
                 Message::set_error_message('fail');
                 return false;
             }
+        }
     }
 
-    
 }

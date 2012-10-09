@@ -9,8 +9,10 @@ use \Zx\Test\Test;
 
 class Blogcategory extends Admin {
 
+    public $list_page = '';
     public function init() {
         $this->view_path = APPLICATION_PATH . 'module/admin/view/blogcategory/';
+        $this->list_page =  ADMIN_HTML_ROOT . 'blogcategory/retrieve/1/title/ASC/';
         parent::init();
     }
 
@@ -37,7 +39,7 @@ class Blogcategory extends Admin {
             }
         }
         if ($success) {
-            header('Location: ' . ADMIN_HTML_ROOT . 'blogcategory/retrieve/1/title/ASC');
+            header('Location: ' . $this->list_page);
         } else {
             $cats = Model_Blogcategory::get_all_cats();
             View::set_view_file($this->view_path . 'create.php');
@@ -48,7 +50,7 @@ class Blogcategory extends Admin {
     public function delete() {
         $id = $this->params[0];
         Transaction_Blogcategory::delete_cat($id);
-        header('Location: ' . ADMIN_HTML_ROOT . 'blogcategory/retrieve/1/title/ASC');
+        header('Location: ' . $this->list_page);
     }
 
     public function update() {
@@ -79,7 +81,7 @@ class Blogcategory extends Admin {
             }
         }
         if ($success) {
-            header('Location: ' . ADMIN_HTML_ROOT . 'blogcategory/retrieve/1/title/ASC');
+            header('Location: ' . $this->list_page);
         } else {
             if (!isset($id)) {
                 $id = $this->params[0];

@@ -42,8 +42,8 @@ class Blog extends Base_Blog {
         $offset = ($page_num - 1) * NUM_OF_BLOGS_IN_CAT_PAGE;
         return parent::get_all($where, $offset, NUM_OF_BLOGS_IN_CAT_PAGE, $order_by, $direction);
     }
-    public static function get_num_of_active_blogs() {
-		$where = ' b.status=1';
+    public static function get_num_of_active_blogs($where='1') {
+		$where = ' (b.status=1'. ')  AND (' . $where . ')';
         return parent::get_num();
     }
 	/**
@@ -52,6 +52,15 @@ class Blog extends Base_Blog {
         $where = ' b.status=1 AND b.cat_id=' . $cat_id;
         $offset = ($page_num - 1) * NUM_OF_BLOGS_IN_CAT_PAGE;
         return parent::get_all($where, $offset, NUM_OF_BLOGS_IN_CAT_PAGE, $order_by, $direction);
+    }
+    public static function get_blogs_by_cat_id_and_page_num($cat_id, $where='1', $page_num = 1, $order_by = 'b.display_order', $direction = 'ASC') {
+        $where = ' (b.status=1 AND b.cat_id=' . $cat_id . ')  AND (' . $where . ')';
+        $offset = ($page_num - 1) * NUM_OF_BLOGS_IN_CAT_PAGE;
+        return parent::get_all($where, $offset, NUM_OF_BLOGS_IN_CAT_PAGE, $order_by, $direction);
+    }
+    public static function get_num_of_blogs_by_cat_id($cat_id, $where='1') {
+		$where = ' (b.cat_id=' . $cat_id. ')  AND (' . $where . ')';
+        return parent::get_num($where);
     }
     public static function get_num_of_active_blogs_by_cat_id($cat_id) {
 		$where = ' b.status=1 AND b.cat_id=' . $cat_id;

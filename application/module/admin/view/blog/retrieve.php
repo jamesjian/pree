@@ -16,6 +16,7 @@ $link_cat_name = $link_prefix . 'cat_name' . $link_postfix;
 $link_status = $link_prefix . 'status' . $link_postfix;
 $direction_img = ($direction == 'ASC') ? HTML_ROOT . 'image/icon/up.png' : 
                                          HTML_ROOT . 'image/icon/down.png'; 
+\Zx\Message\Message::show_message();
 ?>
 <table>
 <tr>
@@ -42,7 +43,7 @@ $direction_img = ($direction == 'ASC') ? HTML_ROOT . 'image/icon/up.png' :
 	<td><?php echo $blog['rank'];?></td>
 	<td><?php echo $blog['cat_name'];?></td>
         <td><?php echo $blog['status'];?></td>
-	<td><a href='<?php echo $link_delete;?>'>delete</a></td>
+	<td><a href='<?php echo $link_delete;?>' class="delete_blog">delete</a></td>
 	<td><a href='<?php echo $link_update;?>'>update</a></td>
 </tr>
 <?php

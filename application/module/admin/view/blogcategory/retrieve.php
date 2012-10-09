@@ -15,6 +15,7 @@ $link_url = $link_prefix . 'url' . $link_postfix;
 $link_status = $link_prefix . 'status' . $link_postfix;
 $direction_img = ($direction == 'ASC') ? HTML_ROOT . 'image/icon/up.png' : 
                                          HTML_ROOT . 'image/icon/down.png'; 
+\Zx\Message\Message::show_message();
 ?>
 <table>
 <tr>
@@ -22,6 +23,7 @@ $direction_img = ($direction == 'ASC') ? HTML_ROOT . 'image/icon/up.png' :
 <th><a href='<?php echo $link_title;?>'>title</a><img src="<?php echo $direction_img;?>" /></th>
 <th><a href='<?php echo $link_title_en;?>'>title(en)</a><img src="<?php echo $direction_img;?>" /></th>
 <th><a href='<?php echo $link_url;?>'>URL</a><img src="<?php echo $direction_img;?>" /></th>
+<th>Blogs</th>
 <th><a href='<?php echo $link_status;?>'>status</a><img src="<?php echo $direction_img;?>" /></th>
 <th>delete</th>
 <th>update</th>
@@ -30,6 +32,7 @@ $direction_img = ($direction == 'ASC') ? HTML_ROOT . 'image/icon/up.png' :
 <?php
     foreach ($cat_list as $cat) {
 	$cat_id = $cat['id'];
+	$link_blog = ADMIN_HTML_ROOT . 'blog/retrieve_by_cat_id/' . $cat_id;
 	$link_delete = ADMIN_HTML_ROOT . 'blogcategory/delete/' . $cat_id;
 	$link_update = ADMIN_HTML_ROOT . 'blogcategory/update/' . $cat_id;
 ?>
@@ -38,8 +41,9 @@ $direction_img = ($direction == 'ASC') ? HTML_ROOT . 'image/icon/up.png' :
 	<td><?php echo $cat['title'];?></td>
 	<td><?php echo $cat['title_en'];?></td>
 	<td><?php echo $cat['url'];?></td>
+	<td><?php echo $link_blo;?>Blogs</td>
 	<td><?php echo $cat['status'];?></td>
-	<td><a href='<?php echo $link_delete;?>'>delete</a></td>
+	<td><a href='<?php echo $link_delete;?>' class="delete_blog_cat">delete</a></td>
 	<td><a href='<?php echo $link_update;?>'>update</a></td>
 </tr>
 <?php
