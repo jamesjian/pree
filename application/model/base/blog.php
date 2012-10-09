@@ -50,14 +50,12 @@ class Blog {
             FROM blog b
             LEFT JOIN blog_category bc ON b.cat_id=bc.id
             WHERE $where
-            ORDER BY :order_by :direction
+            ORDER BY $order_by $direction
             LIMIT $offset, $row_count
         ";
-		$params = array(':order_by'=>$order_by, ':direction'=>$direction);
-		$query = Mysql::interpolateQuery($sql, $params);
-      \Zx\Test\Test::object_log('query', $query, __FILE__, __LINE__, __CLASS__, __METHOD__);
-				
-        return Mysql::select_all($sql, $params);
+//\Zx\Test\Test::object_log('sql', $sql, __FILE__, __LINE__, __CLASS__, __METHOD__);
+			
+        return Mysql::select_all($sql);
     }
 
     public static function get_num($where = '1') {
@@ -75,7 +73,6 @@ class Blog {
 	
     public static function create($arr) {
         $sql = "INSERT INTO blog SET " . Mysql::concat_field_name_and_value($arr);
-		      \Zx\Test\Test::object_log('sql', $sql, __FILE__, __LINE__, __CLASS__, __METHOD__);
 
         return Mysql::insert($sql);
     }

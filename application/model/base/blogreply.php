@@ -40,13 +40,11 @@ class Blogreply {
         $sql = "SELECT a.*, ac.title as cat_name,
             FROM article a
             LEFT JOIN article_category ac ON a.cat_id=ac.id
-            WHERE :where
-            ORDER BY :order_by :direction
-            LIMIT :offset, :row_count
+            WHERE $where
+            ORDER BY $order_by $direction
+            LIMIT $offset, $row_count
         ";
-		$params = array(':where'=>$where, ':offset'=>$offset, ':row_count'=>$row_count, 
-		                ':order_by'=>$order_by, ':direction'=>$direction);
-        return Mysql::select_all($sql, $params);
+        return Mysql::select_all($sql);
     }
 
     public static function create($arr) {

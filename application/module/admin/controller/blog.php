@@ -20,6 +20,7 @@ class Blog extends Admin {
         $success = false;
         if (isset($_POST['submit'])) {
             $title = isset($_POST['title']) ? trim($_POST['title']) : '';
+            $title_en = isset($_POST['title_en']) ? trim($_POST['title_en']) : '';
             $content = isset($_POST['content']) ? trim($_POST['content']) : '';
             $keyword = isset($_POST['keyword']) ? trim($_POST['keyword']) : '';
             $keyword_en = isset($_POST['keyword_en']) ? trim($_POST['keyword_en']) : '';
@@ -29,7 +30,9 @@ class Blog extends Admin {
             $status = isset($_POST['status']) ? intval($_POST['status']) : 1;
 
             if ($title <> '') {
-                $arr = array('title' => $title, 'content' => $content, 
+                $arr = array('title' => $title, 
+                     'title_en'=>$title_en, 
+                    'content' => $content, 
                     'keyword'=>$keyword,
                     'keyword_en'=>$keyword_en,
                     'url'=>$url, 
@@ -65,6 +68,8 @@ class Blog extends Admin {
             if ($id <> 0) {
                 if (isset($_POST['title']))
                     $arr['title'] = trim($_POST['title']);
+                if (isset($_POST['title_en']))
+                    $arr['title_en'] = trim($_POST['title_en']);                
                 if (isset($_POST['content']))
                     $arr['content'] = trim($_POST['content']);
                 if (isset($_POST['keyword']))
@@ -93,31 +98,46 @@ class Blog extends Admin {
             $blog = Model_Blog::get_one($id);
 
             $cats = Model_Blogcategory::get_cats();
-            \Zx\Test\Test::object_log('cats', $cats, __FILE__, __LINE__, __CLASS__, __METHOD__);
+            //\Zx\Test\Test::object_log('cats', $cats, __FILE__, __LINE__, __CLASS__, __METHOD__);
 
             View::set_view_file($this->view_path . 'update.php');
             View::set_action_var('blog', $blog);
             View::set_action_var('cats', $cats);
         }
     }
-
+    public function search() {
+        if (isset($_POST['search']) && trim($_POST['search']) != '') {
+            $link = ADMIN_HTML_ROOT . 'blog/retrieve/1/title/ASC/' . trim($_POST['search']);
+        } else {
+            $link = ADMIN_HTML_ROOT . 'blog/retrieve/1/title/ASC/';
+        }
+        header('Location: ' . $link);
+    }
     /**
       /page/orderby/direction
      */
     public function retrieve() {
         \App\Transaction\Session::remember_current_admin_page();
-        $page_num = isset($this->params[0]) ? intval($this->params[0]) : 1;
+        $current_page = isset($this->params[0]) ? intval($this->params[0]) : 1;
         $order_by = isset($this->params[1]) ? $this->params[1] : 'id';
         $direction = isset($this->params[2]) ? $this->params[2] : 'ASC';
-        $blog_list = Model_Blog::get_blogs_by_page_num($page_num, $order_by, $direction);
-        $num_of_pages = Model_Blog::get_num_of_pages_of_blogs();
+        $search = isset($this->params[3]) ? $this->params[3]: '';
+        if ($search != '') {
+            $where = " b.title LIKE '%$search%' OR bc.title LIKE '%$search%'";
+        } else {
+            $where = '1';
+        }
+        $blog_list = Model_Blog::get_blogs_by_page_num($where, $current_page, $order_by, $direction);
+        $num_of_records = Model_Blog::get_num_of_blogs($where);
+        $num_of_pages = ceil($num_of_records / NUM_OF_RECORDS_IN_ADMIN_PAGE);
         //\Zx\Test\Test::object_log('blog_list', $blog_list, __FILE__, __LINE__, __CLASS__, __METHOD__);
 
         View::set_view_file($this->view_path . 'retrieve.php');
         View::set_action_var('blog_list', $blog_list);
+        View::set_action_var('search', $search);
         View::set_action_var('order_by', $order_by);
         View::set_action_var('direction', $direction);
-        View::set_action_var('page_num', $page_num);
+        View::set_action_var('current_page', $current_page);
         View::set_action_var('num_of_pages', $num_of_pages);
     }
 

@@ -22,13 +22,11 @@ class Staff {
     public static function get_all($where = '1', $offset = 0, $row_count = 999999, $order_by = 'a.id', $direction = 'ASC') {
         $sql = "SELECT *
             FROM staff
-            WHERE :where
-            ORDER BY :order_by :direction
-            LIMIT :offset, :row_count
+            WHERE $where
+            ORDER BY $order_by $direction
+            LIMIT $offset, $row_count
         ";
-		$params = array(':where'=>$where, ':offset'=>$offset, ':row_count'=>$row_count, 
-		                ':order_by'=>$order_by, ':direction'=>$direction);		
-        return Mysql::select_all($sql, $params);
+        return Mysql::select_all($sql);
     }
 
     public static function create($arr) {

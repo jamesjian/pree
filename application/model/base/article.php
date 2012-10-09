@@ -52,11 +52,10 @@ class Article {
             FROM article a
             LEFT JOIN article_category ac ON a.cat_id=ac.id
             WHERE $where
-            ORDER BY :order_by :direction
+            ORDER BY $order_by $direction
             LIMIT $offset, $row_count
         ";
-		$params = array(':order_by'=>$order_by, ':direction'=>$direction);
-        return Mysql::select_all($sql, $params);
+        return Mysql::select_all($sql);
     }
     public static function get_num($where = '1') {
         $sql = "SELECT COUNT(id) AS num

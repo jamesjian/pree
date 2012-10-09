@@ -1,3 +1,20 @@
+-- phpMyAdmin SQL Dump
+-- version 3.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Oct 09, 2012 at 04:33 AM
+-- Server version: 5.5.24-log
+-- PHP Version: 5.4.3
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `z2`
+--
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `article`
@@ -66,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `blog` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `date_created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `blog`
@@ -80,7 +97,9 @@ INSERT INTO `blog` (`id`, `title`, `title_en`, `cat_id`, `keyword`, `keyword_en`
 (5, 'aaa1', '', 2, '', '', '', 'bbb1', 0, 1, NULL),
 (6, 'ADFASFDS', '', 2, '', '', '', '<p>\r\n	ASDASDFSADF</p>', 0, 1, NULL),
 (7, 'ccc', '', 1, '', '', '', '<p>\r\n	cccc</p>', 0, 1, NULL),
-(8, 'ccc', '', 1, '', '', '', '<p>\r\n	<a href="/pree/public/upload//506e7a772dd5f1.png">/pree/public/upload//506e7a772dd5f1.png</a></p>', 0, 1, NULL);
+(8, 'ccc', '', 1, '', '', '', '<p>\r\n	<a href="/pree/public/upload//506e7a772dd5f1.png">/pree/public/upload//506e7a772dd5f1.png</a></p>', 0, 1, NULL),
+(9, 'd1', '', 2, 'd1', 'd1', 'd1', '<p>\r\n	d1</p>', 1, 1, NULL),
+(10, 'd21', 'd21', 4, 'd21', 'd21', 'd21', '<p>\r\n	d21</p>', 21, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -94,21 +113,25 @@ CREATE TABLE IF NOT EXISTS `blog_category` (
   `title_en` varchar(255) NOT NULL,
   `keyword` varchar(255) NOT NULL,
   `keyword_en` varchar(255) NOT NULL,
+  `url` varchar(255) NOT NULL,
   `description` text,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `date_created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `blog_category`
 --
 
-INSERT INTO `blog_category` (`id`, `title`, `title_en`, `keyword`, `keyword_en`, `description`, `status`, `date_created`) VALUES
-(1, 'b11', '', '', '', 'b1b11', 1, '2012-08-01 00:00:00'),
-(2, 'b2', '', '', '', 'b2b2', 1, '2012-08-01 00:00:00'),
-(3, 'b3', '', '', '', 'b3b3', 1, '2012-08-01 00:00:00'),
-(4, 'b4', '', '', '', 'b4b4', 1, '2012-08-01 00:00:00');
+INSERT INTO `blog_category` (`id`, `title`, `title_en`, `keyword`, `keyword_en`, `url`, `description`, `status`, `date_created`) VALUES
+(1, 'c11', '', '', '', '', '<p>\r\n	c111</p>', 1, '2012-08-01 00:00:00'),
+(2, 'b2', '', '', '', '', 'b2b2', 1, '2012-08-01 00:00:00'),
+(3, 'b3', '', '', '', '', 'b3b3', 1, '2012-08-01 00:00:00'),
+(4, 'b4', '', '', '', '', 'b4b4', 1, '2012-08-01 00:00:00'),
+(5, 'd11', '', 'd11', 'd11', '', '<p>\r\n	d11</p>', 1, NULL),
+(6, 'd21', 'd21', 'd21', 'd21', 'd21', '<p>\r\n	d21</p>', 0, NULL),
+(7, 'd3', 'd3', 'd3', 'd3', 'd3', '<p>\r\n	d3</p>', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -128,6 +151,7 @@ CREATE TABLE IF NOT EXISTS `session` (
 --
 
 INSERT INTO `session` (`session_id`, `session_data`, `expires`) VALUES
+('8qgiafjnqtpj784h76tp81q552', 'success_message|s:0:"";error_message|s:0:"";current_admin_page|s:39:"/pree/admin/blog/retrieve/1/title/DESC/";staff|a:1:{s:10:"staff_name";s:5:"admin";}CK_UPLOAD_PATH|s:4:"blog";', 1349758365),
 ('a3dvcsvihq47955hqiahboc3h7', 'success_message|s:0:"";error_message|s:0:"";CK_UPLOAD_PATH|s:4:"blog";staff|a:1:{s:10:"staff_name";s:5:"admin";}current_admin_page|s:47:"/pree/public/admin/article/retrieve/1/title/ASC";', 1349421479),
 ('afcfqusd14ld9bg16o2k95dcu7', 'success_message|s:0:"";error_message|s:0:"";staff|a:1:{s:10:"staff_name";s:5:"admin";}', 1348367053),
 ('dgi7245a9tf0p13pvfo2umbfq1', 'success_message|s:0:"";error_message|s:0:"";', 1349292453),
