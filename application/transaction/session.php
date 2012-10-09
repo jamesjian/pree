@@ -120,6 +120,7 @@ class Session {
      */
     public static function get_current_l1_menu()
     {
-        return $_SESSION['l1_menu'];
+        if (isset($_SESSION['l1_menu'])) return $_SESSION['l1_menu'];
+        else return '';
     }
 }

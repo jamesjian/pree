@@ -5,6 +5,7 @@ namespace App\Module\Front\Controller;
 use \Zx\Controller\Route;
 use \App\Model\Blog as Model_Blog;
 use \App\Model\Blogcategory as Model_Blogcategory;
+use App\Transaction\Html as Transaction_Html;
 use \Zx\View\View;
 
 class Common extends Front {
@@ -35,15 +36,15 @@ class Common extends Front {
 
     public function home() {
         \Zx\Test\Test::object_log('lob', 'aaaa', __FILE__, __LINE__, __CLASS__, __METHOD__);
-        Transaction_Html::set_title('home');
-        Transaction_Html::set_keyword('home');
-        Transaction_Html::set_description('home');
+        Transaction_Html::set_title('首页');
+        Transaction_Html::set_keyword('澳洲保险常识, 澳洲保险法律,澳洲保险机构,澳洲保险公司,澳洲保险学习,澳洲保险教育,澳洲保险信息');
+        Transaction_Html::set_description('澳洲保险常识, 澳洲保险法律,澳洲保险机构,澳洲保险公司,澳洲保险学习,澳洲保险教育,澳洲保险信息');
         $page_num = 1;
         $order_by = 'date_created';
         $direction = 'DESC';
         $blogs = Model_Blog::get_active_blogs_by_page_num($page_num, $order_by, $direction);
         $related_blogs = Model_Blog::get_10_active_related_blogs(1);
-        $num_of_blogs = Model_Blog::get_num_of_pages_of_active_blogs();
+        $num_of_blogs = Model_Blog::get_num_of_active_blogs();        
         $num_of_pages = ceil($num_of_blogs / NUM_OF_BLOGS_IN_CAT_PAGE);
         View::set_view_file($this->view_path . 'home.php');
         View::set_action_var('blogs', $blogs);

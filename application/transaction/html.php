@@ -3,18 +3,18 @@
 namespace App\Transaction;
 
 class Html {
-    static $title = '';
-    static $keyword = '';
-    static $description = '';
+    static $title = '澳大利亚保险 澳洲保险';
+    static $keyword = '澳大利亚保险 澳洲保险';
+    static $description = '澳大利亚保险 澳洲保险';
     public static function set_title($title)
     {
-        self::$title = $title;
+        self::$title = $title . '-- 澳大利亚保险 澳洲保险';
     }
     public static function get_title()
     {
         return self::$title;
     }
-    public static function set_description($descriptione)
+    public static function set_description($description)
     {
         self::$description = $description;
     }
