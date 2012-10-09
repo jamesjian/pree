@@ -1,8 +1,10 @@
 <?php
+
 namespace App\Module\Front\Controller;
 
 use \Zx\Model\Blogcategory as Model_Blogcategory;
 use \Zx\Model\Blog as Model_Blog;
+use \App\Transaction\Html as Transaction_Html;
 
 class Blogcategory extends Front {
 
@@ -14,22 +16,25 @@ class Blogcategory extends Front {
     }
 
     /**
-	show one blog category and all blogs under this category
-	front/blogcategory/show/5/page/3, 5 is cat id, 3 is page number
-	$params[0] = 5, $params[1] = 'page', $params[2] = 3;
-	*/
+      show one blog category and all blogs under this category
+      front/blogcategory/show/5/page/3, 5 is cat id, 3 is page number
+      $params[0] = 5, $params[1] = 'page', $params[2] = 3;
+     */
     public function show() {
-		$cat_id = (isset($params[0])) ? intval($params[1]) : 1;
-		$page_number = (isset($params[2])) ?  intval($params[2]) : 1;  //default page 1
+        $cat_id = (isset($params[0])) ? intval($params[1]) : 1;
+        $page_number = (isset($params[2])) ? intval($params[2]) : 1;  //default page 1
         $cat = Model_Blogcategory::get_one($cat_id);
-		$blogs = Model_Blog::get_active_blogs_by_cat_id_and_page_number($cat_id, $page_number);
-		$num_of_blogs = Model_Blog::get_num_of_active_blogs_by_cat_id($cat_id);
-		$num_of_pages = ceil($num_of_blogs/NUM_OF_BLOGS_IN_CAT_PAGE);
+        Transaction_Html::set_title($cat['title']);
+        Transaction_Html::set_keyword($cat['keyword'] . ',' . $cat['keyword_en']);
+        Transaction_Html::set_description($cat['title']);
+        $blogs = Model_Blog::get_active_blogs_by_cat_id_and_page_number($cat_id, $page_number);
+        $num_of_blogs = Model_Blog::get_num_of_active_blogs_by_cat_id($cat_id);
+        $num_of_pages = ceil($num_of_blogs / NUM_OF_BLOGS_IN_CAT_PAGE);
         View::set_view_file($this->view_path . 'show.php');
         View::set_action_var('cat', $cat);
         View::set_action_var('blogs', $blogs);
         View::set_action_var('current_page', $current_page);
         View::set_action_var('num_of_pages', $num_of_pages);
     }
-	
+
 }

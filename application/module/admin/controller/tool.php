@@ -4,7 +4,7 @@ namespace App\Module\Admin\Controller;
 
 use \App\Model\Blog as Model_Blog;
 use \App\Model\Blogcategory as Model_Blogcategory;
-use \App\Model\Blogcategory as Transaction_Tool;
+use \App\Transaction\Tool as Transaction_Tool;
 use \Zx\View\View;
 use \Zx\Test\Test;
 

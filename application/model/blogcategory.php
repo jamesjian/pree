@@ -12,9 +12,17 @@ class Blogcategory extends Base_Blogcategory{
         return parent::get_all();
     }    
     /**
-     * get active cats order by category name
+     * get all cats order by category name
      */	
 	public static function get_all_cats()
+    {
+		$where = "1";
+        return parent::get_all($where);
+    }
+    /**
+     * get active cats order by category name
+     */	
+	public static function get_all_active_cats()
     {
 		$where = "status=1";
         return parent::get_all($where);

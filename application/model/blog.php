@@ -88,6 +88,13 @@ class Blog extends Base_Blog {
     public static function get_all_blogs() {
         return parent::get_all();
     }
+    /**
+     * get active cats order by category name
+     */
+    public static function get_all_active_blogs() {
+        $where = 'b.status=1';
+        return parent::get_all($where);
+    }
 
     public static function increase_rank($blog_id) {
         $sql = 'UPDATE blog SET rank=rank+1 WHERE id=:id';
