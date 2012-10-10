@@ -11,14 +11,14 @@
         <!--[if IE]>
             <link  rel="stylesheet" type="text/css" href="/css/site_ie.css" />    
         <![endif]-->            
-        <link rel="shortcut icon" href="<?php echo HTML_ROOT . 'image/icon/favicon.ico'; ?>" />
+        <link rel="shortcut icon" href="<?php echo HTML_ROOT . 'image/icon/favicon.ico?v3'; ?>" />
         <script type="text/javascript" src="<?php echo HTML_ROOT . 'js/jquery/jquery-1.8.1.min.js'; ?>"></script>
     </head>
     <body class='zx-front-body'>	
         <div class='zx-front-header'>
             <div class='zx-front-logo'>
-                <a href='/' title='baoxian.com.au'><img src="<?php echo HTML_ROOT . 'image/logo.png'; ?>" alt="baoxian.com.au logo"/></a>
-                <a href='/' title='baoxian.com.au'><mark>Baoxian</mark>.com.au</a>
+                <a href='/' title='baoxian.com.au'><img src="<?php echo HTML_ROOT . 'image/icon/baoxian_logo.png'; ?>" alt="baoxian.com.au logo"/></a>
+                
             </div>
             <nav class='zx-front-top-menu'>
                 <ul>

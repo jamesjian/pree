@@ -9,7 +9,7 @@
         <!--[if IE]>
             <link  rel="stylesheet" type="text/css" href="/css/admin_ie.css" />    
         <![endif]-->            
-        <link rel="shortcut icon" href="<?php echo HTML_ROOT . '/image/icon/favicon.ico'; ?>" />
+        <link rel="shortcut icon" href="<?php echo HTML_ROOT . 'image/icon/favicon.ico?v3'; ?>" />
     </head>
     <body>
         <?php
