@@ -37,12 +37,11 @@ class Route {
     public static function analyze_url() {
         self::$url = $_SERVER['REQUEST_URI'];
         $url = substr(self::$url, strlen(URL_PREFIX)); //remove prefix such as "/pree/" in test server or "/" in live site
-        
+
         $arr = explode('/', $url);
         $length = count($arr); //it's always >1, even if no query string at all, $arr contain an empty string element
-
-                        //\Zx\Test\Test::object_log('$arr', $arr, __FILE__, __LINE__, __CLASS__, __METHOD__);
-                        //\Zx\Test\Test::object_log('$arr', $length, __FILE__, __LINE__, __CLASS__, __METHOD__);
+        //\Zx\Test\Test::object_log('$arr', $arr, __FILE__, __LINE__, __CLASS__, __METHOD__);
+        //\Zx\Test\Test::object_log('$arr', $length, __FILE__, __LINE__, __CLASS__, __METHOD__);
         if ($length < 3) {
             switch ($length) {
                 case 0:
@@ -53,7 +52,11 @@ class Route {
                     if ($original_name == '') {
                         //\Zx\Test\Test::object_log('$arr', '11111', __FILE__, __LINE__, __CLASS__, __METHOD__);
                         //if no query string, goto home page
-                        header('Location: ' . HTML_ROOT . 'front/common/home');
+                        self::$module_controller_action = array(
+                            'module' => 'front',
+                            'controller' => 'common',
+                            'action' => 'home',
+                        );
                     } else {
                         //\Zx\Test\Test::object_log('$arr', '22222', __FILE__, __LINE__, __CLASS__, __METHOD__);
 

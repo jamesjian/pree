@@ -4,12 +4,11 @@
 define('SERVER_NAME', $_SERVER['SERVER_NAME']);
 
 switch (SERVER_NAME) {
-    case 'baoxian.com.au':
-    case 'www.baoxian.com.au':
-        define('URL_PREFIX', '/');
+    case 'localhost':
+        define('URL_PREFIX', '/pree/');
         break;
     default:
-        define('URL_PREFIX', '/pree/');
+        define('URL_PREFIX', '/');
 }
 
 define('HTML_ROOT', 'http://' . SERVER_NAME . URL_PREFIX);
@@ -56,16 +55,16 @@ define('ADMIN_NAMESPACE', 'Admin');
 
 
 switch (SERVER_NAME) {
-    case 'baoxian.com.au':
-    case 'www.baoxian.com.au':
+    case 'localhost':
+        define('DBNAME', 'z2');
+        define('DBHOST', 'localhost');
+        define('DBUSER', 'root');
+        define('DBPASS', '');        
+        break;
+    default:
         define('DBNAME', 'huarend1_baoxian');
         define('DBHOST', 'localhost');
         define('DBUSER', 'huarend1_baoxian');
         define('DBPASS', 'L=Xk4OvqM}z(');
-        break;
-    default:
-        define('DBNAME', 'z2');
-        define('DBHOST', 'localhost');
-        define('DBUSER', 'root');
-        define('DBPASS', '');
+
 }
