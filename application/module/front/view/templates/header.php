@@ -17,7 +17,7 @@
     <body class='zx-front-body'>	
         <div class='zx-front-header'>
             <div class='zx-front-logo'>
-                <a href='/' title='baoxian.com.au'><img src="<?php echo HTML_ROOT . 'image/icon/baoxian_logo.png'; ?>" alt="baoxian.com.au logo"/></a>
+                <a href='<?php echo HTML_ROOT;?>' title='baoxian.com.au'>BAOXIAN.com.au</a>
                 
             </div>
             <nav class='zx-front-top-menu'>
