@@ -2,6 +2,7 @@
     Title:<input type="text" name="title" size="50" value="<?php echo $blog['title']; ?>"/>
     Title(En):<input type="text" name="title_en" size="50" value="<?php echo $blog['title_en']; ?>"/>
     URL:<input type="text" name="url" size="50" value="<?php echo $blog['url']; ?>"/>
+    Abstract:<input type="text" name="abstract" size="50" value="<?php echo $blog['abstract']; ?>"/>
     Keyword:<input type="text" name="keyword" size="50" value="<?php echo $blog['keyword']; ?>"/>
     Keyword(En):<input type="text" name="keyword_en" size="50" value="<?php echo $blog['keyword_en']; ?>"/>
     Rank:<input type="text" name="rank" size="50"  value="<?php echo $blog['rank']; ?>"/>        

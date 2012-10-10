@@ -2,6 +2,7 @@
     Title:<input type="text" name="title" size="50" />
     Title(En):<input type="text" name="title_en" size="50" />
     URL:<input type="text" name="url" size="50" />
+    Abstract:<input type="text" name="abstract" size="50" />
     Keyword:<input type="text" name="keyword" size="50" />
     Keyword(En):<input type="text" name="keyword_en" size="50" />    
     Rank:<input type="text" name="rank" size="50" />    

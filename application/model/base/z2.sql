@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 09, 2012 at 04:33 AM
+-- Generation Time: Oct 10, 2012 at 04:24 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -77,29 +77,31 @@ CREATE TABLE IF NOT EXISTS `blog` (
   `cat_id` int(11) NOT NULL DEFAULT '1',
   `keyword` varchar(255) NOT NULL DEFAULT '',
   `keyword_en` varchar(255) NOT NULL,
+  `abstract` varchar(255) NOT NULL,
   `url` varchar(255) NOT NULL,
   `content` text,
   `rank` int(11) DEFAULT '0',
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `date_created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `blog`
 --
 
-INSERT INTO `blog` (`id`, `title`, `title_en`, `cat_id`, `keyword`, `keyword_en`, `url`, `content`, `rank`, `status`, `date_created`) VALUES
-(1, 'a1a11', '', 1, '', '', '', '<h1>\r\n	a1a1a11</h1>', 0, 1, NULL),
-(2, '', '', 1, '', '', '', NULL, 0, 1, NULL),
-(3, '', '', 1, '', '', '', NULL, 0, 1, NULL),
-(4, '', '', 2, '', '', '', NULL, 0, 1, NULL),
-(5, 'aaa1', '', 2, '', '', '', 'bbb1', 0, 1, NULL),
-(6, 'ADFASFDS', '', 2, '', '', '', '<p>\r\n	ASDASDFSADF</p>', 0, 1, NULL),
-(7, 'ccc', '', 1, '', '', '', '<p>\r\n	cccc</p>', 0, 1, NULL),
-(8, 'ccc', '', 1, '', '', '', '<p>\r\n	<a href="/pree/public/upload//506e7a772dd5f1.png">/pree/public/upload//506e7a772dd5f1.png</a></p>', 0, 1, NULL),
-(9, 'd1', '', 2, 'd1', 'd1', 'd1', '<p>\r\n	d1</p>', 1, 1, NULL),
-(10, 'd21', 'd21', 4, 'd21', 'd21', 'd21', '<p>\r\n	d21</p>', 21, 0, NULL);
+INSERT INTO `blog` (`id`, `title`, `title_en`, `cat_id`, `keyword`, `keyword_en`, `abstract`, `url`, `content`, `rank`, `status`, `date_created`) VALUES
+(1, 'a1a11', '', 1, '', '', 'bbbbbbbbbbbbbb', '', '<h1>\r\n	a1a1a11</h1>', 0, 1, NULL),
+(2, 'c1', 'c1', 1, '', '', 'eeeeeeeeeeeeeee', '', '', 0, 1, NULL),
+(3, 'c2', 'c2', 1, '', '', 'fffffffffffffff', '', '<p>\r\n	<img alt="" src="http://localhost/pree/upload/5074f3431c50bcfalogo.png" style="width: 360px; height: 60px; " /></p>', 0, 1, NULL),
+(4, 'c3', 'c3', 2, '', '', 'ggggggggggggg', '', '<p>\r\n	<img alt="" src="http://localhost/pree/upload/5074f35d0ec91Acupuncturist.jpg" style="width: 141px; height: 116px; " /></p>', 0, 1, NULL),
+(5, 'aaa1', '', 2, '', '', 'ccccccccccccccccccc', '', '<p>\r\n	bbb1</p>', 0, 1, NULL),
+(6, 'ADFASFDS', '', 2, '', '', 'dddddddddddddddd', '', '<p>\r\n	ASDASDFSADF</p>', 0, 1, NULL),
+(7, 'ccc3333', '', 1, '', '', 'hhhhhhhhhhhhhhhhh', '', '<p>\r\n	cccc<img alt="" src="http://localhost/pree/upload/5074f4814ecc6natura therapist.jpg" style="width: 141px; height: 116px; " /></p>', 0, 1, NULL),
+(8, 'ccc111', '', 1, '', '', 'gggggggggggggggg', '', '<p>\r\n	<img alt="" src="http://localhost/pree/upload/5074f46ab4d51nurse.jpg" style="width: 141px; height: 116px; " /></p>', 0, 1, NULL),
+(9, 'd1', '', 2, 'd1', 'd1', 'iiiiiiiiiiiii', 'd1', '<p>\r\n	d1</p>', 1, 1, NULL),
+(10, 'd21', 'd21', 4, 'd21', 'd21', 'jjjjjjjjjjjj', 'd21', '<p>\r\n	d21</p>', 21, 0, NULL),
+(11, 'a1', 'a1', 2, '', '', 'aaaaaaaaa', '', '<p>\r\n	<a href="http://localhost/pree/upload/5074f2a9187aecystic_fib_logo.png"><img alt="" src="http://localhost/pree/upload/5074f2e639a08cystic_fib_logo.png" style="width: 60px; height: 60px; " /></a></p>', 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -151,6 +153,8 @@ CREATE TABLE IF NOT EXISTS `session` (
 --
 
 INSERT INTO `session` (`session_id`, `session_data`, `expires`) VALUES
+('2eopr7nql48m6c0u5iv12gi2s5', 'success_message|s:0:"";error_message|s:0:"";staff|a:1:{s:10:"staff_name";s:5:"admin";}CK_UPLOAD_PATH|s:4:"blog";current_admin_page|s:38:"/pree/admin/blog/retrieve/1/title/ASC/";l1_menu|s:4:"Blog";', 1349844159),
+('88uded53b7bkpk4tvjbjmkr5u3', 'success_message|s:0:"";error_message|s:0:"";staff|a:1:{s:10:"staff_name";s:5:"admin";}CK_UPLOAD_PATH|s:4:"blog";current_admin_page|s:33:"/pree/admin/blogcategory/retrieve";l1_menu|s:4:"Blog";', 1349824229),
 ('8qgiafjnqtpj784h76tp81q552', 'success_message|s:0:"";error_message|s:0:"";current_admin_page|s:39:"/pree/admin/blog/retrieve/1/title/DESC/";staff|a:1:{s:10:"staff_name";s:5:"admin";}CK_UPLOAD_PATH|s:4:"blog";', 1349758365),
 ('a3dvcsvihq47955hqiahboc3h7', 'success_message|s:0:"";error_message|s:0:"";CK_UPLOAD_PATH|s:4:"blog";staff|a:1:{s:10:"staff_name";s:5:"admin";}current_admin_page|s:47:"/pree/public/admin/article/retrieve/1/title/ASC";', 1349421479),
 ('afcfqusd14ld9bg16o2k95dcu7', 'success_message|s:0:"";error_message|s:0:"";staff|a:1:{s:10:"staff_name";s:5:"admin";}', 1348367053),

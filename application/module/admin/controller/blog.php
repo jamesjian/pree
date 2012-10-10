@@ -26,6 +26,7 @@ class Blog extends Admin {
             $content = isset($_POST['content']) ? trim($_POST['content']) : '';
             $keyword = isset($_POST['keyword']) ? trim($_POST['keyword']) : '';
             $keyword_en = isset($_POST['keyword_en']) ? trim($_POST['keyword_en']) : '';
+            $abstract = isset($_POST['abstract']) ? trim($_POST['abstract']) : '';
             $url = isset($_POST['url']) ? trim($_POST['url']) : '';
             $cat_id = isset($_POST['cat_id']) ? intval($_POST['cat_id']) : 1;
             $rank = isset($_POST['rank']) ? intval($_POST['rank']) : 0;
@@ -37,6 +38,7 @@ class Blog extends Admin {
                     'content' => $content, 
                     'keyword'=>$keyword,
                     'keyword_en'=>$keyword_en,
+                    'abstract'=>$abstract, 
                     'url'=>$url, 
                     'rank'=>$rank,
                     'status'=>$status,
@@ -78,6 +80,8 @@ class Blog extends Admin {
                     $arr['keyword'] = trim($_POST['keyword']);
                 if (isset($_POST['keyword_en']))
                     $arr['keyword_en'] = trim($_POST['keyword_en']);
+                if (isset($_POST['abstract']))
+                    $arr['abstract'] = trim($_POST['abstract']);                
                 if (isset($_POST['url']))
                     $arr['url'] = trim($_POST['url']);                
                 if (isset($_POST['cat_id']))

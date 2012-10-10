@@ -35,14 +35,14 @@ class Common extends Front {
     }
 
     public function home() {
-        \Zx\Test\Test::object_log('lob', 'aaaa', __FILE__, __LINE__, __CLASS__, __METHOD__);
+        //\Zx\Test\Test::object_log('lob', 'aaaa', __FILE__, __LINE__, __CLASS__, __METHOD__);
         Transaction_Html::set_title('首页');
         Transaction_Html::set_keyword('澳洲保险常识, 澳洲保险法律,澳洲保险机构,澳洲保险公司,澳洲保险学习,澳洲保险教育,澳洲保险信息');
         Transaction_Html::set_description('澳洲保险常识, 澳洲保险法律,澳洲保险机构,澳洲保险公司,澳洲保险学习,澳洲保险教育,澳洲保险信息');
-        $page_num = 1;
+        $current_page = 1;
         $order_by = 'date_created';
         $direction = 'DESC';
-        $blogs = Model_Blog::get_active_blogs_by_page_num($page_num, $order_by, $direction);
+        $blogs = Model_Blog::get_active_blogs_by_page_num($current_page, $order_by, $direction);
         $related_blogs = Model_Blog::get_10_active_related_blogs(1);
         $num_of_blogs = Model_Blog::get_num_of_active_blogs();        
         $num_of_pages = ceil($num_of_blogs / NUM_OF_BLOGS_IN_CAT_PAGE);
@@ -51,7 +51,7 @@ class Common extends Front {
         View::set_action_var('related_blogs', $related_blogs);
         View::set_action_var('order_by', $order_by);
         View::set_action_var('direction', $direction);
-        View::set_action_var('page_num', $page_num);
+        View::set_action_var('current_page', $current_page);
         View::set_action_var('num_of_pages', $num_of_pages);
     }
 

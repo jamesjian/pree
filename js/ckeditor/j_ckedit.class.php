@@ -132,8 +132,6 @@ class CKEDITOR{
 	public static function ckFile($upload_dir){
                 $file_name = uniqid(). basename($_FILES['upload']['name']);
 		$php_upload_file = PHP_PUBLIC_PATH . $upload_dir . $file_name;
-		 	       \Zx\Test\Test::object_log('_FILES', $_FILES, __FILE__, __LINE__, __CLASS__, __METHOD__);
-		 	       \Zx\Test\Test::object_log('php_upload_file', $php_upload_file, __FILE__, __LINE__, __CLASS__, __METHOD__);
 
 		if (move_uploaded_file($_FILES['upload']['tmp_name'], $php_upload_file)) {
 		  
@@ -143,8 +141,7 @@ class CKEDITOR{
 			$langCode = $_GET['langCode'] ;
 			*/
 			// Check the $_FILES array and save the file. Assign the correct path to some variable ($url).
-			$url =  'http://localhost' . HTML_ROOT . $upload_dir . $file_name;
-					 	       \Zx\Test\Test::object_log('url', $url, __FILE__, __LINE__, __CLASS__, __METHOD__);
+			$url =  HTML_ROOT . $upload_dir . $file_name;
 
 			// Usually you will assign here something only if file could not be uploaded.
 			$message = '';

@@ -12,25 +12,24 @@
                     foreach ($blogs as $blog) {
                         $read_more_link = HTML_ROOT . 'front/blog/show/' . $blog['id'];
                         ?>		
-                        <li>
-                            <?php
-                            echo $blog['title'], BR;
-                            echo mb_substr($blog['content'], 0, 100, 'UTF-8');
-                            echo "<a href='$read_more_link'>Read more...</a>";
-                            ?>
-                        </li>
+                        <li><?php
+                echo $blog['title'], BR;
+                //echo mb_substr($blog['content'], 0, 100, 'UTF-8');
+                echo $blog['abstract'];
+                echo "<a href='$read_more_link' title='$read_more_link'>Read more...</a>";
+                        ?></li>
                         <?php
                     }//foreach
                     ?>
                 </ul>
-            </nav>	
+            </nav>
             <?php
         }//if ($blogs)
 
-$link_prefix = HTML_ROOT . 'blog/retrieve/';	
-$link_postfix = "$order_by/$direction";
-include ADMIN_VIEW_PATH . 'templates/pagination.php';
-    
+        $link_prefix = HTML_ROOT . 'blog/retrieve/';
+        $link_postfix = "/$order_by/$direction";
+        include ADMIN_VIEW_PATH . 'templates/pagination.php';
+
         include FRONT_VIEW_PATH . 'common/pagination.php';
         ?>
     </div>
