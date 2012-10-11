@@ -29,8 +29,6 @@
         $link_prefix = HTML_ROOT . 'blog/retrieve/';
         $link_postfix = "/$order_by/$direction";
         include ADMIN_VIEW_PATH . 'templates/pagination.php';
-
-        include FRONT_VIEW_PATH . 'common/pagination.php';
         ?>
     </div>
 </div>
@@ -45,26 +43,10 @@
         <?php include FRONT_VIEW_PATH . 'templates/right_google_ads.php'; ?>
     </div>
     <div class='zx-front-right3'>
-        <?php
-//related contents
-        if ($related_blogs) {
-            ?>
-            <nav>
-                <ul>
-                    <?php
-                    foreach ($related_blogs as $blog) {
-                        $read_more_link = HTML_ROOT . 'front/blog/show/' . $blog['id'];
-                        ?>		
-                        <li><?php echo "<a href='$read_more_link'>" . $blog['title'] . "</a>";
-                        ?>
-                        </li>
-                        <?php
-                    }//foreach
-                    ?>
-                </ul>
-            </nav>	
-            <?php
-        }//if ($related_blogs)
+        <?php include FRONT_VIEW_PATH . 'templates/hottest_blogs.php'; ?>
+        <?php 
+        $all_hottest = HTML_ROOT . 'blog/hottest/';
         ?>
+        <a href="<?php echo $all_hottest;?>">All</a>
     </div>
 </div>

@@ -1,11 +1,17 @@
 <?php
-
 namespace App\Module\Front\Controller;
 
 use \Zx\Controller\Route;
 use \Zx\View\View;
 use \Zx\Model\Blog as Model_Blog;
-
+/**
+ * homepage: /
+ * latest: /latest/page/3
+ * most popular: /most_popular/page/3
+ * category: /category/$category_name/page/3
+ * one: article/$article_name.php
+ * keyword: article/keyword/
+ */
 class Blog extends Front {
 
     public $view_path;
@@ -33,7 +39,13 @@ class Blog extends Front {
             
         }
     }
-
+    /**
+     * front/blog/keyword/$keyword/page/3
+     */
+    public function keyword()
+    {
+    
+    }
     /**
       retrieve blogs under a category
       front/blog/category/5/page/3, 5 is cat id, 3 is page number
@@ -64,6 +76,7 @@ class Blog extends Front {
 
     /**
       blog/latest/3, 3 is page number, if missing, 1 is default page number
+     * including home page
      */
     public function latest() {
         \Zx\Test\Test::object_log('lob', 'aaaa', __FILE__, __LINE__, __CLASS__, __METHOD__);
@@ -89,9 +102,9 @@ class Blog extends Front {
     }
 
     /**
-      blog/popular/3, 3 is page number, if missing, 1 is default page number
+      blog/most_popular/3, 3 is page number, if missing, 1 is default page number
      */
-    public function popular() {
+    public function most_popular() {
             Transaction_Html::set_title('popular');
             Transaction_Html::set_keyword('popular');
             Transaction_Html::set_description('popular');           

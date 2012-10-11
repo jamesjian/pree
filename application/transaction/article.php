@@ -10,6 +10,7 @@ class Article {
     public static function create_article($arr=array())
     {
         if (count($arr)>0 && isset($arr['title'])) {
+			if (!isset($arr['rank'])) $arr['rank'] = 0; //initialize
             if (Model_Article::create($arr)) {
                 Message::set_success_message('success');
                 return true;
@@ -25,9 +26,9 @@ class Article {
     
     public static function update_article($id, $arr)
     {
-		//      \Zx\Test\Test::object_log('arr', $arr, __FILE__, __LINE__, __CLASS__, __METHOD__);
+		      //\Zx\Test\Test::object_log('arr', $arr, __FILE__, __LINE__, __CLASS__, __METHOD__);
 	
-        if (count($arr)>0 && (isset($arr['title']) || isset($arr['content']) || isset($arr['cat_id']))) {
+        if (count($arr)>0 && (isset($arr['title']) || isset($arr['content']))) {
             if (Model_Article::update($id, $arr)) {
                 Message::set_success_message('success');
                 return true;

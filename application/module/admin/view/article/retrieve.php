@@ -5,17 +5,27 @@ $create_link = ADMIN_HTML_ROOT . 'article/create';
 <a href="<?php echo $create_link;?>">Create</a>
 <?php
 if ($article_list) {
-$link_prefix = ADMIN_HTML_ROOT . "article/retrieve/$page_num/";
-$link_postfix = ($direction == 'ASC')? '/DESC' : '/ASC';
+$link_prefix = ADMIN_HTML_ROOT . "article/retrieve/$current_page/";
+$next_direction = ($direction == 'ASC') ? 'DESC' : 'ASC';  //change direction
+$link_postfix =  "/$next_direction/$search";
 $link_id = $link_prefix . 'id' . $link_postfix;
 $link_title = $link_prefix . 'title' . $link_postfix;
+$link_title_en = $link_prefix . 'title_en' . $link_postfix;
+$link_rank = $link_prefix . 'rank' . $link_postfix;
 $link_cat_name = $link_prefix . 'cat_name' . $link_postfix;
+$link_status = $link_prefix . 'status' . $link_postfix;
+$direction_img = ($direction == 'ASC') ? HTML_ROOT . 'image/icon/up.png' : 
+                                         HTML_ROOT . 'image/icon/down.png'; 
+\Zx\Message\Message::show_message();
 ?>
 <table>
 <tr>
-<th><a href='<?php echo $link_id;?>'>id</a></th>
-<th><a href='<?php echo $link_title;?>'>title</a></th>
-<th><a href='<?php echo $link_cat_name;?>'>category</a></th>
+<th><a href='<?php echo $link_id;?>'>id</a><img src="<?php echo $direction_img;?>" /></th>
+<th><a href='<?php echo $link_title;?>'>title</a><img src="<?php echo $direction_img;?>" /></th>
+<th><a href='<?php echo $link_title_en;?>'>title(En)</a><img src="<?php echo $direction_img;?>" /></th>
+<th><a href='<?php echo $link_rank;?>'>rank</a><img src="<?php echo $direction_img;?>" /></th>
+<th><a href='<?php echo $link_cat_name;?>'>category</a><img src="<?php echo $direction_img;?>" /></th>
+<th><a href='<?php echo $link_status;?>'>status</a><img src="<?php echo $direction_img;?>" /></th>
 <th>delete</th>
 <th>update</th>
 </tr>
@@ -29,8 +39,11 @@ $link_cat_name = $link_prefix . 'cat_name' . $link_postfix;
 <tr>
 	<td><?php echo $article['id'];?></td>
 	<td><?php echo $article['title'];?></td>
+	<td><?php echo $article['title_en'];?></td>
+	<td><?php echo $article['rank'];?></td>
 	<td><?php echo $article['cat_name'];?></td>
-	<td><a href='<?php echo $link_delete;?>'>delete</a></td>
+        <td><?php echo $article['status'];?></td>
+	<td><a href='<?php echo $link_delete;?>' class="delete_article">delete</a></td>
 	<td><a href='<?php echo $link_update;?>'>update</a></td>
 </tr>
 <?php
@@ -39,7 +52,7 @@ $link_cat_name = $link_prefix . 'cat_name' . $link_postfix;
 	</table>
 <?php
 $link_prefix = ADMIN_HTML_ROOT . 'article/retrieve/';	
-$link_postfix = "$order_by/$direction";
+$link_postfix = "/$order_by/$direction/$search";
 include ADMIN_VIEW_PATH . 'templates/pagination.php';
 } else {
 	echo 'No record.';

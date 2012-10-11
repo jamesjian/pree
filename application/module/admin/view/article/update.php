@@ -1,8 +1,14 @@
-<form action="<?php echo ADMIN_HTML_ROOT . 'article/update';?>" method="post">
-    Title:<input type="text" name="title" size="50" value="<?php echo $article['title'];?>"/>
-    Content: <textarea cols="10" rows="30" name="content"><?php echo $article['content'];?></textarea>
+<form action="<?php echo ADMIN_HTML_ROOT . 'article/update'; ?>" method="post">
+    Title:<input type="text" name="title" size="50" value="<?php echo $article['title']; ?>"/>
+    Title(En):<input type="text" name="title_en" size="50" value="<?php echo $article['title_en']; ?>"/>
+    URL:<input type="text" name="url" size="50" value="<?php echo $article['url']; ?>"/>
+    Abstract:<input type="text" name="abstract" size="50" value="<?php echo $article['abstract']; ?>"/>
+    Keyword:<input type="text" name="keyword" size="50" value="<?php echo $article['keyword']; ?>"/>
+    Keyword(En):<input type="text" name="keyword_en" size="50" value="<?php echo $article['keyword_en']; ?>"/>
+    Rank:<input type="text" name="rank" size="50"  value="<?php echo $article['rank']; ?>"/>        
+    Content: <textarea cols="10" rows="30" name="content"><?php echo $article['content']; ?></textarea>
     Category:<select name='cat_id'>
-        <?php 
+        <?php
         foreach ($cats as $cat) {
             echo "<option value='" . $cat['id'] . "'";
             if ($article['cat_id'] == $cat['id']) {
@@ -12,11 +18,23 @@
         }
         ?>
     </select>
-    <input type="hidden" name="id" value="<?php echo $article['id'];?>" />
+    Status:
+    <?php
+    if ($article['status'] == '1') {
+        $active_checked = ' checked';
+        $inactive_checked = '';
+    } else {
+        $inactive_checked = ' checked';
+        $active_checked = '';
+    }
+    ?>
+    <input type="radio" name="status" value="1" <?php echo $active_checked; ?>/>Active    
+    <input type="radio" name="status" value="0"  <?php echo $inactive_checked; ?>/>Inactive     
+    <input type="hidden" name="id" value="<?php echo $article['id']; ?>" />
     <input type="submit" name="submit" value="update" />
 </form>
-<a href="<?php echo \App\Transaction\Session::get_previous_admin_page();?>" />Cancel</a>
-<?php 
-	include_once(PHP_CKEDITOR_PATH . 'j_ckedit.class.php');
-	echo CKEDITOR::ckHeader();
-	echo CKEDITOR::ckReplaceEditor_Full('content');   
+<a href="<?php echo \App\Transaction\Session::get_previous_admin_page(); ?>" />Cancel</a>
+<?php
+include_once(PHP_CKEDITOR_PATH . 'j_ckedit.class.php');
+echo CKEDITOR::ckHeader();
+echo CKEDITOR::ckReplaceEditor_Full('content');

@@ -1,5 +1,14 @@
 <?php
-if ($session<>NULL) {
-    $str = "the session id is " . $session['session_id'].' and ' . 'expires is ' . $session['expires'];
-}
-echo $str;
+if ($cat) {
+?>
+    Title: <?php echo $cat['title'];?><br />
+    Title(en): <?php echo $cat['title_en'];?><br />
+    URL: <?php echo $cat['url'];?><br />
+    Keyword: <?php echo $cat['keyword'];?><br />
+    Keyword(en): <?php echo $cat['keyword_en'];?><br />
+    Status: <?php echo $article['status'];?><br />
+    Description: <?php echo $cat['description'];?><br />
+    
+<?php    
+}//if
+

@@ -17,10 +17,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `article`
+-- Table structure for table `page`
 --
 
-CREATE TABLE IF NOT EXISTS `article` (
+CREATE TABLE IF NOT EXISTS `page` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT '',
   `content` text,
@@ -31,20 +31,20 @@ CREATE TABLE IF NOT EXISTS `article` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `article`
+-- Dumping data for table `page`
 --
 
-INSERT INTO `article` (`id`, `title`, `content`, `cat_id`, `status`, `date_created`) VALUES
+INSERT INTO `page` (`id`, `title`, `content`, `cat_id`, `status`, `date_created`) VALUES
 (1, 'aaa', '<p>\r\n	aaa</p>', 1, 1, NULL),
 (2, 'aaa', '<p>\r\n	aaaaa</p>', 1, 1, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `article_category`
+-- Table structure for table `page_category`
 --
 
-CREATE TABLE IF NOT EXISTS `article_category` (
+CREATE TABLE IF NOT EXISTS `page_category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL DEFAULT '',
   `description` text,
@@ -54,10 +54,10 @@ CREATE TABLE IF NOT EXISTS `article_category` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `article_category`
+-- Dumping data for table `page_category`
 --
 
-INSERT INTO `article_category` (`id`, `title`, `description`, `status`, `date_created`) VALUES
+INSERT INTO `page_category` (`id`, `title`, `description`, `status`, `date_created`) VALUES
 (1, 'b11', 'b1b11', 1, '2012-08-01 00:00:00'),
 (2, 'b2', 'b2b2', 1, '2012-08-01 00:00:00'),
 (3, 'b3', 'b3b3', 1, '2012-08-01 00:00:00'),
@@ -67,10 +67,10 @@ INSERT INTO `article_category` (`id`, `title`, `description`, `status`, `date_cr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blog`
+-- Table structure for table `article`
 --
 
-CREATE TABLE IF NOT EXISTS `blog` (
+CREATE TABLE IF NOT EXISTS `article` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL DEFAULT '',
   `title_en` varchar(255) NOT NULL,
@@ -87,10 +87,10 @@ CREATE TABLE IF NOT EXISTS `blog` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
--- Dumping data for table `blog`
+-- Dumping data for table `article`
 --
 
-INSERT INTO `blog` (`id`, `title`, `title_en`, `cat_id`, `keyword`, `keyword_en`, `abstract`, `url`, `content`, `rank`, `status`, `date_created`) VALUES
+INSERT INTO `article` (`id`, `title`, `title_en`, `cat_id`, `keyword`, `keyword_en`, `abstract`, `url`, `content`, `rank`, `status`, `date_created`) VALUES
 (1, 'a1a11', '', 1, '', '', 'bbbbbbbbbbbbbb', '', '<h1>\r\n	a1a1a11</h1>', 0, 1, NULL),
 (2, 'c1', 'c1', 1, '', '', 'eeeeeeeeeeeeeee', '', '', 0, 1, NULL),
 (3, 'c2', 'c2', 1, '', '', 'fffffffffffffff', '', '<p>\r\n	<img alt="" src="http://localhost/pree/upload/5074f3431c50bcfalogo.png" style="width: 360px; height: 60px; " /></p>', 0, 1, NULL),
@@ -106,10 +106,10 @@ INSERT INTO `blog` (`id`, `title`, `title_en`, `cat_id`, `keyword`, `keyword_en`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blog_category`
+-- Table structure for table `article_category`
 --
 
-CREATE TABLE IF NOT EXISTS `blog_category` (
+CREATE TABLE IF NOT EXISTS `article_category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL DEFAULT '',
   `title_en` varchar(255) NOT NULL,
@@ -123,10 +123,10 @@ CREATE TABLE IF NOT EXISTS `blog_category` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `blog_category`
+-- Dumping data for table `article_category`
 --
 
-INSERT INTO `blog_category` (`id`, `title`, `title_en`, `keyword`, `keyword_en`, `url`, `description`, `status`, `date_created`) VALUES
+INSERT INTO `article_category` (`id`, `title`, `title_en`, `keyword`, `keyword_en`, `url`, `description`, `status`, `date_created`) VALUES
 (1, 'c11', '', '', '', '', '<p>\r\n	c111</p>', 1, '2012-08-01 00:00:00'),
 (2, 'b2', '', '', '', '', 'b2b2', 1, '2012-08-01 00:00:00'),
 (3, 'b3', '', '', '', '', 'b3b3', 1, '2012-08-01 00:00:00'),
@@ -153,10 +153,10 @@ CREATE TABLE IF NOT EXISTS `session` (
 --
 
 INSERT INTO `session` (`session_id`, `session_data`, `expires`) VALUES
-('2eopr7nql48m6c0u5iv12gi2s5', 'success_message|s:0:"";error_message|s:0:"";staff|a:1:{s:10:"staff_name";s:5:"admin";}CK_UPLOAD_PATH|s:4:"blog";current_admin_page|s:38:"/pree/admin/blog/retrieve/1/title/ASC/";l1_menu|s:4:"Blog";', 1349844159),
-('88uded53b7bkpk4tvjbjmkr5u3', 'success_message|s:0:"";error_message|s:0:"";staff|a:1:{s:10:"staff_name";s:5:"admin";}CK_UPLOAD_PATH|s:4:"blog";current_admin_page|s:33:"/pree/admin/blogcategory/retrieve";l1_menu|s:4:"Blog";', 1349824229),
-('8qgiafjnqtpj784h76tp81q552', 'success_message|s:0:"";error_message|s:0:"";current_admin_page|s:39:"/pree/admin/blog/retrieve/1/title/DESC/";staff|a:1:{s:10:"staff_name";s:5:"admin";}CK_UPLOAD_PATH|s:4:"blog";', 1349758365),
-('a3dvcsvihq47955hqiahboc3h7', 'success_message|s:0:"";error_message|s:0:"";CK_UPLOAD_PATH|s:4:"blog";staff|a:1:{s:10:"staff_name";s:5:"admin";}current_admin_page|s:47:"/pree/public/admin/article/retrieve/1/title/ASC";', 1349421479),
+('2eopr7nql48m6c0u5iv12gi2s5', 'success_message|s:0:"";error_message|s:0:"";staff|a:1:{s:10:"staff_name";s:5:"admin";}CK_UPLOAD_PATH|s:4:"article";current_admin_page|s:38:"/pree/admin/article/retrieve/1/title/ASC/";l1_menu|s:4:"Blog";', 1349844159),
+('88uded53b7bkpk4tvjbjmkr5u3', 'success_message|s:0:"";error_message|s:0:"";staff|a:1:{s:10:"staff_name";s:5:"admin";}CK_UPLOAD_PATH|s:4:"article";current_admin_page|s:33:"/pree/admin/articlecategory/retrieve";l1_menu|s:4:"Blog";', 1349824229),
+('8qgiafjnqtpj784h76tp81q552', 'success_message|s:0:"";error_message|s:0:"";current_admin_page|s:39:"/pree/admin/article/retrieve/1/title/DESC/";staff|a:1:{s:10:"staff_name";s:5:"admin";}CK_UPLOAD_PATH|s:4:"article";', 1349758365),
+('a3dvcsvihq47955hqiahboc3h7', 'success_message|s:0:"";error_message|s:0:"";CK_UPLOAD_PATH|s:4:"article";staff|a:1:{s:10:"staff_name";s:5:"admin";}current_admin_page|s:47:"/pree/public/admin/page/retrieve/1/title/ASC";', 1349421479),
 ('afcfqusd14ld9bg16o2k95dcu7', 'success_message|s:0:"";error_message|s:0:"";staff|a:1:{s:10:"staff_name";s:5:"admin";}', 1348367053),
 ('dgi7245a9tf0p13pvfo2umbfq1', 'success_message|s:0:"";error_message|s:0:"";', 1349292453),
 ('h62n9bhjb3od85pp19a8m9vt54', 'pk|s:4:"ppkk";', 1348173507),

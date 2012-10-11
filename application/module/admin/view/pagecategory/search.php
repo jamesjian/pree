@@ -2,7 +2,7 @@
 $link_search = ADMIN_HTML_ROOT . 'blogcategory/search';
 ?>
 <form action="<?php echo $link_search;?>" method="post">
-Keyword:<input type="text" name="search" value="<?php echo $search;?>" />
+Keyword:<input type="text" name="keyword" />
 <input type="submit" name="submit" value="Search" />
 </form>
-<a href="<?php echo ADMIN_HTML_ROOT . 'blogcategory/retrieve/1/title/ASC';?>">All records</a>
+
