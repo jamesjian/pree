@@ -1,9 +1,9 @@
 <?php
 namespace App\Model;
 
-use \App\Model\Base\Articlecategory as Base_Articlecategory;
+use \App\Model\Base\Pagecategory as Base_Pagecategory;
 use \Zx\Model\Mysql;
-class Articlecategory extends Base_Articlecategory{
+class Pagecategory extends Base_Pagecategory{
     /**
      * get active cats order by category name
      */

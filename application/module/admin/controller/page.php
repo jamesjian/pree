@@ -83,16 +83,16 @@ class Page extends Admin {
 	*/
     public function retrieve() {
 			\App\Transaction\Session::remember_current_admin_page();
-        $page_num = isset($this->params[0]) ?  intval($this->params[0]) : 1;
+        $current_page = isset($this->params[0]) ?  intval($this->params[0]) : 1;
         $order_by = isset($this->params[1]) ? $this->params[1]: 'id';
         $direction = isset($this->params[2]) ?  $this->params[2]: 'ASC';
-		$page_list = Model_Page::get_pages_by_page_num($page_num, $order_by, $direction);
+		$page_list = Model_Page::get_pages_by_page_num($current_page, $order_by, $direction);
 		$num_of_pages = Model_Page::get_num_of_pages_of_pages();
         View::set_view_file($this->view_path . 'retrieve.php');
         View::set_action_var('page_list', $page_list);
         View::set_action_var('order_by', $order_by);
         View::set_action_var('direction', $direction);
-        View::set_action_var('page_num', $page_num);
+        View::set_action_var('current_page', $current_page);
         View::set_action_var('num_of_pages', $num_of_pages);
     }
 

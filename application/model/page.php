@@ -1,10 +1,10 @@
 <?php
 namespace App\Model;
 
-use \App\Model\Base\Article as Base_Article;
+use \App\Model\Base\Page as Base_Page;
 use \Zx\Model\Mysql;
 
-class Article extends Base_Article{
+class Page extends Base_Page{
 
     /**
      * 
@@ -13,9 +13,9 @@ class Article extends Base_Article{
      */
     public static function get_title_by_id($id)
     {
-        $article = parent::get_one($id);
-        if ($article) {
-            return $article['title'];
+        $page = parent::get_one($id);
+        if ($page) {
+            return $page['title'];
         } else {
             return false;
         }
@@ -50,25 +50,25 @@ class Article extends Base_Article{
 /**
      * get active cats order by category name
      */
-    public static function get_active_articles_by_page_num($page_num = 1, $order_by = 'a.display_order', $direction = 'ASC') {
+    public static function get_active_pages_by_page_num($page_num = 1, $order_by = 'a.display_order', $direction = 'ASC') {
         $where = ' a.status=1 ';
         $offset = ($page_num - 1) * NUM_OF_ARTICLES_IN_CAT_PAGE;
         return parent::get_all($where, $offset, NUM_OF_ARTICLES_IN_CAT_PAGE, $order_by, $direction);
     }
-    public static function get_num_of_pages_of_active_articles() {
+    public static function get_num_of_pages_of_active_pages() {
 		$where = ' status=1';
         return parent::get_num();
     }
-    public static function get_active_articles_by_cat_id_and_page_num($cat_id, $page_num = 1, $order_by = 'a.display_order', $direction = 'ASC') {
+    public static function get_active_pages_by_cat_id_and_page_num($cat_id, $page_num = 1, $order_by = 'a.display_order', $direction = 'ASC') {
         $where = ' a.status=1 AND a.cat_id=' . $cat_id;
         $offset = ($page_num - 1) * NUM_OF_ARTICLES_IN_CAT_PAGE;
         return parent::get_all($where, $offset, NUM_OF_ARTICLES_IN_CAT_PAGE, $order_by, $direction);
     }
-    public static function get_num_of_pages_of_active_articles_by_cat_id() {
+    public static function get_num_of_pages_of_active_pages_by_cat_id() {
 		$where = ' a.status=1 AND a.cat_id=' . $cat_id;
         return parent::get_num();
     }
-    public static function get_articles_by_page_num($page_num = 1, $order_by = 'id', $direction = 'ASC') {
+    public static function get_pages_by_page_num($page_num = 1, $order_by = 'id', $direction = 'ASC') {
         $page_num = intval($page_num);
         $page_num = ($page_num > 0) ? $page_num : 1;
         switch ($order_by) {
@@ -87,14 +87,14 @@ class Article extends Base_Article{
         return parent::get_all($where, $start, NUM_OF_RECORDS_IN_ADMIN_PAGE, $order_by, $direction);
     }
 
-    public static function get_num_of_pages_of_articles() {
+    public static function get_num_of_pages_of_pages() {
         return parent::get_num();
     }
 
     /**
      * get active cats order by category name
      */
-    public static function get_all_articles() {
+    public static function get_all_pages() {
         return parent::get_all();
     }	
 }

@@ -17,10 +17,10 @@
             ?>
             <a href="<?php echo ADMIN_HTML_ROOT . 'staff/logout'; ?>">Logout</a>
             <?php
-            $menu_arr = array('Blog' => 'blog',
-                'Blog Category' => 'blogcategory',
-                'Article' => 'article',
+            $menu_arr = array('Article' => 'article',
                 'Article Category' => 'articlecategory',
+                'Page' => 'page',
+                'Page Category' => 'pagecategory',
             );
             ?>
             <nav>

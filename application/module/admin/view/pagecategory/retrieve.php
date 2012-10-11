@@ -5,7 +5,7 @@ $create_link = ADMIN_HTML_ROOT . 'pagecategory/create';
 <a href="<?php echo $create_link;?>">Create</a>
 <?php
 if ($cat_list) {
-$link_prefix = ADMIN_HTML_ROOT . "pagecategory/retrieve/$page_num/";
+$link_prefix = ADMIN_HTML_ROOT . "pagecategory/retrieve/$current_page/";
 $link_postfix = ($direction == 'ASC')? '/DESC' : '/ASC';
 $link_id = $link_prefix . 'id' . $link_postfix;
 $link_title = $link_prefix . 'title' . $link_postfix;

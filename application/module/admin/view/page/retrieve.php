@@ -5,7 +5,7 @@ $create_link = ADMIN_HTML_ROOT . 'page/create';
 <a href="<?php echo $create_link;?>">Create</a>
 <?php
 if ($page_list) {
-$link_prefix = ADMIN_HTML_ROOT . "page/retrieve/$page_num/";
+$link_prefix = ADMIN_HTML_ROOT . "page/retrieve/$current_page/";
 $link_postfix = ($direction == 'ASC')? '/DESC' : '/ASC';
 $link_id = $link_prefix . 'id' . $link_postfix;
 $link_title = $link_prefix . 'title' . $link_postfix;
