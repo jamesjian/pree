@@ -6,7 +6,18 @@ use \App\Model\Base\Article as Base_Article;
 use \Zx\Model\Mysql;
 
 class Article extends Base_Article {
-
+    /**
+     *
+     * @param intval $cat_id  category id
+     * @return boolean
+     */
+    public static function exist_article_under_cat($cat_id)
+    {
+        $where = 'b.cat_id=' . $cat_id;
+        $num = parent::get_num($where);
+        if ($num>0) return true;
+        else return false;
+    }
     /**
       according to category or keyword
       keywords are seperated by '^'
@@ -68,14 +79,14 @@ class Article extends Base_Article {
      */
     public static function get_active_articles_by_cat_id_and_page_num($cat_id, $page_num = 1, $order_by = 'b.display_order', $direction = 'ASC') {
         $where = ' b.status=1 AND b.cat_id=' . $cat_id;
-        $offset = ($page_num - 1) * NUM_OF_BLOGS_IN_CAT_PAGE;
-        return parent::get_all($where, $offset, NUM_OF_BLOGS_IN_CAT_PAGE, $order_by, $direction);
+        $offset = ($page_num - 1) * NUM_OF_ARTICLES_IN_CAT_PAGE;
+        return parent::get_all($where, $offset, NUM_OF_ARTICLES_IN_CAT_PAGE, $order_by, $direction);
     }
 
     public static function get_articles_by_cat_id_and_page_num($cat_id, $where = '1', $page_num = 1, $order_by = 'b.display_order', $direction = 'ASC') {
         $where = ' (b.status=1 AND b.cat_id=' . $cat_id . ')  AND (' . $where . ')';
-        $offset = ($page_num - 1) * NUM_OF_BLOGS_IN_CAT_PAGE;
-        return parent::get_all($where, $offset, NUM_OF_BLOGS_IN_CAT_PAGE, $order_by, $direction);
+        $offset = ($page_num - 1) * NUM_OF_ARTICLES_IN_CAT_PAGE;
+        return parent::get_all($where, $offset, NUM_OF_ARTICLES_IN_CAT_PAGE, $order_by, $direction);
     }
 
     public static function get_num_of_articles_by_cat_id($cat_id, $where = '1') {

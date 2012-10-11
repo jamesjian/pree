@@ -3,6 +3,7 @@
 namespace App\Transaction;
 
 use \App\Model\Articlecategory as Model_Articlecategory;
+use \App\Model\Article as Model_Article;
 use \Zx\Message\Message;
 
 class Articlecategory {
@@ -38,16 +39,26 @@ class Articlecategory {
             return false;
         }
     }
-
+/**
+ *
+ * @param string $id category id
+ * @return boolean 
+ */
     public static function delete_cat($id) {
-        if (Model_Articlecategory::exist_article_under_this_cat($id)) {
-            Message::set_error_message('There is a article under this category, it cannot be deleted.');
+        if (Model_Article::exist_article_under_cat($id)) {
+            Message::set_error_message('There is an article under this category, it cannot be deleted.');
         } else {
-            if (Model_Articlecategory::delete($id)) {
+            $cat = Model_Articlecategory::get_one($id);
+            if ($cat) {
+            if ( Model_Articlecategory::delete($id)) {
                 Message::set_success_message('success');
                 return true;
             } else {
                 Message::set_error_message('fail');
+                return false;
+            }
+            } else {
+                Message::set_error_message('The cat does not exist');
                 return false;
             }
         }

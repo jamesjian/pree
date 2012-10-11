@@ -52,4 +52,5 @@ class Articlecategory extends Base_Articlecategory{
         $where = 'status=1';
         return parent::get_num($where);
     }    
+
 }

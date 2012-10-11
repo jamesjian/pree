@@ -48,7 +48,7 @@ class Articlecategory extends Admin {
     }
 
     public function delete() {
-        $id = $this->params[0];
+        $id = (isset($this->params[0])) ? intval($this->params[0]) :  0;
         Transaction_Articlecategory::delete_cat($id);
         header('Location: ' . $this->list_page);
     }

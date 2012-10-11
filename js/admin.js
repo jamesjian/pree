@@ -121,40 +121,40 @@ admin = {
         
         $('.view_blog_link').bind('click', {
             title: 'Blog'
-        }, index.show_template);
+        }, admin.show_template);
        
         $('.view_article_link').bind('click', {
             title: 'Article'
-        }, index.show_template);
+        }, admin.show_template);
        
     },    
     init_clear_image_links: function(){
         $('.clear_article1_image').bind('click', {
             image_id:'#image'
-        }, index.clear_image);
+        }, admin.clear_image);
          
         $('.clear_blog_image').bind('click', {
             image_id:'#image'
-        }, index.clear_image);        
+        }, admin.clear_image);        
     },
     /**
      * initialize all delete event handlers
      */
     init_delete_links: function(){
-        $('.delete_blog_cat').bind('click', {
-            name: 'blog category'
-        }, index.confirm_delete_template);
-        $('.delete_blog').bind('click', {
-            name: 'blog'
-        }, index.confirm_delete_template);
+        $('.delete_article_cat').bind('click', {
+            name: 'article category'
+        }, admin.confirm_delete_template);
+        $('.delete_article').bind('click', {
+            name: 'article'
+        }, admin.confirm_delete_template);
     },    
     init_change_status_links: function(){
         $('.category_status').bind('change', {
             table_name: 'category'
-        },index.change_status);
+        },admin.change_status);
         $('.blog_status').bind('change', {
             table_name: 'blog'
-        },index.change_status);
+        },admin.change_status);
     },	
     test: function(){
         var url = '/z2/public/admin/article/show';
@@ -181,20 +181,22 @@ admin = {
         
     },
     init: function(){
-        console.log('aaa');
+        //console.log('aaa');
         admin.bind_events();
         $('tr:odd').css('background-color', '#ffffee');		
+        /*
         $('#dialog').dialog({
             autoOpen: false,
             height: 500,
             width: 900,
             modal: true,
             buttons:{
-                'Close': function(){
+                'close': function(){
                     $(this).dialog('close');
                 }
             }		
         });
+        */
     }
 }
 $(document).ready(admin.init);

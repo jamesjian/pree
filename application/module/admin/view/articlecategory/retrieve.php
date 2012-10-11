@@ -41,7 +41,7 @@ $direction_img = ($direction == 'ASC') ? HTML_ROOT . 'image/icon/up.png' :
 	<td><?php echo $cat['title'];?></td>
 	<td><?php echo $cat['title_en'];?></td>
 	<td><?php echo $cat['url'];?></td>
-	<td><?php echo $link_article;?>Blogs</td>
+	<td><a href='<?php echo $link_article;?>'>Blogs</a></td>
 	<td><?php echo $cat['status'];?></td>
 	<td><a href='<?php echo $link_delete;?>' class="delete_article_cat">delete</a></td>
 	<td><a href='<?php echo $link_update;?>'>update</a></td>

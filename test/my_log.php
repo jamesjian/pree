@@ -50,4 +50,48 @@ $arr:/pree/admin/blog/retrieve<span style="color:red;">file:C:\wamp\www\pree\lib
 	<img alt="" src="http://localhost/pree/upload/5074f46ab4d51nurse.jpg" style="width: 141px; height: 116px; " /></p>',`keyword`='',`keyword_en`='',`abstract`='gggggggggggggggg',`url`='',`cat_id`='1',`rank`='0',`status`='1' WHERE id=8<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />id:7<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:70class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='ccc3333',`title_en`='',`content`='<p>
 	cccc<img alt="" src="http://localhost/pree/upload/5074f4814ecc6natura therapist.jpg" style="width: 141px; height: 116px; " /></p>',`keyword`='',`keyword_en`='',`abstract`='hhhhhhhhhhhhhhhhh',`url`='',`cat_id`='1',`rank`='0',`status`='1' WHERE id=7<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />id:9<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:70class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='d1',`title_en`='',`content`='<p>
 	d1</p>',`keyword`='d1',`keyword_en`='d1',`abstract`='iiiiiiiiiiiii',`url`='d1',`cat_id`='2',`rank`='1',`status`='1' WHERE id=9<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />id:10<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:70class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='d21',`title_en`='d21',`content`='<p>
-	d21</p>',`keyword`='d21',`keyword_en`='d21',`abstract`='jjjjjjjjjjjj',`url`='d21',`cat_id`='4',`rank`='21',`status`='0' WHERE id=10<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />lob:aaaa<span style="color:red;">file:C:\wamp\www\pree\application\module\front\controller\common.phpline:38class:App\Module\Front\Controller\Commonmethod:App\Module\Front\Controller\Common::home</span><br /><br />id:1<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\article.phpline:70class:App\Module\Admin\Controller\Articlemethod:App\Module\Admin\Controller\Article::update</span><br /><br />
+	d21</p>',`keyword`='d21',`keyword_en`='d21',`abstract`='jjjjjjjjjjjj',`url`='d21',`cat_id`='4',`rank`='21',`status`='0' WHERE id=10<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />lob:aaaa<span style="color:red;">file:C:\wamp\www\pree\application\module\front\controller\common.phpline:38class:App\Module\Front\Controller\Commonmethod:App\Module\Front\Controller\Common::home</span><br /><br />id:1<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\article.phpline:70class:App\Module\Admin\Controller\Articlemethod:App\Module\Admin\Controller\Article::update</span><br /><br />id:1<span style="color:red;">file:F:\jian\wamp\www\pree\application\module\admin\controller\articlecategory.phpline:60class:App\Module\Admin\Controller\Articlecategorymethod:App\Module\Admin\Controller\Articlecategory::update</span><br /><br />arr:Array
+(
+    [title] => 澳洲保险常识
+    [title_en] => Australia Insurance Knowledge
+    [keyword] => 澳洲,保险,常识
+    [keyword_en] => Australia Insurance Knowledge
+    [url] => 
+    [description] => <p>
+	c111</p>
+    [status] => 1
+)
+<span style="color:red;">file:F:\jian\wamp\www\pree\application\transaction\articlecategory.phpline:26class:App\Transaction\Articlecategorymethod:App\Transaction\Articlecategory::update_cat</span><br /><br />id:2<span style="color:red;">file:F:\jian\wamp\www\pree\application\module\admin\controller\articlecategory.phpline:60class:App\Module\Admin\Controller\Articlecategorymethod:App\Module\Admin\Controller\Articlecategory::update</span><br /><br />arr:Array
+(
+    [title] => 澳洲保险法规
+    [title_en] => Australia Insurance Law
+    [keyword] => 澳洲,保险,法规
+    [keyword_en] => Australia Insurance Law
+    [url] => 
+    [description] => <p>
+	b2b2</p>
+    [status] => 1
+)
+<span style="color:red;">file:F:\jian\wamp\www\pree\application\transaction\articlecategory.phpline:26class:App\Transaction\Articlecategorymethod:App\Transaction\Articlecategory::update_cat</span><br /><br />id:3<span style="color:red;">file:F:\jian\wamp\www\pree\application\module\admin\controller\articlecategory.phpline:60class:App\Module\Admin\Controller\Articlecategorymethod:App\Module\Admin\Controller\Articlecategory::update</span><br /><br />arr:Array
+(
+    [title] => 澳洲保险教育
+    [title_en] => Australia Insurance Education
+    [keyword] => 澳洲,保险,教育
+    [keyword_en] => Australia Insurance Education
+    [url] => 
+    [description] => <p>
+	b3b3</p>
+    [status] => 1
+)
+<span style="color:red;">file:F:\jian\wamp\www\pree\application\transaction\articlecategory.phpline:26class:App\Transaction\Articlecategorymethod:App\Transaction\Articlecategory::update_cat</span><br /><br />id:4<span style="color:red;">file:F:\jian\wamp\www\pree\application\module\admin\controller\articlecategory.phpline:60class:App\Module\Admin\Controller\Articlecategorymethod:App\Module\Admin\Controller\Articlecategory::update</span><br /><br />arr:Array
+(
+    [title] => 澳洲保险机构
+    [title_en] => Australia Insurance Organization
+    [keyword] => 澳洲,保险,机构
+    [keyword_en] => Australia Insurance Organization
+    [url] => 
+    [description] => <p>
+	b4b4</p>
+    [status] => 1
+)
+<span style="color:red;">file:F:\jian\wamp\www\pree\application\transaction\articlecategory.phpline:26class:App\Transaction\Articlecategorymethod:App\Transaction\Articlecategory::update_cat</span><br /><br />
