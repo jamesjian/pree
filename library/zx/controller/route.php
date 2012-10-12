@@ -36,7 +36,8 @@ class Route {
 
     public static function analyze_url() {
         self::$url = $_SERVER['REQUEST_URI'];
-        $url = substr(self::$url, strlen(URL_PREFIX)); //remove prefix such as "/pree/" in test server or "/" in live site
+        $url = urldecode(substr(self::$url, strlen(URL_PREFIX))); //remove prefix such as "/pree/" in test server or "/" in live site
+        //\Zx\Test\Test::object_log('decode url', urldecode($url), __FILE__, __LINE__, __CLASS__, __METHOD__);
 
         $arr = explode('/', $url);
         $length = count($arr); //it's always >1, even if no query string at all, $arr contain an empty string element

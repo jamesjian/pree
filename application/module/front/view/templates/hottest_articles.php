@@ -12,7 +12,7 @@ if ($top10) {
         <ul>
             <?php
             foreach ($top10 as $article) {
-                $read_more_link = HTML_ROOT . 'front/article/show/' . $article['id'];
+                $read_more_link = HTML_ROOT . 'front/article/show/' . $article['url'];
                 ?>		
                 <li><?php echo "<a href='$read_more_link'>" . $article['title'] . "</a>";
                 ?>

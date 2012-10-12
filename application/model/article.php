@@ -6,6 +6,29 @@ use \App\Model\Base\Article as Base_Article;
 use \Zx\Model\Mysql;
 
 class Article extends Base_Article {
+    public static function get_all_keywords()
+    {
+        $sql = "SELECT keyword, keyword_en FROM article WHERE status=1";
+        $r = Mysql::select_all($sql);
+        $arr = array();
+        if ($r) {
+            foreach ($r as $record) {
+                $arr_keyword = explode(',', $record['keyword']);
+                foreach ($arr_keyword as $keyword) {
+                    if (!in_array($keyword, $arr)) {
+                        $arr[] = $keyword;
+                    }
+                }
+                $arr_keyword = explode(',', $record['keyword_en']);
+                foreach ($arr_keyword as $keyword) {
+                    if (!in_array($keyword, $arr)) {
+                        $arr[] = $keyword;
+                    }
+                }                
+            }
+        }
+        return $arr;
+    }
     /**
      * 
      * @param string $url is a unique column in article table
@@ -95,8 +118,8 @@ class Article extends Base_Article {
      */
     public static function get_active_articles_by_cat_id_and_page_num($cat_id, $page_num = 1, $order_by = 'b.display_order', $direction = 'ASC') {
         $where = ' b.status=1 AND b.cat_id=' . $cat_id;
-        $offset = ($page_num - 1) * NUM_OF_ARTICLES_IN_CAT_PAGE;
-        return parent::get_all($where, $offset, NUM_OF_ARTICLES_IN_CAT_PAGE, $order_by, $direction);
+        $offset = ($page_num - 1) * NUM_OF_ITEMS_IN_ONE_PAGE;
+        return parent::get_all($where, $offset, NUM_OF_ITEMS_IN_ONE_PAGE, $order_by, $direction);
     }
 
     public static function get_articles_by_cat_id_and_page_num($cat_id, $where = '1', $page_num = 1, $order_by = 'b.display_order', $direction = 'ASC') {
@@ -114,7 +137,18 @@ class Article extends Base_Article {
         $where = ' b.status=1 AND b.cat_id=' . $cat_id;
         return parent::get_num($where);
     }
-
+ /**
+     */
+    public static function get_active_articles_by_keyword_and_page_num($keyword, $page_num = 1, $order_by = 'b.display_order', $direction = 'ASC') {
+        $where = " b.status=1 AND (b.keyword LIKE '%$keyword%' OR  b.keyword_en LIKE '%$keyword%')" ;
+        $offset = ($page_num - 1) * NUM_OF_ITEMS_IN_ONE_PAGE;
+        return parent::get_all($where, $offset, NUM_OF_ITEMS_IN_ONE_PAGE, $order_by, $direction);
+    }
+    public static function get_num_of_active_articles_by_keyword($keyword) {
+        $where = " b.status=1 AND (b.keyword LIKE '%$keyword%' OR  b.keyword_en LIKE '%$keyword%')" ;
+        return parent::get_num($where);
+    }    
+    
     public static function get_articles_by_page_num($where = '1', $page_num = 1, $order_by = 'id', $direction = 'ASC') {
         $page_num = intval($page_num);
         $page_num = ($page_num > 0) ? $page_num : 1;

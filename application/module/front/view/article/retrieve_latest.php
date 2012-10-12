@@ -4,17 +4,17 @@
     </div>	
     <div class='zx-front-left2'>
         <?php
-        if ($blogs) {
+        if ($articles) {
             ?>
             <nav>
                 <ul>
                     <?php
-                    foreach ($blogs as $blog) {
-                        $read_more_link = HTMLROOT . 'front/blog/show/' . $blog['id'];
+                    foreach ($articles as $article) {
+                        $read_more_link = FRONT_HTML_ROOT . 'article/content/' . $article['url'];
                         ?>		
                         <li><?php
-                echo $blog->title, BR;
-                echo mb_substr($blog->content, 0, 100, 'UTF-8');
+                echo $article['title'], BR;
+                echo $article['abstract'];
                 echo "<a href='$read_more_link'>Read more...</a>";
                 ?>
                         </li>
@@ -24,11 +24,10 @@
                 </ul>
             </nav>	
             <?php
-        }//if ($blogs)
-	$current_page = 1;
-	$link_prefix = FRONT_HTML_ROOT .'blog/latest/page/';			
+        }//if ($articles)
+	$link_prefix = FRONT_HTML_ROOT .'article/latest/';			
 	$link_postfix = '';			
-        include FRONT_VIEW_PATH . 'blog/pagination.php';
+        include FRONT_VIEW_PATH . 'template/pagination.php';
         ?>
     </div>
 </div>
@@ -36,33 +35,17 @@
     <div class='zx-front-right1'>
         <?php
         //tag cloud or search
-        include 'tag_cloud.php';
+        include FRONT_VIEW_PATH . 'templates/tag_cloud.php';
         ?>
     </div>	
     <div class='zx-front-right2'>
         <?php include FRONT_VIEW_PATH . 'templates/right_google_ads.php'; ?>
     </div>
-    <div class='zx-front-right3'>
+        <div class='zx-front-right3'>
+        <?php include FRONT_VIEW_PATH . 'templates/hottest_articles.php'; ?>
         <?php
-//related contents
-        if ($popular_blogs) {
-            ?>
-            <nav>
-                <ul>
-                    <?php
-                    foreach ($popular_blogs as $blog) {
-                        $read_more_link = HTMLROOT . 'front/blog/show/' . $blog['id'];
-                        ?>		
-                        <li><?php echo "<a href='$read_more_link'>" . $blog->title . "</a>";
-                        ?>
-                        </li>
-        <?php
-    }//foreach
-    ?>
-                </ul>
-            </nav>	
-            <?php
-        }//if ($popular_blogs)
+        $all_hottest = HTML_ROOT . 'article/hottest/';
         ?>
+        <a href="<?php echo $all_hottest; ?>">All</a>
     </div>
 </div>

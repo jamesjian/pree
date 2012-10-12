@@ -44,6 +44,10 @@ class Html {
     {
         
     }
+    public static function goto_home_page()
+    {
+        header('Location: '. HTML_ROOT);
+    }
 
 }
 

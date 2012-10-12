@@ -27,7 +27,7 @@
                     if ($article_cats) {
                         $current_l1_menu = \App\Transaction\Session::get_front_current_l1_menu();
                         foreach ($article_cats as $cat) {
-                            $link = HTML_ROOT . 'articlecategory/retrieve/' . $cat['id'];
+                            $link = HTML_ROOT . 'front/article/category/' . $cat['title'];
                             if ($current_l1_menu == $cat['title']) {
                                 $active_class = ' class="zx-front-active-menu"';
                             } else {

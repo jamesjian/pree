@@ -25,7 +25,7 @@
             </nav>	
             <?php
         }//if ($articles)
-        $link_prefix = HTML_ROOT . 'front/article/category/' . $cat['title'];
+        $link_prefix = HTML_ROOT . 'front/article/keyword/' . $keyword;
         $link_postfix = "/$order_by/$direction";
         include FRONT_VIEW_PATH . 'templates/pagination.php';
         ?>

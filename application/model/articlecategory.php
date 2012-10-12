@@ -52,5 +52,15 @@ class Articlecategory extends Base_Articlecategory{
         $where = 'status=1';
         return parent::get_num($where);
     }    
+    /**
+     * 
+     * @param string $title cat tile is unique
+     * @return array or false if not exists
+     */
+    public static function exist_cat_title($title) {
+        $sql = "SELECT * FROM article_category WHERE title='$title'";
+                \Zx\Test\Test::object_log('$sql', $sql, __FILE__, __LINE__, __CLASS__, __METHOD__);
 
+        return Mysql::select_one($sql);
+    }
 }
