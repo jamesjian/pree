@@ -26,10 +26,10 @@
             <nav>
                 <ul>
                     <?php
-                    $current_l1_menu = \App\Transaction\Session::get_current_l1_menu();
+                    $current_l1_menu = \App\Transaction\Session::get_admin_current_l1_menu();
                     foreach ($menu_arr as $menu_name => $controller_name) {
                         if ($current_l1_menu == $menu_name) {
-                            $active_class= ' class="active"';
+                            $active_class= ' class="zx-admin-active-menu"';
                         } else {
                             $active_class = '';
                         }

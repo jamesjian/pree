@@ -15,7 +15,11 @@ if ($num_of_pages <= NUM_OF_ITEMS_IN_PAGINATION) {
     //display all page numbers
     for ($i = 1; $i <= $num_of_pages; $i++) {
         $link = $link_prefix . $i . $link_postfix;
-        echo "<a href='$link'>$i</a>";
+        echo "<a href='$link'";
+        if ($i == $current_page) {
+            echo " class='zx-admin-current-page'";
+        }
+        echo ">$i</a>";
     }
 } else {
     //display page numbers around current page
@@ -32,7 +36,11 @@ if ($num_of_pages <= NUM_OF_ITEMS_IN_PAGINATION) {
     }
     for ($i = $start; $i <= $end; $i++) {
         $link = $link_prefix . $i . $link_postfix;
-        echo "<a href='$link'>$i</a>";
+        echo "<a href='$link'";
+        if ($i == $current_page) {
+            echo " class='zx-admin-current-page'";
+        }
+        echo ">$i</a>";
     }
 }
 if ($current_page != $num_of_pages) {

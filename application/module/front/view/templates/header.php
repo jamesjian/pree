@@ -17,23 +17,28 @@
     <body class='zx-front-body'>	
         <div class='zx-front-header'>
             <div class='zx-front-logo'>
-                <a href='<?php echo HTML_ROOT;?>' title='baoxian.com.au'>BAOXIAN.com.au</a>
-                
+                <a href='<?php echo HTML_ROOT; ?>' title='baoxian.com.au'>BAOXIAN.com.au</a>
+
             </div>
             <nav class='zx-front-top-menu'>
                 <ul>
+                    <li><a href="<?php echo HTML_ROOT; ?>" title="homepage">Home</a></li>
                     <?php
-                    if ($blog_cats) {
-                        foreach ($blog_cats as $cat) {
-                            $link = HTML_ROOT . 'blgcategory/show/' . $cat['id'];
+                    if ($article_cats) {
+                        $current_l1_menu = \App\Transaction\Session::get_front_current_l1_menu();
+                        foreach ($article_cats as $cat) {
+                            $link = HTML_ROOT . 'articlecategory/retrieve/' . $cat['id'];
+                            if ($current_l1_menu == $cat['title']) {
+                                $active_class = ' class="zx-front-active-menu"';
+                            } else {
+                                $active_class = '';
+                            }
                             ?>
-                            <li><a href="<?php echo $link; ?>" title="<?php echo $cat['title']; ?>"><?php echo $cat['title']; ?></a></li>
+                            <li <?php echo $active_class; ?>><a href="<?php echo $link; ?>" title="<?php echo $cat['title']; ?>"><?php echo $cat['title']; ?></a></li>
                             <?php
                         }
                     }
                     ?>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
                 </ul>
             </nav>
         </div>

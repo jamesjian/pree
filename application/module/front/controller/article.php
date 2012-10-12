@@ -4,6 +4,7 @@ namespace App\Module\Front\Controller;
 
 use \Zx\Controller\Route;
 use \Zx\View\View;
+use App\Transaction\Html as Transaction_Html;
 use \App\Model\Article as Model_Article;
 
 /**
@@ -23,17 +24,22 @@ class Article extends Front {
         parent::init();
     }
 
-    //one article
+    /**one article
+     * 
+     */
     public function content() {
-        $article_id = $params[0];
-        $article = Model_Article::get_one($article_id);
+        $article_url = $this->params[0]; //it's url rather than an id
+        
+        $article = Model_Article::get_one_by_url($article_url);
+        //\Zx\Test\Test::object_log('$article', $article, __FILE__, __LINE__, __CLASS__, __METHOD__);
         if ($article) {
+            $article_id = $article['id'];
             Transaction_Html::set_title($article['title']);
             Transaction_Html::set_keyword($article['keyword'] . ',' . $article['keyword_en']);
             Transaction_Html::set_description($article['title']);
             Model_Article::increase_rank($article_id);
-
-            View::set_view_file($this->view_path . 'show.php');
+            
+            View::set_view_file($this->view_path . 'one_article.php');
             $relate_articles = Model_Article::get_10_active_related_articles($article_id);
             View::set_action_var('article', $article);
             View::set_action_var('related_articles', $relate_articles);

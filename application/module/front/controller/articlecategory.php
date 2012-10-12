@@ -24,6 +24,7 @@ class Articlecategory extends Front {
         $cat_id = (isset($params[0])) ? intval($params[1]) : 1;
         $page_number = (isset($params[2])) ? intval($params[2]) : 1;  //default page 1
         $cat = Model_Articlecategory::get_one($cat_id);
+        \App\Transaction\Session::set_front_current_l1_menu($cat['title']);
         Transaction_Html::set_title($cat['title']);
         Transaction_Html::set_keyword($cat['keyword'] . ',' . $cat['keyword_en']);
         Transaction_Html::set_description($cat['title']);

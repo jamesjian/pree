@@ -1,97 +1,83 @@
-$arr:/pree/admin/blog/retrieve<span style="color:red;">file:C:\wamp\www\pree\library\zx\controller\route.phpline:39class:Zx\Controller\Routemethod:Zx\Controller\Route::analyze_url</span><br /><br />$arr:/pree/admin/blogcategory/retrieve<span style="color:red;">file:C:\wamp\www\pree\library\zx\controller\route.phpline:39class:Zx\Controller\Routemethod:Zx\Controller\Route::analyze_url</span><br /><br />$upload_dir:upload\\<span style="color:red;">file:C:\wamp\www\pree\js\ckeditor\j_ckfileuploader.phpline:13class:method:</span><br /><br />_FILES:Array
+$article:<span style="color:red;">file:C:\wamp\www\pree\application\module\front\controller\article.phpline:33class:App\Module\Front\Controller\Articlemethod:App\Module\Front\Controller\Article::content</span><br /><br />query:SELECT b.*, bc.title as cat_name
+            FROM article b
+            LEFT JOIN article_category bc ON b.cat_id=bc.id
+            WHERE b.url=niba
+        <span style="color:red;">file:C:\wamp\www\pree\application\model\article.phpline:22class:App\Model\Articlemethod:App\Model\Article::get_one_by_url</span><br /><br />$article:<span style="color:red;">file:C:\wamp\www\pree\application\module\front\controller\article.phpline:33class:App\Module\Front\Controller\Articlemethod:App\Module\Front\Controller\Article::content</span><br /><br />$article:<span style="color:red;">file:C:\wamp\www\pree\application\module\front\controller\article.phpline:33class:App\Module\Front\Controller\Articlemethod:App\Module\Front\Controller\Article::content</span><br /><br />$article:<span style="color:red;">file:C:\wamp\www\pree\application\module\front\controller\article.phpline:33class:App\Module\Front\Controller\Articlemethod:App\Module\Front\Controller\Article::content</span><br /><br />query:SELECT b.*, bc.title as cat_name
+            FROM article b
+            LEFT JOIN article_category bc ON b.cat_id=bc.id
+            WHERE b.url='niba'
+        <span style="color:red;">file:C:\wamp\www\pree\application\model\article.phpline:22class:App\Model\Articlemethod:App\Model\Article::get_one_by_url</span><br /><br />$article:<span style="color:red;">file:C:\wamp\www\pree\application\module\front\controller\article.phpline:33class:App\Module\Front\Controller\Articlemethod:App\Module\Front\Controller\Article::content</span><br /><br />query:SELECT b.*, bc.title as cat_name
+            FROM article b
+            LEFT JOIN article_category bc ON b.cat_id=bc.id
+            WHERE b.url='niba'
+        <span style="color:red;">file:C:\wamp\www\pree\application\model\article.phpline:22class:App\Model\Articlemethod:App\Model\Article::get_one_by_url</span><br /><br />$article:<span style="color:red;">file:C:\wamp\www\pree\application\module\front\controller\article.phpline:33class:App\Module\Front\Controller\Articlemethod:App\Module\Front\Controller\Article::content</span><br /><br />query:SELECT b.*, bc.title as cat_name
+            FROM article b
+            LEFT JOIN article_category bc ON b.cat_id=bc.id
+            WHERE b.url='niba'
+        <span style="color:red;">file:C:\wamp\www\pree\application\model\article.phpline:22class:App\Model\Articlemethod:App\Model\Article::get_one_by_url</span><br /><br />$article:Array
 (
-    [upload] => Array
-        (
-            [name] => cystic_fib_logo.png
-            [type] => image/png
-            [tmp_name] => C:\wamp\tmp\php1DC4.tmp
-            [error] => 0
-            [size] => 1591
-        )
-
-)
-<span style="color:red;">file:C:\wamp\www\pree\js\ckeditor\j_ckedit.class.phpline:135class:CKEDITORmethod:CKEDITOR::ckFile</span><br /><br />php_upload_file:C:\wamp\www\pree\upload\\5074f1ad0b8c0cystic_fib_logo.png<span style="color:red;">file:C:\wamp\www\pree\js\ckeditor\j_ckedit.class.phpline:136class:CKEDITORmethod:CKEDITOR::ckFile</span><br /><br />url:http://localhosthttp://localhost/pree/upload\\5074f1ad0b8c0cystic_fib_logo.png<span style="color:red;">file:C:\wamp\www\pree\js\ckeditor\j_ckedit.class.phpline:147class:CKEDITORmethod:CKEDITOR::ckFile</span><br /><br />$upload_dir:upload/<span style="color:red;">file:C:\wamp\www\pree\js\ckeditor\j_ckfileuploader.phpline:13class:method:</span><br /><br />_FILES:Array
-(
-    [upload] => Array
-        (
-            [name] => cystic_fib_logo.png
-            [type] => image/png
-            [tmp_name] => C:\wamp\tmp\php5A38.tmp
-            [error] => 0
-            [size] => 1591
-        )
-
-)
-<span style="color:red;">file:C:\wamp\www\pree\js\ckeditor\j_ckedit.class.phpline:135class:CKEDITORmethod:CKEDITOR::ckFile</span><br /><br />php_upload_file:C:\wamp\www\pree\upload/5074f23f847cbcystic_fib_logo.png<span style="color:red;">file:C:\wamp\www\pree\js\ckeditor\j_ckedit.class.phpline:136class:CKEDITORmethod:CKEDITOR::ckFile</span><br /><br />url:http://localhosthttp://localhost/pree/upload/5074f23f847cbcystic_fib_logo.png<span style="color:red;">file:C:\wamp\www\pree\js\ckeditor\j_ckedit.class.phpline:147class:CKEDITORmethod:CKEDITOR::ckFile</span><br /><br />$upload_dir:upload/<span style="color:red;">file:C:\wamp\www\pree\js\ckeditor\j_ckfileuploader.phpline:13class:method:</span><br /><br />_FILES:Array
-(
-    [upload] => Array
-        (
-            [name] => cystic_fib_logo.png
-            [type] => image/png
-            [tmp_name] => C:\wamp\tmp\php98DE.tmp
-            [error] => 0
-            [size] => 1591
-        )
-
-)
-<span style="color:red;">file:C:\wamp\www\pree\js\ckeditor\j_ckedit.class.phpline:135class:CKEDITORmethod:CKEDITOR::ckFile</span><br /><br />php_upload_file:C:\wamp\www\pree\upload/5074f24f91f83cystic_fib_logo.png<span style="color:red;">file:C:\wamp\www\pree\js\ckeditor\j_ckedit.class.phpline:136class:CKEDITORmethod:CKEDITOR::ckFile</span><br /><br />url:http://localhosthttp://localhost/pree/upload/5074f24f91f83cystic_fib_logo.png<span style="color:red;">file:C:\wamp\www\pree\js\ckeditor\j_ckedit.class.phpline:147class:CKEDITORmethod:CKEDITOR::ckFile</span><br /><br />id:11<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:68class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='a1',`title_en`='a1',`content`='<p>
-	<a href="http://localhost/pree/upload/5074f2a9187aecystic_fib_logo.png"><img alt="" src="http://localhost/pree/upload/5074f2e639a08cystic_fib_logo.png" style="width: 60px; height: 60px; " /></a></p>',`keyword`='',`keyword_en`='',`url`='',`cat_id`='2',`rank`='0',`status`='1' WHERE id=11<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />id:2<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:68class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='c1',`title_en`='c1',`content`='<p>
-	<img alt="" src="http://localhost/pree/upload/5074f32d9ed0fMNDLogo.jpg" style="width: 125px; height: 125px; " /></p>',`keyword`='',`keyword_en`='',`url`='',`cat_id`='1',`rank`='0',`status`='1' WHERE id=2<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />id:3<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:68class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='c2',`title_en`='c2',`content`='<p>
-	<img alt="" src="http://localhost/pree/upload/5074f3431c50bcfalogo.png" style="width: 360px; height: 60px; " /></p>',`keyword`='',`keyword_en`='',`url`='',`cat_id`='1',`rank`='0',`status`='1' WHERE id=3<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />id:4<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:68class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='c3',`title_en`='c3',`content`='<p>
-	<img alt="" src="http://localhost/pree/upload/5074f35d0ec91Acupuncturist.jpg" style="width: 141px; height: 116px; " /></p>',`keyword`='',`keyword_en`='',`url`='',`cat_id`='2',`rank`='0',`status`='1' WHERE id=4<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />lob:aaaa<span style="color:red;">file:C:\wamp\www\pree\application\module\front\controller\common.phpline:38class:App\Module\Front\Controller\Commonmethod:App\Module\Front\Controller\Common::home</span><br /><br />lob:aaaa<span style="color:red;">file:C:\wamp\www\pree\application\module\front\controller\common.phpline:38class:App\Module\Front\Controller\Commonmethod:App\Module\Front\Controller\Common::home</span><br /><br />id:8<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:68class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='ccc',`title_en`='',`content`='',`keyword`='',`keyword_en`='',`url`='',`cat_id`='1',`rank`='0',`status`='1' WHERE id=8<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />id:8<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:68class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='ccc111',`title_en`='',`content`='<p>
-	<img alt="" src="http://localhost/pree/upload/5074f46ab4d51nurse.jpg" style="width: 141px; height: 116px; " /></p>',`keyword`='',`keyword_en`='',`url`='',`cat_id`='1',`rank`='0',`status`='1' WHERE id=8<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />id:7<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:68class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='ccc3333',`title_en`='',`content`='<p>
-	cccc<img alt="" src="http://localhost/pree/upload/5074f4814ecc6natura therapist.jpg" style="width: 141px; height: 116px; " /></p>',`keyword`='',`keyword_en`='',`url`='',`cat_id`='1',`rank`='0',`status`='1' WHERE id=7<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />lob:aaaa<span style="color:red;">file:C:\wamp\www\pree\application\module\front\controller\common.phpline:38class:App\Module\Front\Controller\Commonmethod:App\Module\Front\Controller\Common::home</span><br /><br />lob:aaaa<span style="color:red;">file:C:\wamp\www\pree\application\module\front\controller\common.phpline:38class:App\Module\Front\Controller\Commonmethod:App\Module\Front\Controller\Common::home</span><br /><br />id:2<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:68class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='c1',`title_en`='c1',`content`='',`keyword`='',`keyword_en`='',`url`='',`cat_id`='1',`rank`='0',`status`='1' WHERE id=2<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />lob:aaaa<span style="color:red;">file:C:\wamp\www\pree\application\module\front\controller\common.phpline:38class:App\Module\Front\Controller\Commonmethod:App\Module\Front\Controller\Common::home</span><br /><br />lob:aaaa<span style="color:red;">file:C:\wamp\www\pree\application\module\front\controller\common.phpline:38class:App\Module\Front\Controller\Commonmethod:App\Module\Front\Controller\Common::home</span><br /><br />lob:aaaa<span style="color:red;">file:C:\wamp\www\pree\application\module\front\controller\common.phpline:38class:App\Module\Front\Controller\Commonmethod:App\Module\Front\Controller\Common::home</span><br /><br />id:11<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:70class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='a1',`title_en`='a1',`content`='<p>
-	<a href="http://localhost/pree/upload/5074f2a9187aecystic_fib_logo.png"><img alt="" src="http://localhost/pree/upload/5074f2e639a08cystic_fib_logo.png" style="width: 60px; height: 60px; " /></a></p>',`keyword`='',`keyword_en`='',`abstract`='aaaaaaaaa',`url`='',`cat_id`='2',`rank`='0',`status`='1' WHERE id=11<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />id:1<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:70class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='a1a11',`title_en`='',`content`='<h1>
-	a1a1a11</h1>',`keyword`='',`keyword_en`='',`abstract`='bbbbbbbbbbbbbb',`url`='',`cat_id`='1',`rank`='0',`status`='1' WHERE id=1<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />id:5<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:70class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='aaa1',`title_en`='',`content`='<p>
-	bbb1</p>',`keyword`='',`keyword_en`='',`abstract`='ccccccccccccccccccc',`url`='',`cat_id`='2',`rank`='0',`status`='1' WHERE id=5<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />id:6<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:70class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='ADFASFDS',`title_en`='',`content`='<p>
-	ASDASDFSADF</p>',`keyword`='',`keyword_en`='',`abstract`='dddddddddddddddd',`url`='',`cat_id`='2',`rank`='0',`status`='1' WHERE id=6<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />id:2<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:70class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='c1',`title_en`='c1',`content`='',`keyword`='',`keyword_en`='',`abstract`='eeeeeeeeeeeeeee',`url`='',`cat_id`='1',`rank`='0',`status`='1' WHERE id=2<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />id:3<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:70class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='c2',`title_en`='c2',`content`='<p>
-	<img alt="" src="http://localhost/pree/upload/5074f3431c50bcfalogo.png" style="width: 360px; height: 60px; " /></p>',`keyword`='',`keyword_en`='',`abstract`='fffffffffffffff',`url`='',`cat_id`='1',`rank`='0',`status`='1' WHERE id=3<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />id:4<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:70class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='c3',`title_en`='c3',`content`='<p>
-	<img alt="" src="http://localhost/pree/upload/5074f35d0ec91Acupuncturist.jpg" style="width: 141px; height: 116px; " /></p>',`keyword`='',`keyword_en`='',`abstract`='ggggggggggggg',`url`='',`cat_id`='2',`rank`='0',`status`='1' WHERE id=4<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />id:8<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:70class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='ccc111',`title_en`='',`content`='<p>
-	<img alt="" src="http://localhost/pree/upload/5074f46ab4d51nurse.jpg" style="width: 141px; height: 116px; " /></p>',`keyword`='',`keyword_en`='',`abstract`='gggggggggggggggg',`url`='',`cat_id`='1',`rank`='0',`status`='1' WHERE id=8<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />id:7<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:70class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='ccc3333',`title_en`='',`content`='<p>
-	cccc<img alt="" src="http://localhost/pree/upload/5074f4814ecc6natura therapist.jpg" style="width: 141px; height: 116px; " /></p>',`keyword`='',`keyword_en`='',`abstract`='hhhhhhhhhhhhhhhhh',`url`='',`cat_id`='1',`rank`='0',`status`='1' WHERE id=7<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />id:9<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:70class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='d1',`title_en`='',`content`='<p>
-	d1</p>',`keyword`='d1',`keyword_en`='d1',`abstract`='iiiiiiiiiiiii',`url`='d1',`cat_id`='2',`rank`='1',`status`='1' WHERE id=9<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />id:10<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\blog.phpline:70class:App\Module\Admin\Controller\Blogmethod:App\Module\Admin\Controller\Blog::update</span><br /><br />query:UPDATE blog SET `title`='d21',`title_en`='d21',`content`='<p>
-	d21</p>',`keyword`='d21',`keyword_en`='d21',`abstract`='jjjjjjjjjjjj',`url`='d21',`cat_id`='4',`rank`='21',`status`='0' WHERE id=10<span style="color:red;">file:C:\wamp\www\pree\application\model\base\blog.phpline:85class:App\Model\Base\Blogmethod:App\Model\Base\Blog::update</span><br /><br />lob:aaaa<span style="color:red;">file:C:\wamp\www\pree\application\module\front\controller\common.phpline:38class:App\Module\Front\Controller\Commonmethod:App\Module\Front\Controller\Common::home</span><br /><br />id:1<span style="color:red;">file:C:\wamp\www\pree\application\module\admin\controller\article.phpline:70class:App\Module\Admin\Controller\Articlemethod:App\Module\Admin\Controller\Article::update</span><br /><br />id:1<span style="color:red;">file:F:\jian\wamp\www\pree\application\module\admin\controller\articlecategory.phpline:60class:App\Module\Admin\Controller\Articlecategorymethod:App\Module\Admin\Controller\Articlecategory::update</span><br /><br />arr:Array
-(
-    [title] => 澳洲保险常识
-    [title_en] => Australia Insurance Knowledge
-    [keyword] => 澳洲,保险,常识
-    [keyword_en] => Australia Insurance Knowledge
-    [url] => 
-    [description] => <p>
-	c111</p>
+    [id] => 1
+    [0] => 1
+    [title] => niba   national insurance broker
+    [1] => niba   national insurance broker
+    [title_en] => 1
+    [2] => 1
+    [cat_id] => 4
+    [3] => 4
+    [keyword] => niba
+    [4] => niba
+    [keyword_en] => niba
+    [5] => niba
+    [abstract] => national insurance broker
+    [6] => national insurance broker
+    [url] => niba
+    [7] => niba
+    [content] => <h1>
+	<span style="color: rgb(153, 153, 153); font-family: Verdana, Helvetica, sans-serif; line-height: 18px; ">NIBA is the national trade association for licensed life and general insurance brokers in Australia. It is a not for profit organisation and neither sells insurance products or represents insurance companies. NIBA is the national voice of insurance brokers and an advocate for insurance consumers. Our website provides information for consumers, insurance and risk professionals throughout the industry and NIBA members.</span></h1>
+    [8] => <h1>
+	<span style="color: rgb(153, 153, 153); font-family: Verdana, Helvetica, sans-serif; line-height: 18px; ">NIBA is the national trade association for licensed life and general insurance brokers in Australia. It is a not for profit organisation and neither sells insurance products or represents insurance companies. NIBA is the national voice of insurance brokers and an advocate for insurance consumers. Our website provides information for consumers, insurance and risk professionals throughout the industry and NIBA members.</span></h1>
+    [rank] => 0
+    [9] => 0
     [status] => 1
+    [10] => 1
+    [date_created] => 
+    [11] => 
+    [cat_name] => 澳洲保险机构
+    [12] => 澳洲保险机构
 )
-<span style="color:red;">file:F:\jian\wamp\www\pree\application\transaction\articlecategory.phpline:26class:App\Transaction\Articlecategorymethod:App\Transaction\Articlecategory::update_cat</span><br /><br />id:2<span style="color:red;">file:F:\jian\wamp\www\pree\application\module\admin\controller\articlecategory.phpline:60class:App\Module\Admin\Controller\Articlecategorymethod:App\Module\Admin\Controller\Articlecategory::update</span><br /><br />arr:Array
+<span style="color:red;">file:C:\wamp\www\pree\application\module\front\controller\article.phpline:33class:App\Module\Front\Controller\Articlemethod:App\Module\Front\Controller\Article::content</span><br /><br />query:SELECT b.*, bc.title as cat_name
+            FROM article b
+            LEFT JOIN article_category bc ON b.cat_id=bc.id
+            WHERE b.url='niba'
+        <span style="color:red;">file:C:\wamp\www\pree\application\model\article.phpline:22class:App\Model\Articlemethod:App\Model\Article::get_one_by_url</span><br /><br />$article:Array
 (
-    [title] => 澳洲保险法规
-    [title_en] => Australia Insurance Law
-    [keyword] => 澳洲,保险,法规
-    [keyword_en] => Australia Insurance Law
-    [url] => 
-    [description] => <p>
-	b2b2</p>
+    [id] => 1
+    [0] => 1
+    [title] => niba   national insurance broker
+    [1] => niba   national insurance broker
+    [title_en] => 1
+    [2] => 1
+    [cat_id] => 4
+    [3] => 4
+    [keyword] => niba
+    [4] => niba
+    [keyword_en] => niba
+    [5] => niba
+    [abstract] => national insurance broker
+    [6] => national insurance broker
+    [url] => niba
+    [7] => niba
+    [content] => <h1>
+	<span style="color: rgb(153, 153, 153); font-family: Verdana, Helvetica, sans-serif; line-height: 18px; ">NIBA is the national trade association for licensed life and general insurance brokers in Australia. It is a not for profit organisation and neither sells insurance products or represents insurance companies. NIBA is the national voice of insurance brokers and an advocate for insurance consumers. Our website provides information for consumers, insurance and risk professionals throughout the industry and NIBA members.</span></h1>
+    [8] => <h1>
+	<span style="color: rgb(153, 153, 153); font-family: Verdana, Helvetica, sans-serif; line-height: 18px; ">NIBA is the national trade association for licensed life and general insurance brokers in Australia. It is a not for profit organisation and neither sells insurance products or represents insurance companies. NIBA is the national voice of insurance brokers and an advocate for insurance consumers. Our website provides information for consumers, insurance and risk professionals throughout the industry and NIBA members.</span></h1>
+    [rank] => 0
+    [9] => 0
     [status] => 1
+    [10] => 1
+    [date_created] => 
+    [11] => 
+    [cat_name] => 澳洲保险机构
+    [12] => 澳洲保险机构
 )
-<span style="color:red;">file:F:\jian\wamp\www\pree\application\transaction\articlecategory.phpline:26class:App\Transaction\Articlecategorymethod:App\Transaction\Articlecategory::update_cat</span><br /><br />id:3<span style="color:red;">file:F:\jian\wamp\www\pree\application\module\admin\controller\articlecategory.phpline:60class:App\Module\Admin\Controller\Articlecategorymethod:App\Module\Admin\Controller\Articlecategory::update</span><br /><br />arr:Array
-(
-    [title] => 澳洲保险教育
-    [title_en] => Australia Insurance Education
-    [keyword] => 澳洲,保险,教育
-    [keyword_en] => Australia Insurance Education
-    [url] => 
-    [description] => <p>
-	b3b3</p>
-    [status] => 1
-)
-<span style="color:red;">file:F:\jian\wamp\www\pree\application\transaction\articlecategory.phpline:26class:App\Transaction\Articlecategorymethod:App\Transaction\Articlecategory::update_cat</span><br /><br />id:4<span style="color:red;">file:F:\jian\wamp\www\pree\application\module\admin\controller\articlecategory.phpline:60class:App\Module\Admin\Controller\Articlecategorymethod:App\Module\Admin\Controller\Articlecategory::update</span><br /><br />arr:Array
-(
-    [title] => 澳洲保险机构
-    [title_en] => Australia Insurance Organization
-    [keyword] => 澳洲,保险,机构
-    [keyword_en] => Australia Insurance Organization
-    [url] => 
-    [description] => <p>
-	b4b4</p>
-    [status] => 1
-)
-<span style="color:red;">file:F:\jian\wamp\www\pree\application\transaction\articlecategory.phpline:26class:App\Transaction\Articlecategorymethod:App\Transaction\Articlecategory::update_cat</span><br /><br />
+<span style="color:red;">file:C:\wamp\www\pree\application\module\front\controller\article.phpline:34class:App\Module\Front\Controller\Articlemethod:App\Module\Front\Controller\Article::content</span><br /><br />

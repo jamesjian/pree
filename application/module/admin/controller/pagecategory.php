@@ -9,8 +9,6 @@ use \Zx\Test\Test;
 
 class Pagecategory extends Admin {
 
-    
-
     public function init() {
         $this->view_path = APPLICATION_PATH . 'module/admin/view/pagecategory/';
         parent::init();
@@ -48,14 +46,14 @@ class Pagecategory extends Admin {
         $success = false;
         if (isset($_POST['submit']) && isset($_POST['id'])) {
             $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
-		      \Zx\Test\Test::object_log('id', $id, __FILE__, __LINE__, __CLASS__, __METHOD__);
-			$arr = array();
+            \Zx\Test\Test::object_log('id', $id, __FILE__, __LINE__, __CLASS__, __METHOD__);
+            $arr = array();
             if ($id <> 0) {
                 if (isset($_POST['title']))
                     $arr['title'] = trim($_POST['title']);
                 if (isset($_POST['description']))
                     $arr['description'] = trim($_POST['description']);
-				
+
                 if (Transaction_Pagecategory::update_cat($id, $arr)) {
                     $success = true;
                 }
@@ -68,22 +66,24 @@ class Pagecategory extends Admin {
                 $id = $this->params[0];
             }
             $cat = Model_Pagecategory::get_one($id);
-			
-			
+
+
             View::set_view_file($this->view_path . 'update.php');
             View::set_action_var('cat', $cat);
         }
     }
-	/**
-	/page/orderby/direction
-	*/
+
+    /**
+      /page/orderby/direction
+     */
     public function retrieve() {
-		\App\Transaction\Session::remember_current_admin_page();
-        $current_page = isset($this->params[0]) ?  intval($this->params[0]) : 1;
-        $order_by = isset($this->params[1]) ? $this->params[1]: 'id';
-        $direction = isset($this->params[2]) ?  $this->params[2]: 'ASC';
-		$cat_list = Model_Pagecategory::get_cats_by_page_num($current_page, $order_by, $direction);
-		$num_of_pages = Model_Pagecategory::get_num_of_pages_of_cats();
+        \App\Transaction\Session::remember_current_admin_page();
+        \App\Transaction\Session::set_admin_current_l1_menu('Page Category');
+        $current_page = isset($this->params[0]) ? intval($this->params[0]) : 1;
+        $order_by = isset($this->params[1]) ? $this->params[1] : 'id';
+        $direction = isset($this->params[2]) ? $this->params[2] : 'ASC';
+        $cat_list = Model_Pagecategory::get_cats_by_page_num($current_page, $order_by, $direction);
+        $num_of_pages = Model_Pagecategory::get_num_of_pages_of_cats();
         View::set_view_file($this->view_path . 'retrieve.php');
         View::set_action_var('cat_list', $cat_list);
         View::set_action_var('order_by', $order_by);

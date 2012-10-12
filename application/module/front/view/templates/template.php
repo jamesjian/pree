@@ -7,6 +7,4 @@
 
 </div>
 <div class="zx-front-clear-both"></div>
-
-
 <?php include 'footer.php'; ?>

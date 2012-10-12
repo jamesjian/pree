@@ -7,6 +7,22 @@ use \Zx\Model\Mysql;
 
 class Article extends Base_Article {
     /**
+     * 
+     * @param string $url is a unique column in article table
+     */
+    public static function get_one_by_url($url)
+    {
+        $sql = "SELECT b.*, bc.title as cat_name
+            FROM article b
+            LEFT JOIN article_category bc ON b.cat_id=bc.id
+            WHERE b.url='$url'
+        ";
+        //$params = array(':url'=>$url);
+//		$query = Mysql::interpolateQuery($sql, $params);
+      //\Zx\Test\Test::object_log('query', $sql, __FILE__, __LINE__, __CLASS__, __METHOD__);        
+       return Mysql::select_one($sql);
+    }
+    /**
      *
      * @param intval $cat_id  category id
      * @return boolean
@@ -66,7 +82,7 @@ class Article extends Base_Article {
      */
     public static function get_active_articles_by_page_num($page_num = 1, $order_by = 'b.display_order', $direction = 'ASC') {
         $where = ' b.status=1 ';
-        $offset = ($page_num - 1) * NUM_OF_BLOGS_IN_CAT_PAGE;
+        $offset = ($page_num - 1) * NUM_OF_ARTICLES_IN_CAT_PAGE;
         return parent::get_all($where, $offset, NUM_OF_ARTICLES_IN_CAT_PAGE, $order_by, $direction);
     }
 

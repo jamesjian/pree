@@ -120,11 +120,12 @@ class Article extends Admin {
         header('Location: ' . $link);
     }
     /**
-      /page/orderby/direction
+      /page/orderby/direction/search
+     * page, orderby, direction, search can be empty
      */
     public function retrieve() {
         \App\Transaction\Session::remember_current_admin_page();
-        \App\Transaction\Session::set_current_l1_menu('Article');
+        \App\Transaction\Session::set_admin_current_l1_menu('Article');
         $current_page = isset($this->params[0]) ? intval($this->params[0]) : 1;
         $order_by = isset($this->params[1]) ? $this->params[1] : 'id';
         $direction = isset($this->params[2]) ? $this->params[2] : 'ASC';
@@ -166,10 +167,11 @@ class Article extends Admin {
         }
         $article_list = Model_Article::get_articles_by_cat_id_and_page_num($cat_id, $where, $current_page, $order_by, $direction);
         $num_of_records = Model_Article::get_num_of_articles($where);
-        $num_of_pages = ceil($num_of_records / NUM_OF_RECORDS_IN_ADMIN_PAGE);
+        $num_of_pages = ceil($num_of_records / NUM_OF_ARTICLES_IN_CAT_PAGE);
         //\Zx\Test\Test::object_log('article_list', $article_list, __FILE__, __LINE__, __CLASS__, __METHOD__);
 
-        View::set_view_file($this->view_path . 'retrieve.php');
+        View::set_view_file($this->view_path . 'retrieve_by_cat_id.php');
+        View::set_action_var('cat_id', $cat_id);
         View::set_action_var('article_list', $article_list);
         View::set_action_var('search', $search);
         View::set_action_var('order_by', $order_by);

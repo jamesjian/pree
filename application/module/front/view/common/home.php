@@ -4,18 +4,18 @@
     </div>	
     <div class='zx-front-left2'>
         <?php
-        if ($blogs) {
+        if ($articles) {
             ?>
             <nav>
                 <ul>
                     <?php
-                    foreach ($blogs as $blog) {
-                        $read_more_link = HTML_ROOT . 'front/blog/show/' . $blog['id'];
+                    foreach ($articles as $article) {
+                        $read_more_link = HTML_ROOT . 'front/article/content/' . $article['url'];
                         ?>		
                         <li><?php
-                echo $blog['title'], BR;
-                //echo mb_substr($blog['content'], 0, 100, 'UTF-8');
-                echo $blog['abstract'];
+                echo $article['title'], BR;
+                //echo mb_substr($article['content'], 0, 100, 'UTF-8');
+                echo $article['abstract'];
                 echo "<a href='$read_more_link' title='$read_more_link'>Read more...</a>";
                         ?></li>
                         <?php
@@ -24,9 +24,9 @@
                 </ul>
             </nav>
             <?php
-        }//if ($blogs)
+        }//if ($articles)
 
-        $link_prefix = HTML_ROOT . 'blog/retrieve/';
+        $link_prefix = HTML_ROOT . 'article/retrieve/';
         $link_postfix = "/$order_by/$direction";
         include ADMIN_VIEW_PATH . 'templates/pagination.php';
         ?>
@@ -43,9 +43,9 @@
         <?php include FRONT_VIEW_PATH . 'templates/right_google_ads.php'; ?>
     </div>
     <div class='zx-front-right3'>
-        <?php include FRONT_VIEW_PATH . 'templates/hottest_blogs.php'; ?>
+        <?php include FRONT_VIEW_PATH . 'templates/hottest_articles.php'; ?>
         <?php 
-        $all_hottest = HTML_ROOT . 'blog/hottest/';
+        $all_hottest = HTML_ROOT . 'article/hottest/';
         ?>
         <a href="<?php echo $all_hottest;?>">All</a>
     </div>

@@ -1,8 +1,8 @@
 <?php
 /**
  * left ads                     tag cloud
- *  blog                        right ads
- * related blogs                latest
+ *  article                        right ads
+ * related articles                latest
  *                              hottest
  */
 ?>
@@ -12,19 +12,21 @@
     </div>	
     <div class='zx-front-left2'>
         <?php
-        if ($blog) {
-            echo $blog->cat_name, BR;
+        if ($article) {
+            echo $article['cat_name'], BR;
             ?>
             <article>
                 <header>
+                    <h1 class="zx-front-article-title">
                     <?php
-                    echo $blog->title, BR;
+                    echo $article['title'], BR;
                     ?>
+                    </h1>
                 </header>
                 <section>
-                    <div>
+                    <div class="zx-front-article-content">
                         <?php
-                        echo $blog->description, BR;
+                        echo $article['content'], BR;
                         ?>
                     </div>
                 </section>
@@ -41,16 +43,16 @@
     </div>	
     <div class="zx-front-right2">
         <?php
-        //related blogs
-        if ($related_blogs) {
+        //related articles
+        if ($related_articles) {
             ?>
             <nav>
                 <ul>
                     <?php
-                    foreach ($related_blogs as $blog) {
-                        $read_more_link = HTML_ROOT . 'front/blog/show/' . $blog['id'];
+                    foreach ($related_articles as $article) {
+                        $read_more_link = HTML_ROOT . 'front/article/show/' . $article['id'];
                         ?>		
-                        <li><?php echo "<a href='$read_more_link'>" . $blog['title'] . "</a>";
+                        <li><?php echo "<a href='$read_more_link'>" . $article['title'] . "</a>";
                         ?>
                         </li>
                         <?php
@@ -59,7 +61,7 @@
                 </ul>
             </nav>	
             <?php
-        }//if ($related_blogs)
+        }//if ($related_articles)
         ?>        
         ?>
     </div>    
@@ -67,9 +69,9 @@
         <?php include FRONT_VIEW_PATH . 'templates/right_google_ads.php'; ?>
     </div>
     <div class='zx-front-right4'>
-        <?php include FRONT_VIEW_PATH . 'templates/latest_blogs.php'; ?>
+        <?php include FRONT_VIEW_PATH . 'templates/latest_articles.php'; ?>
     </div>
     <div class='zx-front-right5'>
-        <?php include FRONT_VIEW_PATH . 'templates/hottest_blogs.php'; ?>
+        <?php include FRONT_VIEW_PATH . 'templates/hottest_articles.php'; ?>
     </div>
 </div>

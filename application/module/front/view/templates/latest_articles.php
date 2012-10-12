@@ -6,15 +6,15 @@
 
 <?php
 //latest contents
-if ($latest_blogs) {
+if ($latest10) {
     ?>
     <nav>
         <ul>
             <?php
-            foreach ($latest_blogs as $blog) {
-                $read_more_link = HTMLROOT . 'front/blog/show/' . $blog['id'];
+            foreach ($latest10 as $article) {
+                $read_more_link = HTML_ROOT . 'front/article/show/' . $article['id'];
                 ?>		
-                <li><?php echo "<a href='$read_more_link'>" . $blog->title . "</a>";
+                <li><?php echo "<a href='$read_more_link'>" . $article['title'] . "</a>";
                 ?>
                 </li>
                 <?php
@@ -23,6 +23,6 @@ if ($latest_blogs) {
         </ul>
     </nav>	
     <?php
-}//if ($related_blogs)
+}//if ($related_articles)
 ?>
 

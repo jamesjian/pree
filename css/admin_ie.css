@@ -6,10 +6,3 @@
         Purpose of the stylesheet follows.
 */
 
-body{
-    background-color: white;
-}
-
-.error_message, .success_message{
-    color: red;
-}

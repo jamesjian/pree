@@ -110,17 +110,34 @@ class Session {
      * level one menu
      * @param string $menu such as "Blog Category"
      */
-    public static function set_current_l1_menu($menu)
+    public static function set_front_current_l1_menu($menu)
     {
-        $_SESSION['l1_menu'] = $menu;
+        $_SESSION['front_l1_menu'] = $menu;
     }
     /**
      * 
      * @return string level one menu
      */
-    public static function get_current_l1_menu()
+    public static function get_front_current_l1_menu()
     {
-        if (isset($_SESSION['l1_menu'])) return $_SESSION['l1_menu'];
+        if (isset($_SESSION['front_l1_menu'])) return $_SESSION['front_l1_menu'];
+        else return '';
+    }
+    /**
+     * level one menu
+     * @param string $menu such as "Blog Category"
+     */
+    public static function set_admin_current_l1_menu($menu)
+    {
+        $_SESSION['admin_l1_menu'] = $menu;
+    }
+    /**
+     * 
+     * @return string level one menu
+     */
+    public static function get_admin_current_l1_menu()
+    {
+        if (isset($_SESSION['admin_l1_menu'])) return $_SESSION['admin_l1_menu'];
         else return '';
     }
 }

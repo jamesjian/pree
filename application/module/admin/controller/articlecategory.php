@@ -10,9 +10,10 @@ use \Zx\Test\Test;
 class Articlecategory extends Admin {
 
     public $list_page = '';
+
     public function init() {
         $this->view_path = APPLICATION_PATH . 'module/admin/view/articlecategory/';
-        $this->list_page =  ADMIN_HTML_ROOT . 'articlecategory/retrieve/1/title/ASC/';
+        $this->list_page = ADMIN_HTML_ROOT . 'articlecategory/retrieve/1/title/ASC/';
         parent::init();
     }
 
@@ -22,17 +23,17 @@ class Articlecategory extends Admin {
             $title = isset($_POST['title']) ? trim($_POST['title']) : '';
             $title_en = isset($_POST['title_en']) ? trim($_POST['title_en']) : '';
             $keyword = isset($_POST['keyword']) ? trim($_POST['keyword']) : '';
-            $keyword_en = isset($_POST['keyword_en']) ? trim($_POST['keyword_en']) : '';            
+            $keyword_en = isset($_POST['keyword_en']) ? trim($_POST['keyword_en']) : '';
             $url = isset($_POST['url']) ? trim($_POST['url']) : '';
             $status = isset($_POST['status']) ? intval($_POST['status']) : 1;
             $description = isset($_POST['description']) ? trim($_POST['description']) : '';
 
             if ($title <> '') {
-                $arr = array('title' => $title, 'title_en'=>$title_en, 
-                  'keyword'=>$keyword,
-                    'keyword_en'=>$keyword_en,
-                    'url'=>$url,  'description' => $description,
-                'status'=>$status,);
+                $arr = array('title' => $title, 'title_en' => $title_en,
+                    'keyword' => $keyword,
+                    'keyword_en' => $keyword_en,
+                    'url' => $url, 'description' => $description,
+                    'status' => $status,);
                 if (Transaction_Articlecategory::create_cat($arr)) {
                     $success = true;
                 }
@@ -48,7 +49,7 @@ class Articlecategory extends Admin {
     }
 
     public function delete() {
-        $id = (isset($this->params[0])) ? intval($this->params[0]) :  0;
+        $id = (isset($this->params[0])) ? intval($this->params[0]) : 0;
         Transaction_Articlecategory::delete_cat($id);
         header('Location: ' . $this->list_page);
     }
@@ -69,11 +70,11 @@ class Articlecategory extends Admin {
                 if (isset($_POST['keyword_en']))
                     $arr['keyword_en'] = trim($_POST['keyword_en']);
                 if (isset($_POST['url']))
-                    $arr['url'] = trim($_POST['url']);      
+                    $arr['url'] = trim($_POST['url']);
                 if (isset($_POST['description']))
                     $arr['description'] = trim($_POST['description']);
                 if (isset($_POST['status']))
-                    $arr['status'] = intval($_POST['status']);                
+                    $arr['status'] = intval($_POST['status']);
 
                 if (Transaction_Articlecategory::update_cat($id, $arr)) {
                     $success = true;
@@ -93,6 +94,7 @@ class Articlecategory extends Admin {
             View::set_action_var('cat', $cat);
         }
     }
+
     public function search() {
         if (isset($_POST['search']) && trim($_POST['search']) != '') {
             $link = ADMIN_HTML_ROOT . 'articlecategory/retrieve/1/title/ASC/' . trim($_POST['search']);
@@ -101,22 +103,22 @@ class Articlecategory extends Admin {
         }
         header('Location: ' . $link);
     }
+
     /**
       /page/orderby/direction
      */
     public function retrieve() {
         \App\Transaction\Session::remember_current_admin_page();
-            //\Zx\Test\Test::object_log('$this->params', $this->params, __FILE__, __LINE__, __CLASS__, __METHOD__);
-        
+        \App\Transaction\Session::set_admin_current_l1_menu('Article Category');
         $current_page = isset($this->params[0]) ? intval($this->params[0]) : 1;
         $order_by = isset($this->params[1]) ? $this->params[1] : 'id';
         $direction = isset($this->params[2]) ? $this->params[2] : 'ASC';
-        $search = isset($this->params[3]) ? $this->params[3]: '';
+        $search = isset($this->params[3]) ? $this->params[3] : '';
         if ($search != '') {
             $where = " title LIKE '%$search%'";
         } else {
             $where = '1';
-        }        
+        }
         $cat_list = Model_Articlecategory::get_cats_by_page_num($where, $current_page, $order_by, $direction);
         $num_of_records = Model_Articlecategory::get_num_of_cats($where);
         $num_of_pages = ceil($num_of_records / NUM_OF_RECORDS_IN_ADMIN_PAGE);
