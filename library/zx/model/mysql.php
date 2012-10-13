@@ -13,6 +13,9 @@ class Mysql {
             $dsn = 'mysql:dbname=' . DBNAME . ';host=' . DBHOST;
             try {
                 self::$dbh = new \PDO($dsn, DBUSER, DBPASS);
+                $sql = "SET NAMES UTF8";
+                $sth = self::$dbh->prepare($sql);
+                $sth->execute();
                 return self::$dbh;
             } catch (\PDOException $e) {
                 \Zx\Test\Test::object_log('$e->getMessage()', $e->getMessage(), __FILE__, __LINE__, __CLASS__, __METHOD__);

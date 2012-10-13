@@ -18,7 +18,7 @@ class Application {
         $handler = new Session();
         session_set_save_handler($handler, true);
         session_start();
-        Message::init_message();
+        //Message::init_message();
         Route::analyze_url();
         //controller object
         $controller_name = Route::get_controller_class();

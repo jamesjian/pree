@@ -18,6 +18,8 @@ class Common extends Front {
     }
 
     public function contact_us() {
+//\Zx\Test\Test::object_log('$arr', '22222', __FILE__, __LINE__, __CLASS__, __METHOD__);
+
         $submitted = false;
         if (isset($_POST['submit'])) {
             $email = (isset($_POST['email'])) ? trim($_POST['email']) : '';

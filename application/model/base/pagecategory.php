@@ -23,13 +23,15 @@ class Pagecategory {
         return Mysql::select_one($sql);
     }
 
-    public static function get_all($where = '1', $offset = 0, $row_count = MAXIMUM_ROWS, $order_by = 'name', $direction = 'ASC') {
+    public static function get_all($where = '1', $offset = 0, $row_count = MAXIMUM_ROWS, $order_by = 'title', $direction = 'ASC') {
         $sql = "SELECT *
             FROM page_category
             WHERE $where
             ORDER BY $order_by $direction
             LIMIT $offset, $row_count
         ";
+                                //\Zx\Test\Test::object_log('$sql', $sql, __FILE__, __LINE__, __CLASS__, __METHOD__);
+
         return Mysql::select_all($sql);
     }
   public static function get_num($where = '1') {

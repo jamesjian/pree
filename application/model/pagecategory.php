@@ -35,7 +35,7 @@ class Pagecategory extends Base_Pagecategory{
         $start = ($page_num - 1) * NUM_OF_RECORDS_IN_ADMIN_PAGE;
         return parent::get_all($where, $start, NUM_OF_RECORDS_IN_ADMIN_PAGE, $order_by, $direction);
     }    
-    public static function get_num_of_pages_of_cats() {
+    public static function get_num_of_cats() {
         return parent::get_num();
     }  	
 }

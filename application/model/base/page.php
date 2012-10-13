@@ -59,7 +59,7 @@ class Page {
     }
     public static function get_num($where = '1') {
         $sql = "SELECT COUNT(id) AS num
-            FROM blog 
+            FROM page 
             WHERE $where
         ";
         $result = Mysql::select_one($sql);

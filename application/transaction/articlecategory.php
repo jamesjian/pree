@@ -39,24 +39,25 @@ class Articlecategory {
             return false;
         }
     }
-/**
- *
- * @param string $id category id
- * @return boolean 
- */
+
+    /**
+     *
+     * @param string $id category id
+     * @return boolean 
+     */
     public static function delete_cat($id) {
         if (Model_Article::exist_article_under_cat($id)) {
             Message::set_error_message('There is an article under this category, it cannot be deleted.');
         } else {
             $cat = Model_Articlecategory::get_one($id);
             if ($cat) {
-            if ( Model_Articlecategory::delete($id)) {
-                Message::set_success_message('success');
-                return true;
-            } else {
-                Message::set_error_message('fail');
-                return false;
-            }
+                if (Model_Articlecategory::delete($id)) {
+                    Message::set_success_message('success');
+                    return true;
+                } else {
+                    Message::set_error_message('fail');
+                    return false;
+                }
             } else {
                 Message::set_error_message('The cat does not exist');
                 return false;

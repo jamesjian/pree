@@ -18,9 +18,9 @@
             <article>
                 <header>
                     <h1 class="zx-front-article-title">
-                    <?php
-                    echo $article['title'], BR;
-                    ?>
+                        <?php
+                        echo $article['title'], BR;
+                        ?>
                     </h1>
                 </header>
                 <section>
@@ -49,13 +49,16 @@
             <nav>
                 <ul>
                     <?php
+                    $current_article_id = $article['id'];
                     foreach ($related_articles as $article) {
-                        $read_more_link = HTML_ROOT . 'front/article/show/' . $article['id'];
-                        ?>		
-                        <li><?php echo "<a href='$read_more_link'>" . $article['title'] . "</a>";
-                        ?>
-                        </li>
-                        <?php
+                        if (!($article['id'] == $current_article_id)) {
+                            $read_more_link = HTML_ROOT . 'front/article/show/' . $article['id'];
+                            ?>		
+                            <li><?php echo "<a href='$read_more_link'>" . $article['title'] . "</a>";
+                            ?>
+                            </li>
+                            <?php
+                        }
                     }//foreach
                     ?>
                 </ul>
@@ -63,7 +66,6 @@
             <?php
         }//if ($related_articles)
         ?>        
-        ?>
     </div>    
     <div class='zx-front-right3'>
         <?php include FRONT_VIEW_PATH . 'templates/right_google_ads.php'; ?>

@@ -5,7 +5,18 @@ use \App\Model\Base\Page as Base_Page;
 use \Zx\Model\Mysql;
 
 class Page extends Base_Page{
-
+    /**
+     *
+     * @param intval $cat_id  category id
+     * @return boolean
+     */
+    public static function exist_page_under_cat($cat_id)
+    {
+        $where = 'cat_id=' . $cat_id;
+        $num = parent::get_num($where);
+        if ($num>0) return true;
+        else return false;
+    }
     /**
      * 
      * @param int $id
@@ -26,7 +37,7 @@ class Page extends Base_Page{
      */
     public static function get_about_us()
     {
-        $where = "ac.name='about us'";
+        $where = "ac.title='about us'";
         return parent::get_one_by_where($where);
     }
     /**
@@ -35,7 +46,7 @@ class Page extends Base_Page{
      */
     public static function get_term_condition()
     {
-        $where = "ac.name='term & condition'";
+        $where = "ac.title='term & condition'";
         return parent::get_one_by_where($where);	
     }
     /**
@@ -44,7 +55,7 @@ class Page extends Base_Page{
      */
     public static function get_faqs()
     {
-        $where = "ac.name='faq'";
+        $where = "ac.title='faq'";
         return parent::get_all($where);		
     }
 /**
@@ -55,7 +66,7 @@ class Page extends Base_Page{
         $offset = ($page_num - 1) * NUM_OF_ARTICLES_IN_CAT_PAGE;
         return parent::get_all($where, $offset, NUM_OF_ARTICLES_IN_CAT_PAGE, $order_by, $direction);
     }
-    public static function get_num_of_pages_of_active_pages() {
+    public static function get_num_of_active_pages() {
 		$where = ' status=1';
         return parent::get_num();
     }
@@ -64,7 +75,7 @@ class Page extends Base_Page{
         $offset = ($page_num - 1) * NUM_OF_ARTICLES_IN_CAT_PAGE;
         return parent::get_all($where, $offset, NUM_OF_ARTICLES_IN_CAT_PAGE, $order_by, $direction);
     }
-    public static function get_num_of_pages_of_active_pages_by_cat_id() {
+    public static function get_num_of_active_pages_by_cat_id() {
 		$where = ' a.status=1 AND a.cat_id=' . $cat_id;
         return parent::get_num();
     }
@@ -87,7 +98,7 @@ class Page extends Base_Page{
         return parent::get_all($where, $start, NUM_OF_RECORDS_IN_ADMIN_PAGE, $order_by, $direction);
     }
 
-    public static function get_num_of_pages_of_pages() {
+    public static function get_num_of_pages() {
         return parent::get_num();
     }
 

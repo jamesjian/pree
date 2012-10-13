@@ -22,9 +22,14 @@ class Route {
     public static function get_routes() {
         $ini_array = parse_ini_file(APPLICATION_PATH . 'config/route.php');
         $route_configs = $ini_array['route'];
+                //\Zx\Test\Test::object_log('$route_configs', $route_configs, __FILE__, __LINE__, __CLASS__, __METHOD__);
+
         $routes = array();
         foreach ($route_configs as $route_config) {
             $arr = explode(',', $route_config);
+                  //  \Zx\Test\Test::object_log('$arr', $arr, __FILE__, __LINE__, __CLASS__, __METHOD__);
+                    //\Zx\Test\Test::object_log('$arr', $arr[1], __FILE__, __LINE__, __CLASS__, __METHOD__);
+
             $routes[$arr[0]] = $arr[1]; //about-us.php->front/article/about_us
         }
         return $routes;
@@ -60,17 +65,18 @@ class Route {
                         );
                     } else {
                         //\Zx\Test\Test::object_log('$arr', '22222', __FILE__, __LINE__, __CLASS__, __METHOD__);
-
-
                         $routes = self::get_routes();
+                        //\Zx\Test\Test::object_log('$original_name', $original_name, __FILE__, __LINE__, __CLASS__, __METHOD__);
+                        //\Zx\Test\Test::object_log('$routes', $routes, __FILE__, __LINE__, __CLASS__, __METHOD__);
                         if (array_key_exists($original_name, $routes)) {
                             $route = $routes[$original_name];
                             $arr = explode('/', $route);
                             self::$module_controller_action = array(
-                                'module' => $arr[0],
-                                'controller' => $arr[1],
-                                'action' => $arr[2],
+                                'module' => trim($arr[0]),  //maybe have empty space
+                                'controller' => trim($arr[1]),
+                                'action' => trim($arr[2]),
                             );
+                        //\Zx\Test\Test::object_log('$arr', self::$module_controller_action, __FILE__, __LINE__, __CLASS__, __METHOD__);
                         }
                     }
                     break;
@@ -90,10 +96,13 @@ class Route {
             }
         }
         //Test::object_log('$module_controller_action', self::$module_controller_action, __FILE__, __LINE__, __CLASS__, __METHOD__);
+       //\Zx\Test\Test::object_log('$arr', self::$module_controller_action, __FILE__, __LINE__, __CLASS__, __METHOD__);
         self::set_module();
+       //\Zx\Test\Test::object_log('$arr', self::$module_controller_action, __FILE__, __LINE__, __CLASS__, __METHOD__);
         self::set_controller();
+       //\Zx\Test\Test::object_log('$arr', self::$module_controller_action, __FILE__, __LINE__, __CLASS__, __METHOD__);
         self::set_action();
-        //Test::object_log('$module_controller_action', self::$module_controller_action, __FILE__, __LINE__, __CLASS__, __METHOD__);
+       //\Zx\Test\Test::object_log('$arr', self::$module_controller_action, __FILE__, __LINE__, __CLASS__, __METHOD__);
         //self::set_params();
     }
 
@@ -103,8 +112,14 @@ class Route {
      */
     public static function set_module() {
         $modules = self::get_modules();
+               //\Zx\Test\Test::object_log('$modules', $modules, __FILE__, __LINE__, __CLASS__, __METHOD__);
+
         $module = self::$module_controller_action['module'];
+               //\Zx\Test\Test::object_log('$module', $module, __FILE__, __LINE__, __CLASS__, __METHOD__);
+
         if (!in_array($module, $modules)) {
+               //\Zx\Test\Test::object_log('$module', 'no', __FILE__, __LINE__, __CLASS__, __METHOD__);
+               
             self::set_page_not_exist_url();
         }
     }
@@ -137,6 +152,7 @@ class Route {
         $controller_file_path = APPLICATION_PATH . 'module/' . $module . '/controller/' .
                 self::$module_controller_action['controller'] . '.php';
         if (!file_exists($controller_file_path)) {
+            \Zx\Test\Test::object_log('controller', 'no', __FILE__, __LINE__, __CLASS__, __METHOD__);
             self::set_page_not_exist_url();
         }
     }
@@ -171,6 +187,7 @@ class Route {
         $action = self::$module_controller_action['action'];
 
         if (!method_exists($controller_class, $action)) {
+            \Zx\Test\Test::object_log('action', 'no', __FILE__, __LINE__, __CLASS__, __METHOD__);
             self::set_page_not_exist_url();
         }
     }

@@ -1,4 +1,5 @@
 <?php
+\Zx\Message\Message::show_message();
 include 'search.php';
 $create_link = ADMIN_HTML_ROOT . 'article/create';
 ?>

@@ -33,6 +33,8 @@ class Page extends Admin {
             header('Location: ' . ADMIN_HTML_ROOT . 'page/retrieve/1/title/ASC');
         } else {
             $cats = Model_Pagecategory::get_all_cats();
+       //                 \Zx\Test\Test::object_log('$cats', $cats, __FILE__, __LINE__, __CLASS__, __METHOD__);
+
             View::set_view_file($this->view_path . 'create.php');
             View::set_action_var('cats', $cats);
         }
@@ -89,7 +91,8 @@ class Page extends Admin {
         $order_by = isset($this->params[1]) ? $this->params[1] : 'id';
         $direction = isset($this->params[2]) ? $this->params[2] : 'ASC';
         $page_list = Model_Page::get_pages_by_page_num($current_page, $order_by, $direction);
-        $num_of_pages = Model_Page::get_num_of_pages_of_pages();
+        $num_of_page = Model_Page::get_num_of_pages();  //page table stores pages
+        $num_of_pages = ceil($num_of_page/NUM_OF_RECORDS_IN_ADMIN_PAGE); //pagination
         View::set_view_file($this->view_path . 'retrieve.php');
         View::set_action_var('page_list', $page_list);
         View::set_action_var('order_by', $order_by);

@@ -25,6 +25,7 @@ class Articlecategory extends Admin {
             $keyword = isset($_POST['keyword']) ? trim($_POST['keyword']) : '';
             $keyword_en = isset($_POST['keyword_en']) ? trim($_POST['keyword_en']) : '';
             $url = isset($_POST['url']) ? trim($_POST['url']) : '';
+            $display_order = isset($_POST['display_order']) ? intval($_POST['display_order']) : 0;
             $status = isset($_POST['status']) ? intval($_POST['status']) : 1;
             $description = isset($_POST['description']) ? trim($_POST['description']) : '';
 
@@ -73,6 +74,8 @@ class Articlecategory extends Admin {
                     $arr['url'] = trim($_POST['url']);
                 if (isset($_POST['description']))
                     $arr['description'] = trim($_POST['description']);
+                if (isset($_POST['display_order']))
+                    $arr['display_order'] = intval($_POST['display_order']);
                 if (isset($_POST['status']))
                     $arr['status'] = intval($_POST['status']);
 

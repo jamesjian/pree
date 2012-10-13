@@ -1,4 +1,5 @@
 <?php
+\Zx\Message\Message::show_message();
 include 'search.php';
 $create_link = ADMIN_HTML_ROOT . 'pagecategory/create';
 ?>
@@ -27,7 +28,7 @@ $link_title = $link_prefix . 'title' . $link_postfix;
 <tr>
 	<td><?php echo $cat['id'];?></td>
 	<td><?php echo $cat['title'];?></td>
-	<td><a href='<?php echo $link_delete;?>'>delete</a></td>
+	<td><a href='<?php echo $link_delete;?>' class="delete_page_cat">delete</a></td>
 	<td><a href='<?php echo $link_update;?>'>update</a></td>
 </tr>
 <?php
@@ -36,7 +37,7 @@ $link_title = $link_prefix . 'title' . $link_postfix;
 	</table>
 <?php
 $link_prefix = ADMIN_HTML_ROOT . 'pagecategory/retrieve/';	
-$link_postfix = "$order_by/$direction";
+$link_postfix = "/$order_by/$direction";
 include ADMIN_VIEW_PATH . 'templates/pagination.php';
 } else {
 	echo 'No record.';

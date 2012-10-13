@@ -60,12 +60,19 @@ switch (SERVER_NAME) {
         define('DBNAME', 'z2');
         define('DBHOST', 'localhost');
         define('DBUSER', 'root');
-        define('DBPASS', '');        
+        define('DBPASS', '');   
+        define('ENQUIRY_EMAIL_SERVER', 'mail.baoxian.com.au');
+        define('ENQUIRY_EMAIL_PORT', '26');
+        define('ENQUIRY_EMAIL_USER', 'enquiry@baoxian.com.au');
+        define('ENQUIRY_EMAIL_PASSWORD', 'mW{$^u.KCpg]');        
         break;
     default:
         define('DBNAME', 'huarend1_baoxian');
         define('DBHOST', 'localhost');
         define('DBUSER', 'huarend1_baoxian');
         define('DBPASS', 'L=Xk4OvqM}z(');
-
+        define('ENQUIRY_EMAIL_SERVER', 'mail.baoxian.com.au');
+        define('ENQUIRY_EMAIL_PORT', '26');
+        define('ENQUIRY_EMAIL_USER', 'enquiry@baoxian.com.au');
+        define('ENQUIRY_EMAIL_PASSWORD', 'mW{$^u.KCpg]');
 }

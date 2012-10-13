@@ -83,7 +83,8 @@ class Pagecategory extends Admin {
         $order_by = isset($this->params[1]) ? $this->params[1] : 'id';
         $direction = isset($this->params[2]) ? $this->params[2] : 'ASC';
         $cat_list = Model_Pagecategory::get_cats_by_page_num($current_page, $order_by, $direction);
-        $num_of_pages = Model_Pagecategory::get_num_of_pages_of_cats();
+        $num_of_cats = Model_Pagecategory::get_num_of_cats();
+        $num_of_pages = ceil($num_of_cats/NUM_OF_RECORDS_IN_ADMIN_PAGE);
         View::set_view_file($this->view_path . 'retrieve.php');
         View::set_action_var('cat_list', $cat_list);
         View::set_action_var('order_by', $order_by);

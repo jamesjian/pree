@@ -62,6 +62,8 @@ class Article extends Front {
             Transaction_Html::goto_home_page();
         } else {
             $current_page = (isset($params[2])) ? intval($params[2]) : 1;  //default page 1
+            $order_by = 'rank';
+            $direction = 'DESC';
             $articles = Model_Article::get_active_articles_by_keyword_and_page_num($keyword, $current_page, $order_by, $direction);
             //\Zx\Test\Test::object_log('$articles', $articles, __FILE__, __LINE__, __CLASS__, __METHOD__);
             $num_of_articles = Model_Article::get_num_of_active_articles_by_keyword($keyword);

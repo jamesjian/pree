@@ -147,6 +147,12 @@ admin = {
         $('.delete_article').bind('click', {
             name: 'article'
         }, admin.confirm_delete_template);
+        $('.delete_page_cat').bind('click', {
+            name: 'page category'
+        }, admin.confirm_delete_template);
+        $('.delete_page').bind('click', {
+            name: 'page'
+        }, admin.confirm_delete_template);
     },    
     init_change_status_links: function(){
         $('.category_status').bind('change', {
