@@ -2,14 +2,7 @@
 
 //general 
 define('SERVER_NAME', $_SERVER['SERVER_NAME']);
-
-switch (SERVER_NAME) {
-    case 'localhost':
-        define('URL_PREFIX', '/pree/');
-        break;
-    default:
-        define('URL_PREFIX', '/');
-}
+include 'constant_db.php';
 
 define('HTML_ROOT', 'http://' . SERVER_NAME . URL_PREFIX);
 define('LIBRARY_PATH', PHP_ROOT . 'library' . DIRECTORY_SEPARATOR);
@@ -51,28 +44,3 @@ define('FRONT_NAMESPACE', 'Front');
 define('MEMBER_NAMESPACE', 'Mem');
 define('ADMIN_NAMESPACE', 'Admin');
 
-//database related
-
-
-
-switch (SERVER_NAME) {
-    case 'localhost':
-        define('DBNAME', 'z2');
-        define('DBHOST', 'localhost');
-        define('DBUSER', 'root');
-        define('DBPASS', '');   
-        define('ENQUIRY_EMAIL_SERVER', 'mail.baoxian.com.au');
-        define('ENQUIRY_EMAIL_PORT', '26');
-        define('ENQUIRY_EMAIL_USER', 'enquiry@baoxian.com.au');
-        define('ENQUIRY_EMAIL_PASSWORD', 'mW{$^u.KCpg]');        
-        break;
-    default:
-        define('DBNAME', 'huarend1_baoxian');
-        define('DBHOST', 'localhost');
-        define('DBUSER', 'huarend1_baoxian');
-        define('DBPASS', 'L=Xk4OvqM}z(');
-        define('ENQUIRY_EMAIL_SERVER', 'mail.baoxian.com.au');
-        define('ENQUIRY_EMAIL_PORT', '26');
-        define('ENQUIRY_EMAIL_USER', 'enquiry@baoxian.com.au');
-        define('ENQUIRY_EMAIL_PASSWORD', 'mW{$^u.KCpg]');
-}
