@@ -13,7 +13,11 @@ use \Zx\Model\Mysql;
  */
 
 class Articlecategory {
-
+    public static $fields = array('id','title','title_en', 'cat_id',
+        'keyword','keyword_en', 'url',
+        'description', 'display_order', 'status', 'date_created');
+    public static $table = 'article_category';
+    
     public static function get_one($id) {
         $sql = "SELECT *
             FROM article_category
@@ -47,14 +51,29 @@ class Articlecategory {
     }
 
     public static function create($arr) {
-        $sql = "INSERT INTO article_category SET " . Mysql::concat_field_name_and_value($arr);
-        return Mysql::insert($sql);
+        $insert_arr = array(); $params = array();
+        foreach (self::$fields as $field) {
+            if (array_key_exists($field, $arr)) {
+                $insert_arr[] = "$field=:$field";
+                $params[":$field"] = $arr[$field];
+            }
+        }
+        $insert_str = implode(',', $insert_arr);
+        $sql = 'INSERT INTO ' . self::$table . ' SET ' . $insert_str;
+        return Mysql::insert($sql, $params);
     }
 
     public static function update($id, $arr) {
-        $sql = "UPDATE article_category SET " . Mysql::concat_field_name_and_value($arr) .
-                ' WHERE id=:id';
-        $params = array(':id' => $id);
+        $update_arr = array();$params = array();
+        foreach (self::$fields as $field) {
+            if (array_key_exists($field, $arr)) {
+                $update_arr[] = "$field=:$field";
+                $params[":$field"] = $arr[$field];
+            }
+        }        
+        $update_str = implode(',', $update_arr);
+        $sql = 'UPDATE ' .self::$table . ' SET '. $update_str . ' WHERE id=:id';
+        $params[':id'] = $id;
         return Mysql::exec($sql, $params);
     }
 

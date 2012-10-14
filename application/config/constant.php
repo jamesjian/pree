@@ -38,8 +38,8 @@ define('MAXIMUM_ROWS', 999999);
 
 
 
-define('NUM_OF_ITEMS_IN_ONE_PAGE', 3);
-define('NUM_OF_RECORDS_IN_ADMIN_PAGE', 3);
+define('NUM_OF_ITEMS_IN_ONE_PAGE', 20);
+define('NUM_OF_RECORDS_IN_ADMIN_PAGE', 20);
 define('NUM_OF_ARTICLES_IN_CAT_PAGE', 30);
 define('NUM_OF_ITEMS_IN_PAGINATION', 11); //use odd number
 //namespace related

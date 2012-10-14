@@ -41,6 +41,7 @@
                         <?php
                     }
                     ?>
+                        <li><a href="<?php echo ADMIN_HTML_ROOT . 'tool/sitemap';?>">Sitemap</a></li>
                 </ul>
             </nav>
             <?php

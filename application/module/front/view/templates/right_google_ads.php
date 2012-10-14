@@ -1,1 +1,2 @@
-this is right google ads
+<?php
+//this is right google ads

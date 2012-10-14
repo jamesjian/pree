@@ -16,7 +16,9 @@ CREATE TABLE IF NOT EXISTS `page` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 */
 class Page {
-
+    public static $fields = array('id','title', 'cat_id',
+        'content', 'status', 'date_created');
+    public static $table = 'page';
     /**
      *
      * @param int $id
@@ -69,17 +71,30 @@ class Page {
 			return false;
 		}
     }
-    public static function create($arr) {
-        $sql = "INSERT INTO page SET " . Mysql::concat_field_name_and_value($arr);
-        return Mysql::insert($sql);
+   public static function create($arr) {
+        $insert_arr = array(); $params = array();
+        foreach (self::$fields as $field) {
+            if (array_key_exists($field, $arr)) {
+                $insert_arr[] = "$field=:$field";
+                $params[":$field"] = $arr[$field];
+            }
+        }
+        $insert_str = implode(',', $insert_arr);
+        $sql = 'INSERT INTO ' . self::$table . ' SET ' . $insert_str;
+        return Mysql::insert($sql, $params);
     }
 
     public static function update($id, $arr) {
-        $sql = "UPDATE page SET " . Mysql::concat_field_name_and_value($arr) .
-                ' WHERE id=:id';
-		$params = array(':id'=>$id);
-		$query = Mysql::interpolateQuery($sql, $params);
-      \Zx\Test\Test::object_log('query', $query, __FILE__, __LINE__, __CLASS__, __METHOD__);                
+        $update_arr = array();$params = array();
+        foreach (self::$fields as $field) {
+            if (array_key_exists($field, $arr)) {
+                $update_arr[] = "$field=:$field";
+                $params[":$field"] = $arr[$field];
+            }
+        }        
+        $update_str = implode(',', $update_arr);
+        $sql = 'UPDATE ' .self::$table . ' SET '. $update_str . ' WHERE id=:id';
+        $params[':id'] = $id;
         return Mysql::exec($sql, $params);
     }
 

@@ -112,7 +112,7 @@ class Mysql {
     public static function concat_field_name_and_value($arr) {
         $q = '';
         foreach ($arr as $field_name => $field_value) {
-            $q .= "`$field_name`='$field_value',";
+            $q .= "`$field_name`='" . self::$dbh->quote($field_value) . "',";
         }
         $q = substr($q, 0, -1);  //remove last ','
         return $q;

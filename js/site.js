@@ -33,13 +33,13 @@ site = {
     bind_events: function(){
       site.unbind_events();  
       $('#test').click(site.test);
-	  $('ul.mainmenu>li').hover(home1.hover_submenu);
+	  $('ul.mainmenu>li').hover(site.hover_submenu);
     },
     unbind_events: function(){
         
     },
     init: function(){
-        console.log('aaa');
+        //console.log('aaa');
         site.bind_events();
     }
 }

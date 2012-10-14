@@ -1,1 +1,2 @@
-this is left google ads
+<?php
+//this is left google ads

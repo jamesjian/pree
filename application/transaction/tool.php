@@ -2,8 +2,8 @@
 
 namespace App\Transaction;
 
-use \App\Model\Blog as Model_Blog;
-use \App\Model\Blogcategory as Model_Blogcategory;
+use \App\Model\Article as Model_Article;
+use \App\Model\Articlecategory as Model_Articlecategory;
 
 class Tool {
 
@@ -18,28 +18,42 @@ class Tool {
       <changefreq>daily</changefreq>
       <priority>1</priority>
    </url>
+		<url>
+      <loc>http://www.baoxian.com.au/about-us.php</loc>
+      <lastmod>' . date('Y-m-d') . '</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>1</priority>
+   </url>
+		<url>
+      <loc>http://www.baoxian.com.au/contact-us.php</loc>
+      <lastmod>' . date('Y-m-d') . '</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>1</priority>
+   </url>
 		';
-        $cats = Model_Blogcategory::get_all_active_cats();
-        $link_prefix = "http://www.baoxian.com.au/blogcategory/show/";
+        $cats = Model_Articlecategory::get_all_active_cats();
+        $link_prefix = "http://www.baoxian.com.au/front/article/category/";
         foreach ($cats as $cat) {
             $cat_str = '<url>
-      <loc>' . $link_prefix . $cat['id'] . '</loc>
+      <loc>' . $link_prefix . $cat['title'] . '</loc>
       <lastmod>' . date('Y-m-d') . '</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>';
             $str .= $cat_str;
         }
-        $blogs = Model_Blog::get_all_active_blogs();
-        $link_prefix = "http://www.baoxian.com.au/blog/show/";
-        foreach ($blogs as $blog) {
-            $blog_str = '<url>
-      <loc>' . $link_prefix . $blog['id'] . '</loc>
+        $articles = Model_Article::get_all_active_articles();
+        //\Zx\Test\Test::object_log('$articles', $articles, __FILE__, __LINE__, __CLASS__, __METHOD__);
+        $link_prefix = "http://www.baoxian.com.au/front/article/content/";
+        foreach ($articles as $article) {
+        //\Zx\Test\Test::object_log('$articles',$article['id'], __FILE__, __LINE__, __CLASS__, __METHOD__);
+            $article_str = '<url>
+      <loc>' . $link_prefix . $article['url'] . '</loc>
       <lastmod>' . date('Y-m-d') . '</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>';
-            $str .= $blog_str;
+            $str .= $article_str;
         }
         $str .= '</urlset>';
         file_put_contents(PHP_ROOT . 'sitemap.xml', $str);
