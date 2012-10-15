@@ -4,7 +4,7 @@
             <?php
             if ($article_cats) {
                 foreach ($article_cats as $cat) {
-                    $link = HTML_ROOT . 'articlecategory/retrieve/' . $cat['id'];
+                    $link = HTML_ROOT . 'front/article/category/' . $cat['title'];
                     ?>
                     <li><a href="<?php echo $link; ?>" title="<?php echo $cat['title']; ?>"><?php echo $cat['title']; ?></a></li>
                     <?php
