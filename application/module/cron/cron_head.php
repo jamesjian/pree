@@ -1,17 +1,23 @@
 <?php
-define('PHP_ROOT', dirname(dirname(dirname(__DIR__))) . DIRECTORY_SEPARATOR);  
-//echo PHP_ROOT;
+/**
+ * __DIR__ IS NOT SUPPORTED IN PHP 5.2
+ * define('PHP_ROOT', dirname(dirname(dirname(__DIR__))) . DIRECTORY_SEPARATOR);  
+ */
+define('PHP_ROOT', dirname(dirname(dirname(dirname(__FILE__)))) . DIRECTORY_SEPARATOR);  
 /*
   F:\jian\wamp\www\pree\
   /home1/huarend1/public_html/baoxiancom/
  * 
  */
 include PHP_ROOT . 'application/config/constant.php';
-//echo PHP_ROOT;
-include SYSTEM_PATH . 'autoloader.php';
-$a = \App\Model\Article::get_one(1);
-var_dump($a);
-$description = 'this is a description';
-\Zx\Test\Test::object_log('$description', $description, __FILE__, __LINE__, __CLASS__, __METHOD__);    
-\Zx\Test\Test::object_log('$description', $a['title'], __FILE__, __LINE__, __CLASS__, __METHOD__);    
+/**
+ * because PHP version in cron interface is only 5.2, does not support namespace
+ * so autoloader.php is very useful
+   include SYSTEM_PATH . 'autoloader.php';
+ * 
+ */
+include SYSTEM_PATH . 'test/test_no_namespace.php';
+include SYSTEM_PATH . 'model/mysql_no_namespace.php';
+include APPLICATION_PATH . 'transaction/article_no_namespace.php';
+include APPLICATION_PATH . 'transaction/swiftmail_no_namespace.php';
 require LIBRARY_PATH . 'Swift-4.2.1/lib/swift_required.php';

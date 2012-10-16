@@ -10,5 +10,10 @@ define('LOG_FILE', PHP_ROOT . 'test/my_log.php');
 \Zx\Test\Test::object_log('$description', time(), __FILE__, __LINE__, __CLASS__, __METHOD__);      
  *  
  */
-echo phpversion();
+echo php_sapi_name();
+echo '------------';
+//echo phpversion();
+define('PHP_ROOT', dirname(dirname(dirname(dirname(__FILE__)))) . DIRECTORY_SEPARATOR);  
+echo PHP_ROOT;
+echo '============';
   

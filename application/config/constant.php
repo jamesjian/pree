@@ -2,9 +2,11 @@
 
 //general 
 if (PHP_SAPI === 'cgi-fcgi') {
-define('SERVER_NAME', 'baoxian.com.au');
+    define('SERVER_NAME', 'baoxian.com.au');
+} elseif (PHP_SAPI == 'cli') {
+    define('SERVER_NAME', 'localhost');
 } else {
-define('SERVER_NAME', $_SERVER['SERVER_NAME']);
+    define('SERVER_NAME', $_SERVER['SERVER_NAME']);
 }
 include 'constant_db.php';
 
@@ -47,4 +49,6 @@ define('VIEW_NAMESPACE', 'View');
 define('FRONT_NAMESPACE', 'Front');
 define('MEMBER_NAMESPACE', 'Mem');
 define('ADMIN_NAMESPACE', 'Admin');
+
+
 
