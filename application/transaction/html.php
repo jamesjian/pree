@@ -3,12 +3,12 @@
 namespace App\Transaction;
 
 class Html {
-    static $title = '澳大利亚保险 澳洲保险';
-    static $keyword = '澳大利亚保险 澳洲保险';
+    static $title = ' -- 帮助您全面了解澳大利亚保险行业';
+    static $keyword = '澳大利亚保险, 澳洲保险';
     static $description = '澳大利亚保险 澳洲保险';
     public static function set_title($title)
     {
-        self::$title = $title . '-- 澳大利亚保险 澳洲保险';
+        self::$title = $title . self::$title;
     }
     public static function get_title()
     {

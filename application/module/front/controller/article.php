@@ -4,6 +4,7 @@ namespace App\Module\Front\Controller;
 
 use \Zx\Controller\Route;
 use \Zx\View\View;
+use App\Transaction\Session as Transaction_Session;
 use App\Transaction\Html as Transaction_Html;
 use \App\Model\Article as Model_Article;
 use \App\Model\Articlecategory as Model_Articlecategory;
@@ -36,7 +37,13 @@ class Article extends Front {
         $article = Model_Article::get_one_by_url($article_url);
         //\Zx\Test\Test::object_log('$article', $article, __FILE__, __LINE__, __CLASS__, __METHOD__);
         if ($article) {
+            
             $article_id = $article['id'];
+            $home_url = HTML_ROOT;
+            $category_url = FRONT_HTML_ROOT . 'article/category/' . $article['cat_name']; 
+            Transaction_Session::set_breadcrumb(0, $home_url,  '首页');
+            Transaction_Session::set_breadcrumb(1, $category_url,  $article['cat_name']);
+            Transaction_Session::set_breadcrumb(2, Route::$url,  $article['title']);
             Transaction_Html::set_title($article['title']);
             Transaction_Html::set_keyword($article['keyword'] . ',' . $article['keyword_en']);
             Transaction_Html::set_description($article['title']);
@@ -88,7 +95,10 @@ class Article extends Front {
         //\Zx\Test\Test::object_log('$cat_title', $cat_title, __FILE__, __LINE__, __CLASS__, __METHOD__);
         $current_page = (isset($params[2])) ? intval($params[2]) : 1;  //default page 1
         if ($cat_title != '' && $cat = Model_Articlecategory::exist_cat_title($cat_title)) {
-
+            $home_url = HTML_ROOT;
+            $category_url = FRONT_HTML_ROOT . 'article/category/' . $cat['title']; 
+            Transaction_Session::set_breadcrumb(0, $home_url,  '首页');
+            Transaction_Session::set_breadcrumb(1, $category_url,  $cat['title']);
             //$cat = Model_Articlecategory::get_one($cat_id);
             Transaction_Html::set_title($cat['title']);
             Transaction_Html::set_keyword($cat['keyword'] . ',' . $cat['keyword_en']);
