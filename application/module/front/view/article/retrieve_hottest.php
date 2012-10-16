@@ -15,7 +15,7 @@
                         <li><?php
                 echo $article['title'], BR;
                 echo $article['abstract'];
-                echo "<a href='$read_more_link'>Read more...</a>";
+                echo "<a href='$read_more_link'>阅读全文...</a>";
                 ?>
                         </li>
                         <?php

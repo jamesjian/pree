@@ -1,7 +1,11 @@
 <?php
 
 //general 
+if (PHP_SAPI === 'cgi-fcgi') {
+define('SERVER_NAME', 'baoxian.com.au');
+} else {
 define('SERVER_NAME', $_SERVER['SERVER_NAME']);
+}
 include 'constant_db.php';
 
 define('HTML_ROOT', 'http://' . SERVER_NAME . URL_PREFIX);

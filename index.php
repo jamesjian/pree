@@ -1,7 +1,7 @@
 <?php
 ob_start("ob_gzhandler");
 define('PHP_ROOT', __DIR__ . DIRECTORY_SEPARATOR);  
-//echo PHP_ROOT;
+//echo PHP_ROOT;   /home1/huarend1/public_html/baoxiancom/
 include PHP_ROOT . 'application/config/constant.php';
 
 

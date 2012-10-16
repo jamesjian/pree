@@ -13,17 +13,17 @@ class Swiftmail {
         //$transport = Swift_MailTransport::newInstance();   //simplest mail transport
         if (IS_PRODUCTION) {
             //if in test environment, no mail server
-            $transport = Swift_SmtpTransport::newInstance(MAIL_SERVER, MAIL_PORT)
+            $transport = \Swift_SmtpTransport::newInstance(MAIL_SERVER, MAIL_PORT)
                     ->setUsername(MAIL_USER)
                     ->setPassword(MAIL_PASSWORD);
             //Create the Mailer using your created Transport
-            $mailer = Swift_Mailer::newInstance($transport);
+            $mailer = \Swift_Mailer::newInstance($transport);
             //Send the message
             if ($mailer->send($message, $failures)) {
-                //App_Test::objectLog('succ','succ', __FILE__, __LINE__, __CLASS__, __METHOD__);
+                \Zx\Test\Test::object_log('$description', 'succ', __FILE__, __LINE__, __CLASS__, __METHOD__);      
                 return true;
             } else {
-                //App_Test::objectLog('$failures',$failures, __FILE__, __LINE__, __CLASS__, __METHOD__);
+                \Zx\Test\Test::object_log('$description', 'fail', __FILE__, __LINE__, __CLASS__, __METHOD__);   
                 return false;
             }
         } else {

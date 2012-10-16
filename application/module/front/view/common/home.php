@@ -16,7 +16,7 @@
                 echo $article['title'], BR;
                 //echo mb_substr($article['content'], 0, 100, 'UTF-8');
                 echo $article['abstract'];
-                echo "<a href='$read_more_link' title='$read_more_link'>Read more...</a>";
+                echo "<a href='$read_more_link' title='$read_more_link'>阅读全文...</a>";
                         ?></li>
                         <?php
                     }//foreach

@@ -57,7 +57,7 @@ class Article {
      * for cron job
      * backup article table and then email to admin
      */
-    public static function backup() {
+    public static function backup_sql() {
         $sql = "SELECT * FROM article";
         $r = Mysql::select_all($sql);
         if ($r) {
@@ -71,7 +71,8 @@ class Article {
                 $str .= '(' . $fields . '),';
             }
             $str = substr($str, 0, -1); //remove last ','
-            Transaction_Swiftmail::send_string_to_admin($str);
+            return $str;
+            //Transaction_Swiftmail::send_string_to_admin($str);
         } 
     }
 
