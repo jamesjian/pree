@@ -46,7 +46,7 @@ class Article extends Front {
             Transaction_Session::set_breadcrumb(2, Route::$url,  $article['title']);
             Transaction_Html::set_title($article['title']);
             Transaction_Html::set_keyword($article['keyword'] . ',' . $article['keyword_en']);
-            Transaction_Html::set_description($article['title']);
+            Transaction_Html::set_description($article['title']. ' ' . $article['title_en']);
             Model_Article::increase_rank($article_id);
 
             View::set_view_file($this->view_path . 'one_article.php');
@@ -102,7 +102,7 @@ class Article extends Front {
             //$cat = Model_Articlecategory::get_one($cat_id);
             Transaction_Html::set_title($cat['title']);
             Transaction_Html::set_keyword($cat['keyword'] . ',' . $cat['keyword_en']);
-            Transaction_Html::set_description($cat['title']);
+            Transaction_Html::set_description($cat['title'] . ' ' . $cat['title_en']);
             $order_by = 'date_created';
             $direction = 'DESC';
             $articles = Model_Article::get_active_articles_by_cat_id_and_page_num($cat['id'], $current_page, $order_by, $direction);
