@@ -155,8 +155,7 @@ class Article extends Base_Article {
         switch ($order_by) {
             case 'id':
             case 'title':
-            case 'rank':
-            case 'display_order':
+            case 'num_of_views':
             case 'date_created':
             case 'cat_id':
                 $order_by = 'b.' . $order_by;
