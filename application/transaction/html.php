@@ -3,12 +3,12 @@
 namespace App\Transaction;
 
 class Html {
-    static $title = ' -- ';
+    static $title = '';
     static $keyword = '';
     static $description = '';
     public static function set_title($title)
     {
-        self::$title = $title . self::$title;
+        self::$title = $title .  ' -- 问答澳大利亚';
     }
     public static function get_title()
     {
@@ -16,7 +16,7 @@ class Html {
     }
     public static function set_description($description)
     {
-        self::$description = $description;
+        self::$description = $description . '问答澳大利亚';
     }
     public static function get_description()
     {
@@ -24,7 +24,7 @@ class Html {
     }
     public static function set_keyword($keyword)
     {
-        self::$keyword = $keyword;
+        self::$keyword = $keyword . ', 问答, 澳大利亚';
     }
     public static function get_keyword()
     {
@@ -44,10 +44,5 @@ class Html {
     {
         
     }
-    public static function goto_home_page()
-    {
-        header('Location: '. HTML_ROOT);
-    }
-
 }
 
